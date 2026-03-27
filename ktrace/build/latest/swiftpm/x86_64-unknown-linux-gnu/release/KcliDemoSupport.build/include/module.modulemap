@@ -1,0 +1,3 @@
+module KcliDemoSupport {
+    header "/home/karmak/dev/ktools/ktools-swift/ktrace/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoSupport.build/include/KcliDemoSupport-Swift.h"
+}

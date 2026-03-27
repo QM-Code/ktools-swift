@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euo pipefail
+if [ -f "${SWIFTLY_HOME_DIR:-$HOME/.local/share/swiftly}/env.sh" ]; then
+  . "${SWIFTLY_HOME_DIR:-$HOME/.local/share/swiftly}/env.sh"
+  hash -r
+fi
+export XDG_CACHE_HOME="/home/karmak/dev/ktools/ktools-swift/ktrace/build/latest/_swift/xdg-cache"
+export CLANG_MODULE_CACHE_PATH="/home/karmak/dev/ktools/ktools-swift/ktrace/build/latest/_swift/clang-module-cache"
+export SWIFT_OVERLOAD_PREBUILT_MODULE_CACHE_PATH="/home/karmak/dev/ktools/ktools-swift/ktrace/build/latest/_swift/prebuilt-module-cache"
+exec swift test --package-path "/home/karmak/dev/ktools/ktools-swift/ktrace/src" --build-path "/home/karmak/dev/ktools/ktools-swift/ktrace/build/latest/swiftpm" --cache-path "/home/karmak/dev/ktools/ktools-swift/ktrace/build/latest/_swift/cache" --config-path "/home/karmak/dev/ktools/ktools-swift/ktrace/build/latest/_swift/config" --security-path "/home/karmak/dev/ktools/ktools-swift/ktrace/build/latest/_swift/security" --manifest-cache local -c release "$@"

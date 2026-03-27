@@ -1,0 +1,13 @@
+{
+  "": {
+    "dependencies": "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoOmega.build/KcliDemoOmega.d",
+    "object": "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoOmega.build/KcliDemoOmega.o",
+    "swift-dependencies": "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoOmega.build/primary.swiftdeps"
+  },
+  "/home/karmak/dev/ktools/ktools-swift/kcli/src/Sources/KcliDemoOmega/main.swift": {
+    "object": "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoOmega.build/main.swift.o",
+    "swiftmodule": "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoOmega.build/main~partial.swiftmodule",
+    "swift-dependencies": "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoOmega.build/main.swiftdeps",
+    "diagnostics": "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoOmega.build/main.dia"
+  }
+}

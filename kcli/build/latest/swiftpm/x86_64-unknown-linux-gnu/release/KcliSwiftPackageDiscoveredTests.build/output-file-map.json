@@ -1,0 +1,25 @@
+{
+  "": {
+    "dependencies": "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.build/KcliSwiftPackageDiscoveredTests.d",
+    "object": "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.build/KcliSwiftPackageDiscoveredTests.o",
+    "swift-dependencies": "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.build/primary.swiftdeps"
+  },
+  "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.derived/KcliDemoTests.swift": {
+    "object": "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.build/KcliDemoTests.swift.o",
+    "swiftmodule": "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.build/KcliDemoTests~partial.swiftmodule",
+    "swift-dependencies": "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.build/KcliDemoTests.swiftdeps",
+    "diagnostics": "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.build/KcliDemoTests.dia"
+  },
+  "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.derived/KcliTests.swift": {
+    "object": "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.build/KcliTests.swift.o",
+    "swiftmodule": "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.build/KcliTests~partial.swiftmodule",
+    "swift-dependencies": "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.build/KcliTests.swiftdeps",
+    "diagnostics": "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.build/KcliTests.dia"
+  },
+  "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.derived/all-discovered-tests.swift": {
+    "object": "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.build/all-discovered-tests.swift.o",
+    "swiftmodule": "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.build/all-discovered-tests~partial.swiftmodule",
+    "swift-dependencies": "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.build/all-discovered-tests.swiftdeps",
+    "diagnostics": "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.build/all-discovered-tests.dia"
+  }
+}

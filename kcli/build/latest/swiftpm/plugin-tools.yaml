@@ -1,0 +1,369 @@
+client:
+  name: basic
+  file-system: device-agnostic
+tools: {}
+targets:
+  "Kcli-x86_64-unknown-linux-gnu-release.module": ["<Kcli-x86_64-unknown-linux-gnu-release.module>"]
+  "KcliDemoAlpha-x86_64-unknown-linux-gnu-release.module": ["<KcliDemoAlpha-x86_64-unknown-linux-gnu-release.module>"]
+  "KcliDemoBeta-x86_64-unknown-linux-gnu-release.module": ["<KcliDemoBeta-x86_64-unknown-linux-gnu-release.module>"]
+  "KcliDemoBootstrap-x86_64-unknown-linux-gnu-release.module": ["<KcliDemoBootstrap-x86_64-unknown-linux-gnu-release.module>"]
+  "KcliDemoCore-x86_64-unknown-linux-gnu-release.module": ["<KcliDemoCore-x86_64-unknown-linux-gnu-release.module>"]
+  "KcliDemoGamma-x86_64-unknown-linux-gnu-release.module": ["<KcliDemoGamma-x86_64-unknown-linux-gnu-release.module>"]
+  "KcliDemoOmega-x86_64-unknown-linux-gnu-release.module": ["<KcliDemoOmega-x86_64-unknown-linux-gnu-release.module>"]
+  "KcliDemoSupport-x86_64-unknown-linux-gnu-release.module": ["<KcliDemoSupport-x86_64-unknown-linux-gnu-release.module>"]
+  "KcliDemoTests-x86_64-unknown-linux-gnu-release.module": ["<KcliDemoTests-x86_64-unknown-linux-gnu-release.module>"]
+  "KcliSwiftPackageDiscoveredTests-x86_64-unknown-linux-gnu-release.module": ["<KcliSwiftPackageDiscoveredTests-x86_64-unknown-linux-gnu-release.module>"]
+  "KcliSwiftPackageTests-x86_64-unknown-linux-gnu-release.module": ["<KcliSwiftPackageTests-x86_64-unknown-linux-gnu-release.module>"]
+  "KcliSwiftPackageTests-x86_64-unknown-linux-gnu-release.test": ["<KcliSwiftPackageTests-x86_64-unknown-linux-gnu-release.test>"]
+  "KcliTests-x86_64-unknown-linux-gnu-release.module": ["<KcliTests-x86_64-unknown-linux-gnu-release.module>"]
+  "PackageStructure": ["<PackageStructure>"]
+  "kcli-demo-bootstrap-x86_64-unknown-linux-gnu-release.exe": ["<kcli-demo-bootstrap-x86_64-unknown-linux-gnu-release.exe>"]
+  "kcli-demo-core-x86_64-unknown-linux-gnu-release.exe": ["<kcli-demo-core-x86_64-unknown-linux-gnu-release.exe>"]
+  "kcli-demo-omega-x86_64-unknown-linux-gnu-release.exe": ["<kcli-demo-omega-x86_64-unknown-linux-gnu-release.exe>"]
+  "main": ["<Kcli-x86_64-unknown-linux-gnu-release.module>","<KcliDemoAlpha-x86_64-unknown-linux-gnu-release.module>","<KcliDemoBeta-x86_64-unknown-linux-gnu-release.module>","<KcliDemoBootstrap-x86_64-unknown-linux-gnu-release.module>","<KcliDemoCore-x86_64-unknown-linux-gnu-release.module>","<KcliDemoGamma-x86_64-unknown-linux-gnu-release.module>","<KcliDemoOmega-x86_64-unknown-linux-gnu-release.module>","<KcliDemoSupport-x86_64-unknown-linux-gnu-release.module>","<kcli-demo-bootstrap-x86_64-unknown-linux-gnu-release.exe>","<kcli-demo-core-x86_64-unknown-linux-gnu-release.exe>","<kcli-demo-omega-x86_64-unknown-linux-gnu-release.exe>"]
+  "test": ["<Kcli-x86_64-unknown-linux-gnu-release.module>","<KcliDemoAlpha-x86_64-unknown-linux-gnu-release.module>","<KcliDemoBeta-x86_64-unknown-linux-gnu-release.module>","<KcliDemoBootstrap-x86_64-unknown-linux-gnu-release.module>","<KcliDemoCore-x86_64-unknown-linux-gnu-release.module>","<KcliDemoGamma-x86_64-unknown-linux-gnu-release.module>","<KcliDemoOmega-x86_64-unknown-linux-gnu-release.module>","<KcliDemoSupport-x86_64-unknown-linux-gnu-release.module>","<KcliDemoTests-x86_64-unknown-linux-gnu-release.module>","<KcliSwiftPackageTests-x86_64-unknown-linux-gnu-release.test>","<KcliTests-x86_64-unknown-linux-gnu-release.module>","<kcli-demo-bootstrap-x86_64-unknown-linux-gnu-release.exe>","<kcli-demo-core-x86_64-unknown-linux-gnu-release.exe>","<kcli-demo-omega-x86_64-unknown-linux-gnu-release.exe>"]
+default: "main"
+nodes:
+  "/home/karmak/dev/ktools/ktools-swift/kcli/src/Sources/Kcli/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+  "/home/karmak/dev/ktools/ktools-swift/kcli/src/Sources/KcliDemoAlpha/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+  "/home/karmak/dev/ktools/ktools-swift/kcli/src/Sources/KcliDemoBeta/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+  "/home/karmak/dev/ktools/ktools-swift/kcli/src/Sources/KcliDemoBootstrap/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+  "/home/karmak/dev/ktools/ktools-swift/kcli/src/Sources/KcliDemoCore/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+  "/home/karmak/dev/ktools/ktools-swift/kcli/src/Sources/KcliDemoGamma/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+  "/home/karmak/dev/ktools/ktools-swift/kcli/src/Sources/KcliDemoOmega/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+  "/home/karmak/dev/ktools/ktools-swift/kcli/src/Sources/KcliDemoSupport/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+  "/home/karmak/dev/ktools/ktools-swift/kcli/src/Tests/KcliDemoTests/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+  "/home/karmak/dev/ktools/ktools-swift/kcli/src/Tests/KcliTests/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+commands:
+  "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Kcli.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/home/karmak/dev/ktools/ktools-swift/kcli/src/Sources/Kcli/Kcli.swift"]
+    outputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Kcli.build/sources"]
+    description: "Write auxiliary file /home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Kcli.build/sources"
+
+  "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoAlpha.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/home/karmak/dev/ktools/ktools-swift/kcli/src/Sources/KcliDemoAlpha/KcliDemoAlpha.swift"]
+    outputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoAlpha.build/sources"]
+    description: "Write auxiliary file /home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoAlpha.build/sources"
+
+  "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoBeta.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/home/karmak/dev/ktools/ktools-swift/kcli/src/Sources/KcliDemoBeta/KcliDemoBeta.swift"]
+    outputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoBeta.build/sources"]
+    description: "Write auxiliary file /home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoBeta.build/sources"
+
+  "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoBootstrap.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/home/karmak/dev/ktools/ktools-swift/kcli/src/Sources/KcliDemoBootstrap/main.swift"]
+    outputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoBootstrap.build/sources"]
+    description: "Write auxiliary file /home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoBootstrap.build/sources"
+
+  "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoCore.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/home/karmak/dev/ktools/ktools-swift/kcli/src/Sources/KcliDemoCore/main.swift"]
+    outputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoCore.build/sources"]
+    description: "Write auxiliary file /home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoCore.build/sources"
+
+  "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoGamma.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/home/karmak/dev/ktools/ktools-swift/kcli/src/Sources/KcliDemoGamma/KcliDemoGamma.swift"]
+    outputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoGamma.build/sources"]
+    description: "Write auxiliary file /home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoGamma.build/sources"
+
+  "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoOmega.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/home/karmak/dev/ktools/ktools-swift/kcli/src/Sources/KcliDemoOmega/main.swift"]
+    outputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoOmega.build/sources"]
+    description: "Write auxiliary file /home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoOmega.build/sources"
+
+  "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoSupport.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/home/karmak/dev/ktools/ktools-swift/kcli/src/Sources/KcliDemoSupport/DemoSupport.swift"]
+    outputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoSupport.build/sources"]
+    description: "Write auxiliary file /home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoSupport.build/sources"
+
+  "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoTests.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/home/karmak/dev/ktools/ktools-swift/kcli/src/Tests/KcliDemoTests/KcliDemoTests.swift"]
+    outputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoTests.build/sources"]
+    description: "Write auxiliary file /home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoTests.build/sources"
+
+  "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.derived/KcliDemoTests.swift","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.derived/KcliTests.swift","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.derived/all-discovered-tests.swift"]
+    outputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.build/sources"]
+    description: "Write auxiliary file /home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.build/sources"
+
+  "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.derived/all-discovered-tests.swift":
+    tool: test-discovery-tool
+    inputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoTests.build/KcliDemoTests.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliTests.build/KcliTests.swift.o"]
+    outputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.derived/KcliDemoTests.swift","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.derived/KcliTests.swift","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.derived/all-discovered-tests.swift"]
+
+  "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageTests.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageTests.derived/runner.swift"]
+    outputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageTests.build/sources"]
+    description: "Write auxiliary file /home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageTests.build/sources"
+
+  "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageTests.derived/runner.swift":
+    tool: test-entry-point-tool
+    inputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliSwiftPackageDiscoveredTests.swiftmodule"]
+    outputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageTests.derived/runner.swift"]
+
+  "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageTests.product/Objects.LinkFileList":
+    tool: write-auxiliary-file
+    inputs: ["<link-file-list>","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Kcli.build/Kcli.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoSupport.build/DemoSupport.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoTests.build/KcliDemoTests.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.build/KcliDemoTests.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.build/KcliTests.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.build/all-discovered-tests.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageTests.build/runner.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliTests.build/KcliTests.swift.o"]
+    outputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageTests.product/Objects.LinkFileList"]
+    description: "Write auxiliary file /home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageTests.product/Objects.LinkFileList"
+
+  "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliTests.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/home/karmak/dev/ktools/ktools-swift/kcli/src/Tests/KcliTests/KcliTests.swift"]
+    outputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliTests.build/sources"]
+    description: "Write auxiliary file /home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliTests.build/sources"
+
+  "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/kcli-demo-bootstrap.product/Objects.LinkFileList":
+    tool: write-auxiliary-file
+    inputs: ["<link-file-list>","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Kcli.build/Kcli.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoBootstrap.build/main.swift.o"]
+    outputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/kcli-demo-bootstrap.product/Objects.LinkFileList"]
+    description: "Write auxiliary file /home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/kcli-demo-bootstrap.product/Objects.LinkFileList"
+
+  "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/kcli-demo-core.product/Objects.LinkFileList":
+    tool: write-auxiliary-file
+    inputs: ["<link-file-list>","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Kcli.build/Kcli.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoCore.build/main.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoSupport.build/DemoSupport.swift.o"]
+    outputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/kcli-demo-core.product/Objects.LinkFileList"]
+    description: "Write auxiliary file /home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/kcli-demo-core.product/Objects.LinkFileList"
+
+  "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/kcli-demo-omega.product/Objects.LinkFileList":
+    tool: write-auxiliary-file
+    inputs: ["<link-file-list>","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Kcli.build/Kcli.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoOmega.build/main.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoSupport.build/DemoSupport.swift.o"]
+    outputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/kcli-demo-omega.product/Objects.LinkFileList"]
+    description: "Write auxiliary file /home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/kcli-demo-omega.product/Objects.LinkFileList"
+
+  "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/swift-version-62C65D2B0BEA20A3.txt":
+    tool: write-auxiliary-file
+    inputs: ["<swift-get-version>","/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc"]
+    outputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/swift-version-62C65D2B0BEA20A3.txt"]
+    always-out-of-date: "true"
+    description: "Write auxiliary file /home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/swift-version-62C65D2B0BEA20A3.txt"
+
+  "<Kcli-x86_64-unknown-linux-gnu-release.module>":
+    tool: phony
+    inputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Kcli.build/Kcli.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/Kcli.swiftmodule"]
+    outputs: ["<Kcli-x86_64-unknown-linux-gnu-release.module>"]
+
+  "<KcliDemoAlpha-x86_64-unknown-linux-gnu-release.module>":
+    tool: phony
+    inputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoAlpha.build/KcliDemoAlpha.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliDemoAlpha.swiftmodule"]
+    outputs: ["<KcliDemoAlpha-x86_64-unknown-linux-gnu-release.module>"]
+
+  "<KcliDemoBeta-x86_64-unknown-linux-gnu-release.module>":
+    tool: phony
+    inputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoBeta.build/KcliDemoBeta.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliDemoBeta.swiftmodule"]
+    outputs: ["<KcliDemoBeta-x86_64-unknown-linux-gnu-release.module>"]
+
+  "<KcliDemoBootstrap-x86_64-unknown-linux-gnu-release.module>":
+    tool: phony
+    inputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoBootstrap.build/main.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliDemoBootstrap.swiftmodule"]
+    outputs: ["<KcliDemoBootstrap-x86_64-unknown-linux-gnu-release.module>"]
+
+  "<KcliDemoCore-x86_64-unknown-linux-gnu-release.module>":
+    tool: phony
+    inputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoCore.build/main.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliDemoCore.swiftmodule"]
+    outputs: ["<KcliDemoCore-x86_64-unknown-linux-gnu-release.module>"]
+
+  "<KcliDemoGamma-x86_64-unknown-linux-gnu-release.module>":
+    tool: phony
+    inputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoGamma.build/KcliDemoGamma.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliDemoGamma.swiftmodule"]
+    outputs: ["<KcliDemoGamma-x86_64-unknown-linux-gnu-release.module>"]
+
+  "<KcliDemoOmega-x86_64-unknown-linux-gnu-release.module>":
+    tool: phony
+    inputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoOmega.build/main.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliDemoOmega.swiftmodule"]
+    outputs: ["<KcliDemoOmega-x86_64-unknown-linux-gnu-release.module>"]
+
+  "<KcliDemoSupport-x86_64-unknown-linux-gnu-release.module>":
+    tool: phony
+    inputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoSupport.build/DemoSupport.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliDemoSupport.swiftmodule"]
+    outputs: ["<KcliDemoSupport-x86_64-unknown-linux-gnu-release.module>"]
+
+  "<KcliDemoTests-x86_64-unknown-linux-gnu-release.module>":
+    tool: phony
+    inputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoTests.build/KcliDemoTests.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliDemoTests.swiftmodule"]
+    outputs: ["<KcliDemoTests-x86_64-unknown-linux-gnu-release.module>"]
+
+  "<KcliSwiftPackageDiscoveredTests-x86_64-unknown-linux-gnu-release.module>":
+    tool: phony
+    inputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.build/KcliDemoTests.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.build/KcliTests.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.build/all-discovered-tests.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliSwiftPackageDiscoveredTests.swiftmodule"]
+    outputs: ["<KcliSwiftPackageDiscoveredTests-x86_64-unknown-linux-gnu-release.module>"]
+
+  "<KcliSwiftPackageTests-x86_64-unknown-linux-gnu-release.module>":
+    tool: phony
+    inputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageTests.build/runner.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliSwiftPackageTests.swiftmodule"]
+    outputs: ["<KcliSwiftPackageTests-x86_64-unknown-linux-gnu-release.module>"]
+
+  "<KcliSwiftPackageTests-x86_64-unknown-linux-gnu-release.test>":
+    tool: phony
+    inputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageTests.xctest"]
+    outputs: ["<KcliSwiftPackageTests-x86_64-unknown-linux-gnu-release.test>"]
+
+  "<KcliTests-x86_64-unknown-linux-gnu-release.module>":
+    tool: phony
+    inputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliTests.build/KcliTests.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliTests.swiftmodule"]
+    outputs: ["<KcliTests-x86_64-unknown-linux-gnu-release.module>"]
+
+  "<kcli-demo-bootstrap-x86_64-unknown-linux-gnu-release.exe>":
+    tool: phony
+    inputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/kcli-demo-bootstrap"]
+    outputs: ["<kcli-demo-bootstrap-x86_64-unknown-linux-gnu-release.exe>"]
+
+  "<kcli-demo-core-x86_64-unknown-linux-gnu-release.exe>":
+    tool: phony
+    inputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/kcli-demo-core"]
+    outputs: ["<kcli-demo-core-x86_64-unknown-linux-gnu-release.exe>"]
+
+  "<kcli-demo-omega-x86_64-unknown-linux-gnu-release.exe>":
+    tool: phony
+    inputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/kcli-demo-omega"]
+    outputs: ["<kcli-demo-omega-x86_64-unknown-linux-gnu-release.exe>"]
+
+  "C.Kcli-x86_64-unknown-linux-gnu-release.module":
+    tool: shell
+    inputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/src/Sources/Kcli/Kcli.swift","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/swift-version-62C65D2B0BEA20A3.txt","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Kcli.build/sources"]
+    outputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Kcli.build/Kcli.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/Kcli.swiftmodule"]
+    description: "Compiling Swift Module 'Kcli' (1 sources)"
+    args: ["/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc","-module-name","Kcli","-emit-dependencies","-emit-module","-emit-module-path","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/Kcli.swiftmodule","-output-file-map","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Kcli.build/output-file-map.json","-parse-as-library","-whole-module-optimization","-num-threads","8","-c","@/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Kcli.build/sources","-I","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules","-target","x86_64-unknown-linux-gnu","-whole-module-optimization","-num-threads","8","-serialize-diagnostics","-O","-j8","-DSWIFT_PACKAGE","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/ModuleCache","-parseable-output","-parse-as-library","-emit-objc-header","-emit-objc-header-path","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Kcli.build/include/Kcli-Swift.h","-swift-version","5","-g","-Xcc","-fPIC","-Xcc","-g","-package-name","src","-Xcc","-fno-omit-frame-pointer"]
+
+  "C.KcliDemoAlpha-x86_64-unknown-linux-gnu-release.module":
+    tool: shell
+    inputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/src/Sources/KcliDemoAlpha/KcliDemoAlpha.swift","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/swift-version-62C65D2B0BEA20A3.txt","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliDemoSupport.swiftmodule","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoAlpha.build/sources"]
+    outputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoAlpha.build/KcliDemoAlpha.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliDemoAlpha.swiftmodule"]
+    description: "Compiling Swift Module 'KcliDemoAlpha' (1 sources)"
+    args: ["/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc","-module-name","KcliDemoAlpha","-emit-dependencies","-emit-module","-emit-module-path","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliDemoAlpha.swiftmodule","-output-file-map","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoAlpha.build/output-file-map.json","-parse-as-library","-whole-module-optimization","-num-threads","8","-c","@/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoAlpha.build/sources","-I","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules","-target","x86_64-unknown-linux-gnu","-whole-module-optimization","-num-threads","8","-serialize-diagnostics","-O","-j8","-DSWIFT_PACKAGE","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/ModuleCache","-parseable-output","-parse-as-library","-emit-objc-header","-emit-objc-header-path","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoAlpha.build/include/KcliDemoAlpha-Swift.h","-swift-version","5","-g","-Xcc","-fPIC","-Xcc","-g","-package-name","src","-Xcc","-fno-omit-frame-pointer"]
+
+  "C.KcliDemoBeta-x86_64-unknown-linux-gnu-release.module":
+    tool: shell
+    inputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/src/Sources/KcliDemoBeta/KcliDemoBeta.swift","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/swift-version-62C65D2B0BEA20A3.txt","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliDemoSupport.swiftmodule","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoBeta.build/sources"]
+    outputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoBeta.build/KcliDemoBeta.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliDemoBeta.swiftmodule"]
+    description: "Compiling Swift Module 'KcliDemoBeta' (1 sources)"
+    args: ["/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc","-module-name","KcliDemoBeta","-emit-dependencies","-emit-module","-emit-module-path","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliDemoBeta.swiftmodule","-output-file-map","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoBeta.build/output-file-map.json","-parse-as-library","-whole-module-optimization","-num-threads","8","-c","@/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoBeta.build/sources","-I","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules","-target","x86_64-unknown-linux-gnu","-whole-module-optimization","-num-threads","8","-serialize-diagnostics","-O","-j8","-DSWIFT_PACKAGE","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/ModuleCache","-parseable-output","-parse-as-library","-emit-objc-header","-emit-objc-header-path","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoBeta.build/include/KcliDemoBeta-Swift.h","-swift-version","5","-g","-Xcc","-fPIC","-Xcc","-g","-package-name","src","-Xcc","-fno-omit-frame-pointer"]
+
+  "C.KcliDemoBootstrap-x86_64-unknown-linux-gnu-release.module":
+    tool: shell
+    inputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/src/Sources/KcliDemoBootstrap/main.swift","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/swift-version-62C65D2B0BEA20A3.txt","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/Kcli.swiftmodule","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoBootstrap.build/sources"]
+    outputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoBootstrap.build/main.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliDemoBootstrap.swiftmodule"]
+    description: "Compiling Swift Module 'KcliDemoBootstrap' (1 sources)"
+    args: ["/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc","-module-name","KcliDemoBootstrap","-emit-dependencies","-emit-module","-emit-module-path","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliDemoBootstrap.swiftmodule","-output-file-map","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoBootstrap.build/output-file-map.json","-whole-module-optimization","-num-threads","8","-c","@/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoBootstrap.build/sources","-I","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules","-target","x86_64-unknown-linux-gnu","-whole-module-optimization","-num-threads","8","-serialize-diagnostics","-O","-j8","-DSWIFT_PACKAGE","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/ModuleCache","-parseable-output","-Xfrontend","-entry-point-function-name","-Xfrontend","KcliDemoBootstrap_main","-swift-version","5","-g","-Xcc","-fPIC","-Xcc","-g","-package-name","src","-Xcc","-fno-omit-frame-pointer"]
+
+  "C.KcliDemoCore-x86_64-unknown-linux-gnu-release.module":
+    tool: shell
+    inputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/src/Sources/KcliDemoCore/main.swift","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/swift-version-62C65D2B0BEA20A3.txt","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliDemoSupport.swiftmodule","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoCore.build/sources"]
+    outputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoCore.build/main.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliDemoCore.swiftmodule"]
+    description: "Compiling Swift Module 'KcliDemoCore' (1 sources)"
+    args: ["/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc","-module-name","KcliDemoCore","-emit-dependencies","-emit-module","-emit-module-path","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliDemoCore.swiftmodule","-output-file-map","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoCore.build/output-file-map.json","-whole-module-optimization","-num-threads","8","-c","@/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoCore.build/sources","-I","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules","-target","x86_64-unknown-linux-gnu","-whole-module-optimization","-num-threads","8","-serialize-diagnostics","-O","-j8","-DSWIFT_PACKAGE","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/ModuleCache","-parseable-output","-Xfrontend","-entry-point-function-name","-Xfrontend","KcliDemoCore_main","-swift-version","5","-g","-Xcc","-fPIC","-Xcc","-g","-package-name","src","-Xcc","-fno-omit-frame-pointer"]
+
+  "C.KcliDemoGamma-x86_64-unknown-linux-gnu-release.module":
+    tool: shell
+    inputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/src/Sources/KcliDemoGamma/KcliDemoGamma.swift","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/swift-version-62C65D2B0BEA20A3.txt","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliDemoSupport.swiftmodule","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoGamma.build/sources"]
+    outputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoGamma.build/KcliDemoGamma.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliDemoGamma.swiftmodule"]
+    description: "Compiling Swift Module 'KcliDemoGamma' (1 sources)"
+    args: ["/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc","-module-name","KcliDemoGamma","-emit-dependencies","-emit-module","-emit-module-path","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliDemoGamma.swiftmodule","-output-file-map","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoGamma.build/output-file-map.json","-parse-as-library","-whole-module-optimization","-num-threads","8","-c","@/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoGamma.build/sources","-I","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules","-target","x86_64-unknown-linux-gnu","-whole-module-optimization","-num-threads","8","-serialize-diagnostics","-O","-j8","-DSWIFT_PACKAGE","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/ModuleCache","-parseable-output","-parse-as-library","-emit-objc-header","-emit-objc-header-path","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoGamma.build/include/KcliDemoGamma-Swift.h","-swift-version","5","-g","-Xcc","-fPIC","-Xcc","-g","-package-name","src","-Xcc","-fno-omit-frame-pointer"]
+
+  "C.KcliDemoOmega-x86_64-unknown-linux-gnu-release.module":
+    tool: shell
+    inputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/src/Sources/KcliDemoOmega/main.swift","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/swift-version-62C65D2B0BEA20A3.txt","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliDemoSupport.swiftmodule","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoOmega.build/sources"]
+    outputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoOmega.build/main.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliDemoOmega.swiftmodule"]
+    description: "Compiling Swift Module 'KcliDemoOmega' (1 sources)"
+    args: ["/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc","-module-name","KcliDemoOmega","-emit-dependencies","-emit-module","-emit-module-path","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliDemoOmega.swiftmodule","-output-file-map","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoOmega.build/output-file-map.json","-whole-module-optimization","-num-threads","8","-c","@/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoOmega.build/sources","-I","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules","-target","x86_64-unknown-linux-gnu","-whole-module-optimization","-num-threads","8","-serialize-diagnostics","-O","-j8","-DSWIFT_PACKAGE","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/ModuleCache","-parseable-output","-Xfrontend","-entry-point-function-name","-Xfrontend","KcliDemoOmega_main","-swift-version","5","-g","-Xcc","-fPIC","-Xcc","-g","-package-name","src","-Xcc","-fno-omit-frame-pointer"]
+
+  "C.KcliDemoSupport-x86_64-unknown-linux-gnu-release.module":
+    tool: shell
+    inputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/src/Sources/KcliDemoSupport/DemoSupport.swift","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/swift-version-62C65D2B0BEA20A3.txt","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/Kcli.swiftmodule","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoSupport.build/sources"]
+    outputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoSupport.build/DemoSupport.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliDemoSupport.swiftmodule"]
+    description: "Compiling Swift Module 'KcliDemoSupport' (1 sources)"
+    args: ["/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc","-module-name","KcliDemoSupport","-emit-dependencies","-emit-module","-emit-module-path","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliDemoSupport.swiftmodule","-output-file-map","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoSupport.build/output-file-map.json","-parse-as-library","-whole-module-optimization","-num-threads","8","-c","@/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoSupport.build/sources","-I","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules","-target","x86_64-unknown-linux-gnu","-whole-module-optimization","-num-threads","8","-serialize-diagnostics","-O","-j8","-DSWIFT_PACKAGE","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/ModuleCache","-parseable-output","-parse-as-library","-emit-objc-header","-emit-objc-header-path","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoSupport.build/include/KcliDemoSupport-Swift.h","-swift-version","5","-g","-Xcc","-fPIC","-Xcc","-g","-package-name","src","-Xcc","-fno-omit-frame-pointer"]
+
+  "C.KcliDemoTests-x86_64-unknown-linux-gnu-release.module":
+    tool: shell
+    inputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/src/Tests/KcliDemoTests/KcliDemoTests.swift","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/swift-version-62C65D2B0BEA20A3.txt","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliDemoSupport.swiftmodule","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoTests.build/sources"]
+    outputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoTests.build/KcliDemoTests.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliDemoTests.swiftmodule"]
+    description: "Compiling Swift Module 'KcliDemoTests' (1 sources)"
+    args: ["/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc","-module-name","KcliDemoTests","-emit-dependencies","-emit-module","-emit-module-path","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliDemoTests.swiftmodule","-output-file-map","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoTests.build/output-file-map.json","-parse-as-library","-whole-module-optimization","-num-threads","8","-c","@/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoTests.build/sources","-I","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules","-target","x86_64-unknown-linux-gnu","-whole-module-optimization","-num-threads","8","-serialize-diagnostics","-index-store-path","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/index/store","-O","-enable-testing","-Xfrontend","-enable-cross-import-overlays","-j8","-DSWIFT_PACKAGE","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/ModuleCache","-parseable-output","-parse-as-library","-swift-version","5","-g","-Xcc","-fPIC","-Xcc","-g","-package-name","src","-Xcc","-fno-omit-frame-pointer"]
+
+  "C.KcliSwiftPackageDiscoveredTests-x86_64-unknown-linux-gnu-release.module":
+    tool: shell
+    inputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.derived/KcliDemoTests.swift","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.derived/KcliTests.swift","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.derived/all-discovered-tests.swift","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/swift-version-62C65D2B0BEA20A3.txt","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliTests.swiftmodule","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliDemoTests.swiftmodule","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.build/sources"]
+    outputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.build/KcliDemoTests.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.build/KcliTests.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.build/all-discovered-tests.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliSwiftPackageDiscoveredTests.swiftmodule"]
+    description: "Compiling Swift Module 'KcliSwiftPackageDiscoveredTests' (3 sources)"
+    args: ["/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc","-module-name","KcliSwiftPackageDiscoveredTests","-emit-dependencies","-emit-module","-emit-module-path","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliSwiftPackageDiscoveredTests.swiftmodule","-output-file-map","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.build/output-file-map.json","-parse-as-library","-whole-module-optimization","-num-threads","8","-c","@/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.build/sources","-I","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules","-target","x86_64-unknown-linux-gnu","-whole-module-optimization","-num-threads","8","-serialize-diagnostics","-O","-enable-testing","-Xfrontend","-enable-cross-import-overlays","-j8","-DSWIFT_PACKAGE","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/ModuleCache","-parseable-output","-parse-as-library","-emit-objc-header","-emit-objc-header-path","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.build/include/KcliSwiftPackageDiscoveredTests-Swift.h","-g","-Xcc","-fPIC","-Xcc","-g","-package-name","src","-Xcc","-fno-omit-frame-pointer"]
+
+  "C.KcliSwiftPackageTests-x86_64-unknown-linux-gnu-release.module":
+    tool: shell
+    inputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageTests.derived/runner.swift","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/swift-version-62C65D2B0BEA20A3.txt","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliTests.swiftmodule","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliDemoTests.swiftmodule","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliSwiftPackageDiscoveredTests.swiftmodule","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageTests.build/sources"]
+    outputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageTests.build/runner.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliSwiftPackageTests.swiftmodule"]
+    description: "Compiling Swift Module 'KcliSwiftPackageTests' (1 sources)"
+    args: ["/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc","-module-name","KcliSwiftPackageTests","-emit-dependencies","-emit-module","-emit-module-path","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliSwiftPackageTests.swiftmodule","-output-file-map","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageTests.build/output-file-map.json","-parse-as-library","-whole-module-optimization","-num-threads","8","-c","@/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageTests.build/sources","-I","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules","-target","x86_64-unknown-linux-gnu","-whole-module-optimization","-num-threads","8","-serialize-diagnostics","-O","-enable-testing","-Xfrontend","-enable-cross-import-overlays","-j8","-DSWIFT_PACKAGE","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/ModuleCache","-parseable-output","-parse-as-library","-emit-objc-header","-emit-objc-header-path","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageTests.build/include/KcliSwiftPackageTests-Swift.h","-g","-Xcc","-fPIC","-Xcc","-g","-package-name","src","-Xcc","-fno-omit-frame-pointer"]
+
+  "C.KcliSwiftPackageTests-x86_64-unknown-linux-gnu-release.test":
+    tool: shell
+    inputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Kcli.build/Kcli.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoSupport.build/DemoSupport.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoTests.build/KcliDemoTests.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.build/KcliDemoTests.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.build/KcliTests.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageDiscoveredTests.build/all-discovered-tests.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageTests.build/runner.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliTests.build/KcliTests.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageTests.product/Objects.LinkFileList"]
+    outputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageTests.xctest"]
+    description: "Linking /home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageTests.xctest"
+    args: ["/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc","-L","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release","-o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageTests.xctest","-module-name","KcliSwiftPackageTests","-emit-executable","-Xlinker","--gc-sections","-Xlinker","-rpath=$ORIGIN","@/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliSwiftPackageTests.product/Objects.LinkFileList","-target","x86_64-unknown-linux-gnu","-g"]
+
+  "C.KcliTests-x86_64-unknown-linux-gnu-release.module":
+    tool: shell
+    inputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/src/Tests/KcliTests/KcliTests.swift","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/swift-version-62C65D2B0BEA20A3.txt","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/Kcli.swiftmodule","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliTests.build/sources"]
+    outputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliTests.build/KcliTests.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliTests.swiftmodule"]
+    description: "Compiling Swift Module 'KcliTests' (1 sources)"
+    args: ["/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc","-module-name","KcliTests","-emit-dependencies","-emit-module","-emit-module-path","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules/KcliTests.swiftmodule","-output-file-map","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliTests.build/output-file-map.json","-parse-as-library","-whole-module-optimization","-num-threads","8","-c","@/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliTests.build/sources","-I","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Modules","-target","x86_64-unknown-linux-gnu","-whole-module-optimization","-num-threads","8","-serialize-diagnostics","-index-store-path","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/index/store","-O","-enable-testing","-Xfrontend","-enable-cross-import-overlays","-j8","-DSWIFT_PACKAGE","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/ModuleCache","-parseable-output","-parse-as-library","-swift-version","5","-g","-Xcc","-fPIC","-Xcc","-g","-package-name","src","-Xcc","-fno-omit-frame-pointer"]
+
+  "C.kcli-demo-bootstrap-x86_64-unknown-linux-gnu-release.exe":
+    tool: shell
+    inputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Kcli.build/Kcli.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoBootstrap.build/main.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/kcli-demo-bootstrap.product/Objects.LinkFileList"]
+    outputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/kcli-demo-bootstrap"]
+    description: "Linking /home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/kcli-demo-bootstrap"
+    args: ["/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc","-L","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release","-o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/kcli-demo-bootstrap","-module-name","kcli_demo_bootstrap","-emit-executable","-Xlinker","--gc-sections","-Xlinker","--defsym","-Xlinker","main=KcliDemoBootstrap_main","-Xlinker","-rpath=$ORIGIN","@/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/kcli-demo-bootstrap.product/Objects.LinkFileList","-target","x86_64-unknown-linux-gnu","-g"]
+
+  "C.kcli-demo-core-x86_64-unknown-linux-gnu-release.exe":
+    tool: shell
+    inputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Kcli.build/Kcli.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoCore.build/main.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoSupport.build/DemoSupport.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/kcli-demo-core.product/Objects.LinkFileList"]
+    outputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/kcli-demo-core"]
+    description: "Linking /home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/kcli-demo-core"
+    args: ["/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc","-L","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release","-o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/kcli-demo-core","-module-name","kcli_demo_core","-emit-executable","-Xlinker","--gc-sections","-Xlinker","--defsym","-Xlinker","main=KcliDemoCore_main","-Xlinker","-rpath=$ORIGIN","@/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/kcli-demo-core.product/Objects.LinkFileList","-target","x86_64-unknown-linux-gnu","-g"]
+
+  "C.kcli-demo-omega-x86_64-unknown-linux-gnu-release.exe":
+    tool: shell
+    inputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Kcli.build/Kcli.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoOmega.build/main.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoSupport.build/DemoSupport.swift.o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/kcli-demo-omega.product/Objects.LinkFileList"]
+    outputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/kcli-demo-omega"]
+    description: "Linking /home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/kcli-demo-omega"
+    args: ["/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc","-L","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release","-o","/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/kcli-demo-omega","-module-name","kcli_demo_omega","-emit-executable","-Xlinker","--gc-sections","-Xlinker","--defsym","-Xlinker","main=KcliDemoOmega_main","-Xlinker","-rpath=$ORIGIN","@/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/kcli-demo-omega.product/Objects.LinkFileList","-target","x86_64-unknown-linux-gnu","-g"]
+
+  "PackageStructure":
+    tool: package-structure-tool
+    inputs: ["/home/karmak/dev/ktools/ktools-swift/kcli/src/Sources/Kcli/","/home/karmak/dev/ktools/ktools-swift/kcli/src/Sources/KcliDemoAlpha/","/home/karmak/dev/ktools/ktools-swift/kcli/src/Sources/KcliDemoBeta/","/home/karmak/dev/ktools/ktools-swift/kcli/src/Sources/KcliDemoBootstrap/","/home/karmak/dev/ktools/ktools-swift/kcli/src/Sources/KcliDemoCore/","/home/karmak/dev/ktools/ktools-swift/kcli/src/Sources/KcliDemoGamma/","/home/karmak/dev/ktools/ktools-swift/kcli/src/Sources/KcliDemoOmega/","/home/karmak/dev/ktools/ktools-swift/kcli/src/Sources/KcliDemoSupport/","/home/karmak/dev/ktools/ktools-swift/kcli/src/Tests/KcliDemoTests/","/home/karmak/dev/ktools/ktools-swift/kcli/src/Tests/KcliTests/","/home/karmak/dev/ktools/ktools-swift/kcli/src/Package.swift","/home/karmak/dev/ktools/ktools-swift/kcli/src/Package.resolved"]
+    outputs: ["<PackageStructure>"]
+    description: "Planning build"
+    allow-missing-inputs: true
+

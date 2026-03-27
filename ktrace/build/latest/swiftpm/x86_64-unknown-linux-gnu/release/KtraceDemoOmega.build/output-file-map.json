@@ -1,0 +1,13 @@
+{
+  "": {
+    "dependencies": "/home/karmak/dev/ktools/ktools-swift/ktrace/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KtraceDemoOmega.build/KtraceDemoOmega.d",
+    "object": "/home/karmak/dev/ktools/ktools-swift/ktrace/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KtraceDemoOmega.build/KtraceDemoOmega.o",
+    "swift-dependencies": "/home/karmak/dev/ktools/ktools-swift/ktrace/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KtraceDemoOmega.build/primary.swiftdeps"
+  },
+  "/home/karmak/dev/ktools/ktools-swift/ktrace/src/Sources/KtraceDemoOmega/main.swift": {
+    "object": "/home/karmak/dev/ktools/ktools-swift/ktrace/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KtraceDemoOmega.build/main.swift.o",
+    "swiftmodule": "/home/karmak/dev/ktools/ktools-swift/ktrace/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KtraceDemoOmega.build/main~partial.swiftmodule",
+    "swift-dependencies": "/home/karmak/dev/ktools/ktools-swift/ktrace/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KtraceDemoOmega.build/main.swiftdeps",
+    "diagnostics": "/home/karmak/dev/ktools/ktools-swift/ktrace/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KtraceDemoOmega.build/main.dia"
+  }
+}

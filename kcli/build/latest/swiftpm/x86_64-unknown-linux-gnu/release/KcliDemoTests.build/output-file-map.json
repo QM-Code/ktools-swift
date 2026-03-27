@@ -1,0 +1,13 @@
+{
+  "": {
+    "dependencies": "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoTests.build/KcliDemoTests.d",
+    "object": "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoTests.build/KcliDemoTests.o",
+    "swift-dependencies": "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoTests.build/primary.swiftdeps"
+  },
+  "/home/karmak/dev/ktools/ktools-swift/kcli/src/Tests/KcliDemoTests/KcliDemoTests.swift": {
+    "object": "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoTests.build/KcliDemoTests.swift.o",
+    "swiftmodule": "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoTests.build/KcliDemoTests~partial.swiftmodule",
+    "swift-dependencies": "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoTests.build/KcliDemoTests.swiftdeps",
+    "diagnostics": "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoTests.build/KcliDemoTests.dia"
+  }
+}

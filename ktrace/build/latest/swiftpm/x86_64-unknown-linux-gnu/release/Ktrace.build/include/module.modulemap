@@ -1,0 +1,3 @@
+module Ktrace {
+    header "/home/karmak/dev/ktools/ktools-swift/ktrace/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/Ktrace.build/include/Ktrace-Swift.h"
+}

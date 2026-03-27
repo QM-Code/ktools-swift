@@ -1,0 +1,59 @@
+{
+  "project": {
+    "title": "Karma Trace Logging SDK",
+    "id": "ktrace"
+  },
+  "git": {
+    "url": "https://github.com/QM-Code/ktrace-swift",
+    "auth": "git@github.com:QM-Code/ktrace-swift.git"
+  },
+  "swift": {
+    "package_path": "src",
+    "demo_products": {
+      "bootstrap": {
+        "product": "ktrace-demo-bootstrap",
+        "kind": "executable"
+      },
+      "sdk/alpha": {
+        "product": "KtraceDemoAlpha",
+        "kind": "library"
+      },
+      "sdk/beta": {
+        "product": "KtraceDemoBeta",
+        "kind": "library"
+      },
+      "sdk/gamma": {
+        "product": "KtraceDemoGamma",
+        "kind": "library"
+      },
+      "exe/core": {
+        "product": "ktrace-demo-core",
+        "kind": "executable"
+      },
+      "exe/omega": {
+        "product": "ktrace-demo-omega",
+        "kind": "executable"
+      }
+    }
+  },
+  "build": {
+    "demos": [
+      "bootstrap",
+      "sdk/alpha",
+      "sdk/beta",
+      "sdk/gamma",
+      "exe/core",
+      "exe/omega"
+    ],
+    "defaults": {
+      "demos": [
+        "bootstrap",
+        "sdk/alpha",
+        "sdk/beta",
+        "sdk/gamma",
+        "exe/core",
+        "exe/omega"
+      ]
+    }
+  }
+}

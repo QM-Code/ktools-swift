@@ -1,0 +1,16 @@
+{
+  "project": {
+    "title": "Karma Tools Swift Workspace",
+    "id": "ktools_swift"
+  },
+  "git": {
+    "url": "https://github.com/QM-Code/ktools-swift",
+    "auth": "git@github.com:QM-Code/ktools-swift.git"
+  },
+  "batch": {
+    "repos": [
+      "kcli",
+      "ktrace"
+    ]
+  }
+}
