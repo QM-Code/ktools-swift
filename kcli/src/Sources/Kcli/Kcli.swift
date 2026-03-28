@@ -81,10 +81,6 @@ public struct InlineParser {
     }
 
     public mutating func setRootValueHandler(_ handler: @escaping ValueHandler) throws {
-        guard isNonEmptyHandler(handler) else {
-            throw CliConfigurationError("kcli root value handler must not be empty")
-        }
-
         rootValueHandler = handler
         rootValuePlaceholder = ""
         rootValueDescription = ""
@@ -93,10 +89,6 @@ public struct InlineParser {
     public mutating func setRootValueHandler(_ handler: @escaping ValueHandler,
                                              valuePlaceholder: String,
                                              description: String) throws {
-        guard isNonEmptyHandler(handler) else {
-            throw CliConfigurationError("kcli root value handler must not be empty")
-        }
-
         rootValueHandler = handler
         rootValuePlaceholder = try normalizeHelpPlaceholderOrThrow(valuePlaceholder)
         rootValueDescription = try normalizeDescriptionOrThrow(description)
@@ -190,9 +182,6 @@ public final class Parser {
     }
 
     public func setPositionalHandler(_ handler: @escaping PositionalHandler) throws {
-        guard isNonEmptyHandler(handler) else {
-            throw CliConfigurationError("kcli positional handler must not be empty")
-        }
         positionalHandler = handler
     }
 
@@ -255,23 +244,13 @@ private struct AliasBinding {
     let presetTokens: [String]
 }
 
-private enum InvocationKind {
-    case flag
-    case value
-    case positional
-    case printHelp
-}
+private typealias HelpRow = (String, String)
 
-private struct Invocation {
-    var kind: InvocationKind
-    var root = ""
-    var option = ""
-    var command = ""
-    var valueTokens: [String] = []
-    var flagHandler: FlagHandler?
-    var valueHandler: ValueHandler?
-    var positionalHandler: PositionalHandler?
-    var helpRows: [(String, String)] = []
+private enum Invocation {
+    case flag(context: HandlerContext, handler: FlagHandler)
+    case value(context: HandlerContext, handler: ValueHandler)
+    case positional(context: HandlerContext, handler: PositionalHandler)
+    case printHelp(root: String, helpRows: [HelpRow])
 }
 
 private struct CollectedValues {
@@ -348,8 +327,7 @@ private func parse(_ parser: Parser, _ arguments: [String], io: ParserIO) throws
                                                    allowOptionLikeFirstValue: false)
 
                 if !collected.hasValue && !hasAliasPresetTokens(aliasBinding) {
-                    invocations.append(Invocation(kind: .printHelp,
-                                                  root: inlineParser.rootName,
+                    invocations.append(.printHelp(root: inlineParser.rootName,
                                                   helpRows: buildHelpRows(for: inlineParser)))
                     index += 1
                     continue
@@ -359,14 +337,12 @@ private func parse(_ parser: Parser, _ arguments: [String], io: ParserIO) throws
                     throw CliError(option: arg, message: "unknown value for option '\(arg)'")
                 }
 
-                invocations.append(
-                    Invocation(kind: .value,
-                               root: inlineParser.rootName,
-                               option: arg,
-                               valueTokens: buildEffectiveValueTokens(aliasBinding,
-                                                                     collected.parts),
-                               valueHandler: rootHandler)
-                )
+                let context = HandlerContext(root: inlineParser.rootName,
+                                             option: arg,
+                                             command: "",
+                                             valueTokens: buildEffectiveValueTokens(aliasBinding,
+                                                                                   collected.parts))
+                invocations.append(.value(context: context, handler: rootHandler))
 
                 index = collected.hasValue ? (collected.lastIndex + 1) : (index + 1)
                 continue
@@ -443,11 +419,11 @@ private func scheduleInvocation(_ binding: CommandBinding,
                            message: "alias '\(aliasBinding?.alias ?? "")' presets values for option '\(optionToken)' which does not accept values")
         }
 
-        invocations.append(Invocation(kind: .flag,
-                                      root: root,
-                                      option: optionToken,
-                                      command: command,
-                                      flagHandler: handler))
+        let context = HandlerContext(root: root,
+                                     option: optionToken,
+                                     command: command,
+                                     valueTokens: [])
+        invocations.append(.flag(context: context, handler: handler))
         return currentIndex
 
     case .value(let handler, let arity):
@@ -461,13 +437,12 @@ private func scheduleInvocation(_ binding: CommandBinding,
                            message: "option '\(optionToken)' requires a value")
         }
 
-        invocations.append(Invocation(kind: .value,
-                                      root: root,
-                                      option: optionToken,
-                                      command: command,
-                                      valueTokens: buildEffectiveValueTokens(aliasBinding,
-                                                                            collected.parts),
-                                      valueHandler: handler))
+        let context = HandlerContext(root: root,
+                                     option: optionToken,
+                                     command: command,
+                                     valueTokens: buildEffectiveValueTokens(aliasBinding,
+                                                                           collected.parts))
+        invocations.append(.value(context: context, handler: handler))
         return collected.hasValue ? collected.lastIndex : currentIndex
     }
 }
@@ -490,89 +465,79 @@ private func schedulePositionals(_ parser: Parser,
     }
 
     if !values.isEmpty {
-        invocations.append(Invocation(kind: .positional,
-                                      valueTokens: values,
-                                      positionalHandler: positionalHandler))
+        invocations.append(.positional(context: HandlerContext(valueTokens: values),
+                                       handler: positionalHandler))
     }
 }
 
 private func executeInvocations(_ invocations: [Invocation], io: ParserIO) throws {
     for invocation in invocations {
-        switch invocation.kind {
-        case .printHelp:
-            printHelp(invocation, io: io)
+        switch invocation {
+        case .printHelp(let root, let helpRows):
+            printHelp(root: root, helpRows: helpRows, io: io)
 
-        case .flag:
-            let context = HandlerContext(root: invocation.root,
-                                         option: invocation.option,
-                                         command: invocation.command,
-                                         valueTokens: invocation.valueTokens)
+        case .flag(let context, let handler):
             do {
-                try invocation.flagHandler?(context)
+                try handler(context)
             } catch let error as CliError {
-                throw CliError(option: invocation.option,
-                               message: formatOptionErrorMessage(invocation.option,
+                throw CliError(option: context.option,
+                               message: formatOptionErrorMessage(context.option,
                                                                  error.message))
             } catch {
-                throw CliError(option: invocation.option,
-                               message: formatOptionErrorMessage(invocation.option,
+                throw CliError(option: context.option,
+                               message: formatOptionErrorMessage(context.option,
                                                                  describe(error)))
             }
 
-        case .value:
-            let context = HandlerContext(root: invocation.root,
-                                         option: invocation.option,
-                                         command: invocation.command,
-                                         valueTokens: invocation.valueTokens)
-            let value = invocation.valueTokens.joined(separator: " ")
+        case .value(let context, let handler):
+            let value = context.valueTokens.joined(separator: " ")
             do {
-                try invocation.valueHandler?(context, value)
+                try handler(context, value)
             } catch let error as CliError {
-                throw CliError(option: invocation.option,
-                               message: formatOptionErrorMessage(invocation.option,
+                throw CliError(option: context.option,
+                               message: formatOptionErrorMessage(context.option,
                                                                  error.message))
             } catch {
-                throw CliError(option: invocation.option,
-                               message: formatOptionErrorMessage(invocation.option,
+                throw CliError(option: context.option,
+                               message: formatOptionErrorMessage(context.option,
                                                                  describe(error)))
             }
 
-        case .positional:
-            let context = HandlerContext(valueTokens: invocation.valueTokens)
+        case .positional(let context, let handler):
             do {
-                try invocation.positionalHandler?(context)
+                try handler(context)
             } catch let error as CliError {
-                throw CliError(option: invocation.option,
-                               message: formatOptionErrorMessage(invocation.option,
+                throw CliError(option: context.option,
+                               message: formatOptionErrorMessage(context.option,
                                                                  error.message))
             } catch {
-                throw CliError(option: invocation.option,
-                               message: formatOptionErrorMessage(invocation.option,
+                throw CliError(option: context.option,
+                               message: formatOptionErrorMessage(context.option,
                                                                  describe(error)))
             }
         }
     }
 }
 
-private func printHelp(_ invocation: Invocation, io: ParserIO) {
-    io.stdout("\nAvailable --\(invocation.root)-* options:\n")
+private func printHelp(root: String, helpRows: [HelpRow], io: ParserIO) {
+    io.stdout("\nAvailable --\(root)-* options:\n")
 
-    let maxLeftWidth = invocation.helpRows.map(\.0.count).max() ?? 0
-    if invocation.helpRows.isEmpty {
+    let maxLeftWidth = helpRows.map(\.0.count).max() ?? 0
+    if helpRows.isEmpty {
         io.stdout("  (no options registered)\n")
         io.stdout("\n")
         return
     }
 
-    for row in invocation.helpRows {
+    for row in helpRows {
         let padding = max(0, maxLeftWidth - row.0.count) + 2
         io.stdout("  \(row.0)\(String(repeating: " ", count: padding))\(row.1)\n")
     }
     io.stdout("\n")
 }
 
-private func buildHelpRows(for parser: InlineParser) -> [(String, String)] {
-    var rows: [(String, String)] = []
+private func buildHelpRows(for parser: InlineParser) -> [HelpRow] {
+    var rows: [HelpRow] = []
     if parser.rootValueHandler != nil && !parser.rootValueDescription.isEmpty {
         var lhs = "--\(parser.rootName)"
         if !parser.rootValuePlaceholder.isEmpty {
@@ -693,9 +658,6 @@ private func formatOptionErrorMessage(_ option: String, _ message: String) -> St
 
 private func makeFlagBinding(_ handler: @escaping FlagHandler,
                              description: String) throws -> CommandBinding {
-    guard isNonEmptyHandler(handler) else {
-        throw CliConfigurationError("kcli flag handler must not be empty")
-    }
     return CommandBinding(handler: .flag(handler),
                           description: try normalizeDescriptionOrThrow(description))
 }
@@ -703,9 +665,6 @@ private func makeFlagBinding(_ handler: @escaping FlagHandler,
 private func makeValueBinding(_ handler: @escaping ValueHandler,
                               description: String,
                               arity: ValueArity) throws -> CommandBinding {
-    guard isNonEmptyHandler(handler) else {
-        throw CliConfigurationError("kcli value handler must not be empty")
-    }
     return CommandBinding(handler: .value(handler, arity),
                           description: try normalizeDescriptionOrThrow(description))
 }
@@ -718,10 +677,6 @@ private func upsertCommand(_ commands: inout [(String, CommandBinding)],
         return
     }
     commands.append((command, binding))
-}
-
-private func isNonEmptyHandler<T>(_ handler: T) -> Bool {
-    true
 }
 
 private func trimWhitespace(_ value: String) -> String {

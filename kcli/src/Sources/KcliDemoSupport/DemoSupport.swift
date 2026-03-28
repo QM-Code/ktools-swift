@@ -68,23 +68,10 @@ public func runCoreDemo(arguments: [String] = CommandLine.arguments,
                         emit: @escaping DemoEmitter = defaultDemoEmit) -> Int {
     do {
         let exeName = executableName(arguments.first)
-        let parser = Parser()
-        try parser.addInlineParser(makeAlphaInlineParser(emit: emit))
-
-        try parser.addAlias("-v", target: "--verbose")
-        try parser.addAlias("-out", target: "--output")
-        try parser.addAlias("-a", target: "--alpha-enable")
-
-        try parser.setHandler("--verbose", handler: handleVerbose, description: "Enable verbose app logging.")
-        try parser.setHandler("--output", handler: handleOutput, description: "Set app output target.")
+        let parser = try makeCoreDemoParser(emit: emit)
         parser.parseOrExit(arguments)
 
-        emit("\nKCLI Swift demo core import/integration check passed\n\n")
-        emit("Usage:\n")
-        emit("  \(exeName) --alpha\n")
-        emit("  \(exeName) --output stdout\n\n")
-        emit("Enabled inline roots:\n")
-        emit("  --alpha\n\n")
+        emitCoreSummary(exeName: exeName, emit: emit)
         return 0
     } catch {
         emit("[fatal] \(String(describing: error))\n")
@@ -95,36 +82,11 @@ public func runCoreDemo(arguments: [String] = CommandLine.arguments,
 public func runOmegaDemo(arguments: [String] = CommandLine.arguments,
                          emit: @escaping DemoEmitter = defaultDemoEmit) -> Int {
     do {
-        let parser = Parser()
-        try parser.addInlineParser(makeAlphaInlineParser(emit: emit))
-        try parser.addInlineParser(makeBetaInlineParser(emit: emit))
-
-        var gammaParser = try makeGammaInlineParser(emit: emit)
-        try gammaParser.setRoot("--newgamma")
-        try parser.addInlineParser(gammaParser)
-
-        var buildParser = try InlineParser("--build")
-        try buildParser.setHandler("-profile", handler: handleBuildProfile, description: "Set build profile.")
-        try buildParser.setHandler("-clean", handler: handleBuildClean, description: "Enable clean build.")
-        try parser.addInlineParser(buildParser)
-
-        try parser.addAlias("-v", target: "--verbose")
-        try parser.addAlias("-out", target: "--output")
-        try parser.addAlias("-a", target: "--alpha-enable")
-        try parser.addAlias("-b", target: "--build-profile")
-
-        try parser.setHandler("--verbose", handler: handleVerbose, description: "Enable verbose app logging.")
-        try parser.setHandler("--output", handler: handleOutput, description: "Set app output target.")
-        try parser.setPositionalHandler(handleArgs)
+        let parser = try makeOmegaDemoParser(emit: emit)
 
         parser.parseOrExit(arguments)
 
-        emit("\nUsage:\n")
-        emit("  kcli_demo_omega --<root>\n\n")
-        emit("Enabled --<root> prefixes:\n")
-        emit("  --alpha\n")
-        emit("  --beta\n")
-        emit("  --newgamma (gamma override)\n\n")
+        emitOmegaSummary(emit: emit)
         return 0
     } catch {
         emit("[fatal] \(String(describing: error))\n")
@@ -141,6 +103,67 @@ private func executableName(_ path: String?) -> String {
         return path
     }
     return "app"
+}
+
+private func makeCoreDemoParser(emit: @escaping DemoEmitter) throws -> Parser {
+    let parser = Parser()
+    try parser.addInlineParser(makeAlphaInlineParser(emit: emit))
+    try addCommonAliases(to: parser)
+    try addCommonTopLevelHandlers(to: parser)
+    return parser
+}
+
+private func makeOmegaDemoParser(emit: @escaping DemoEmitter) throws -> Parser {
+    let parser = Parser()
+    try parser.addInlineParser(makeAlphaInlineParser(emit: emit))
+    try parser.addInlineParser(makeBetaInlineParser(emit: emit))
+
+    var gammaParser = try makeGammaInlineParser(emit: emit)
+    try gammaParser.setRoot("--newgamma")
+    try parser.addInlineParser(gammaParser)
+    try parser.addInlineParser(makeBuildInlineParser())
+
+    try addCommonAliases(to: parser)
+    try parser.addAlias("-b", target: "--build-profile")
+    try addCommonTopLevelHandlers(to: parser)
+    try parser.setPositionalHandler(handleArgs)
+    return parser
+}
+
+private func makeBuildInlineParser() throws -> InlineParser {
+    var buildParser = try InlineParser("--build")
+    try buildParser.setHandler("-profile", handler: handleBuildProfile, description: "Set build profile.")
+    try buildParser.setHandler("-clean", handler: handleBuildClean, description: "Enable clean build.")
+    return buildParser
+}
+
+private func addCommonAliases(to parser: Parser) throws {
+    try parser.addAlias("-v", target: "--verbose")
+    try parser.addAlias("-out", target: "--output")
+    try parser.addAlias("-a", target: "--alpha-enable")
+}
+
+private func addCommonTopLevelHandlers(to parser: Parser) throws {
+    try parser.setHandler("--verbose", handler: handleVerbose, description: "Enable verbose app logging.")
+    try parser.setHandler("--output", handler: handleOutput, description: "Set app output target.")
+}
+
+private func emitCoreSummary(exeName: String, emit: DemoEmitter) {
+    emit("\nKCLI Swift demo core import/integration check passed\n\n")
+    emit("Usage:\n")
+    emit("  \(exeName) --alpha\n")
+    emit("  \(exeName) --output stdout\n\n")
+    emit("Enabled inline roots:\n")
+    emit("  --alpha\n\n")
+}
+
+private func emitOmegaSummary(emit: DemoEmitter) {
+    emit("\nUsage:\n")
+    emit("  kcli_demo_omega --<root>\n\n")
+    emit("Enabled --<root> prefixes:\n")
+    emit("  --alpha\n")
+    emit("  --beta\n")
+    emit("  --newgamma (gamma override)\n\n")
 }
 
 private func printProcessingLine(_ context: HandlerContext,

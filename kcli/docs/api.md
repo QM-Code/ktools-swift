@@ -2,7 +2,7 @@
 
 The public Swift API lives in [`../src/Sources/Kcli/Kcli.swift`](../src/Sources/Kcli/Kcli.swift).
 
-## Main Types
+## Core Types
 
 `Parser`
 
@@ -17,9 +17,9 @@ The public Swift API lives in [`../src/Sources/Kcli/Kcli.swift`](../src/Sources/
 
 `HandlerContext`
 
-- `root`: active inline root without leading dashes, or empty for top-level handlers
+- `root`: active inline root without leading dashes, or empty for top-level handlers and positionals
 - `option`: effective option token such as `--verbose` or `--build-profile`
-- `command`: inline command suffix such as `-profile`
+- `command`: normalized command token such as `verbose` or `profile`
 - `valueTokens`: consumed value tokens after alias preset tokens are applied
 
 `CliError`
@@ -31,7 +31,53 @@ The public Swift API lives in [`../src/Sources/Kcli/Kcli.swift`](../src/Sources/
 
 - Thrown when handlers, aliases, roots, or descriptions are registered incorrectly
 
-## Registration Styles
+## InlineParser
+
+### Construction
+
+```swift
+var build = try InlineParser("--build")
+```
+
+The root may be provided as either:
+
+- `"build"`
+- `"--build"`
+
+### Root Value Handler
+
+```swift
+try build.setRootValueHandler(handler)
+try build.setRootValueHandler(handler,
+                              valuePlaceholder: "<selector>",
+                              description: "Select build targets.")
+```
+
+The root value handler processes the bare root form, for example:
+
+- `--build release`
+- `--config user.json`
+
+If the bare root is used without a value, `kcli` prints inline help for that root instead.
+
+### Inline Handlers
+
+```swift
+try build.setHandler("-flag", handler: flagHandler, description: "Enable build flag.")
+try build.setHandler("-profile", handler: valueHandler, description: "Set build profile.")
+try build.setOptionalValueHandler("-enable",
+                                  handler: optionalHandler,
+                                  description: "Enable build mode.")
+```
+
+Inline handler options may be written in either form:
+
+- short inline form: `-profile`
+- fully-qualified form: `--build-profile`
+
+## Parser
+
+### Top-Level Handlers
 
 Top-level flags:
 
@@ -60,6 +106,62 @@ try parser.setOptionalValueHandler("--color",
                                    description: "Set or auto-detect color output.")
 ```
 
+Top-level handler options may be written as either:
+
+- `"verbose"`
+- `"--verbose"`
+
+### Aliases
+
+```swift
+try parser.addAlias("-v", target: "--verbose")
+try parser.addAlias("-c", target: "--config-load", presetTokens: ["user-file"])
+```
+
+Rules:
+
+- aliases use single-dash form such as `-v`
+- alias targets use double-dash form such as `--verbose`
+- preset tokens are prepended to the handler's effective `valueTokens`
+
+### Positional Handler
+
+```swift
+try parser.setPositionalHandler { context in
+    for token in context.valueTokens {
+        usePositional(token)
+    }
+}
+```
+
+### Inline Parser Registration
+
+```swift
+try parser.addInlineParser(build)
+```
+
+Duplicate inline roots are rejected.
+
+### Parse Entry Points
+
+```swift
+parser.parseOrExit()
+try parser.parseOrThrow(CommandLine.arguments)
+```
+
+`parseOrExit()`
+
+- reports invalid CLI input to `stderr` as `[error] [cli] ...`
+- exits with code `2`
+
+`parseOrThrow()`
+
+- throws `CliError`
+- preserves the caller's argument list
+- does not run handlers until the full command line validates
+
+## Registration Styles
+
 Inline roots:
 
 ```swift
@@ -78,19 +180,9 @@ try config.setRootValueHandler({ context, value in
 }, valuePlaceholder: "<assignment>", description: "Store a config assignment.")
 ```
 
-Aliases:
+Use the registration form that matches the CLI contract you want:
 
-```swift
-try parser.addAlias("-v", target: "--verbose")
-try parser.addAlias("-c", target: "--config-load", presetTokens: ["user-file"])
-```
-
-Positionals:
-
-```swift
-try parser.setPositionalHandler { context in
-    for token in context.valueTokens {
-        usePositional(token)
-    }
-}
-```
+- `setHandler(option, handler: FlagHandler, description: ...)` for flag-style options
+- `setHandler(option, handler: ValueHandler, description: ...)` for required values
+- `setOptionalValueHandler(option, handler: ValueHandler, description: ...)` for optional values
+- `setRootValueHandler(...)` for bare inline roots such as `--build release`

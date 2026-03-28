@@ -8,10 +8,12 @@ This demo shows:
 - imported SDK tracing added through `AlphaSdk.getTraceLogger()`
 - logger-managed selector state and output formatting
 - local CLI integration through `parser.addInlineParser(logger.makeInlineParser(localTraceLogger))`
+- bare-root trace help with `--trace`
 
 Run from [`src/`](../../../src/README.md):
 
 ```bash
 swift run ktrace-demo-core --trace
 swift run ktrace-demo-core --trace '*.*'
+swift run ktrace-demo-core --trace '.*' --trace-timestamps
 ```

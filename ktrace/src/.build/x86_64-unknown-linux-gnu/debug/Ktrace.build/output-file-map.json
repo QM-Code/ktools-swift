@@ -8,5 +8,26 @@
     "swiftmodule": "/home/karmak/dev/ktools/ktools-swift/ktrace/src/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/Ktrace~partial.swiftmodule",
     "swift-dependencies": "/home/karmak/dev/ktools/ktools-swift/ktrace/src/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/Ktrace.swiftdeps",
     "diagnostics": "/home/karmak/dev/ktools/ktools-swift/ktrace/src/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/Ktrace.dia"
+  },
+  "/home/karmak/dev/ktools/ktools-swift/ktrace/src/Sources/Ktrace/KtraceFormatting.swift": {
+    "dependencies": "/home/karmak/dev/ktools/ktools-swift/ktrace/src/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/KtraceFormatting.d",
+    "object": "/home/karmak/dev/ktools/ktools-swift/ktrace/src/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/KtraceFormatting.swift.o",
+    "swiftmodule": "/home/karmak/dev/ktools/ktools-swift/ktrace/src/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/KtraceFormatting~partial.swiftmodule",
+    "swift-dependencies": "/home/karmak/dev/ktools/ktools-swift/ktrace/src/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/KtraceFormatting.swiftdeps",
+    "diagnostics": "/home/karmak/dev/ktools/ktools-swift/ktrace/src/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/KtraceFormatting.dia"
+  },
+  "/home/karmak/dev/ktools/ktools-swift/ktrace/src/Sources/Ktrace/KtraceSelectors.swift": {
+    "dependencies": "/home/karmak/dev/ktools/ktools-swift/ktrace/src/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/KtraceSelectors.d",
+    "object": "/home/karmak/dev/ktools/ktools-swift/ktrace/src/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/KtraceSelectors.swift.o",
+    "swiftmodule": "/home/karmak/dev/ktools/ktools-swift/ktrace/src/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/KtraceSelectors~partial.swiftmodule",
+    "swift-dependencies": "/home/karmak/dev/ktools/ktools-swift/ktrace/src/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/KtraceSelectors.swiftdeps",
+    "diagnostics": "/home/karmak/dev/ktools/ktools-swift/ktrace/src/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/KtraceSelectors.dia"
+  },
+  "/home/karmak/dev/ktools/ktools-swift/ktrace/src/Sources/Ktrace/KtraceSupport.swift": {
+    "dependencies": "/home/karmak/dev/ktools/ktools-swift/ktrace/src/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/KtraceSupport.d",
+    "object": "/home/karmak/dev/ktools/ktools-swift/ktrace/src/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/KtraceSupport.swift.o",
+    "swiftmodule": "/home/karmak/dev/ktools/ktools-swift/ktrace/src/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/KtraceSupport~partial.swiftmodule",
+    "swift-dependencies": "/home/karmak/dev/ktools/ktools-swift/ktrace/src/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/KtraceSupport.swiftdeps",
+    "diagnostics": "/home/karmak/dev/ktools/ktools-swift/ktrace/src/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/KtraceSupport.dia"
   }
 }

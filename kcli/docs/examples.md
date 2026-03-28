@@ -67,6 +67,11 @@ This enables:
 --config user=alice
 ```
 
+Behavior:
+
+- `--config` prints inline help
+- `--config user=alice` invokes the root value handler
+
 ## Alias Preset Tokens
 
 ```swift
@@ -123,3 +128,16 @@ try parser.setPositionalHandler { context in
 ```
 
 The positional handler receives all remaining non-option tokens after option parsing succeeds.
+
+## Custom Error Handling
+
+If you want your own formatting or exit policy, use `parseOrThrow()`:
+
+```swift
+do {
+    try parser.parseOrThrow(CommandLine.arguments)
+} catch let error as CliError {
+    FileHandle.standardError.write(Data("custom cli error: \(error.message)\n".utf8))
+    exit(2)
+}
+```

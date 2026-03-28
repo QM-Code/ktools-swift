@@ -60,6 +60,7 @@ swift run ktrace-demo-core --trace '.*'
 swift run ktrace-demo-omega --trace '*.*'
 swift run ktrace-demo-omega --trace '*.*.*.*'
 swift run ktrace-demo-omega --trace '*.{net,io}'
+swift run ktrace-demo-omega --trace-examples
 swift run ktrace-demo-omega --trace-namespaces
 swift run ktrace-demo-omega --trace-channels
 swift run ktrace-demo-omega --trace-colors
@@ -170,3 +171,12 @@ Formatting options:
 - `--trace-timestamps`
 
 These affect both `trace(...)` output and `info/warn/error(...)` output.
+
+Informational options:
+
+- `--trace-examples`
+- `--trace-namespaces`
+- `--trace-channels`
+- `--trace-colors`
+
+`Logger` also registers an internal `ktrace` namespace for logger/runtime diagnostics, so calls such as `getNamespaces()` include `ktrace` once a `Logger` has been constructed.

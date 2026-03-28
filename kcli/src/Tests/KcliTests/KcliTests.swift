@@ -41,6 +41,13 @@ final class KcliTests: XCTestCase {
         }
     }
 
+    func testInlineParserRejectsSingleDashRoot() {
+        XCTAssertThrowsError(try InlineParser("-build")) { error in
+            XCTAssertEqual(error as? CliConfigurationError,
+                           CliConfigurationError("kcli root must use '--root' or 'root'"))
+        }
+    }
+
     func testAddAliasRewritesTokens() throws {
         let argv = ["prog", "-v", "tail"]
         let parser = Parser()
@@ -213,6 +220,50 @@ final class KcliTests: XCTestCase {
         }
     }
 
+    func testParserCanBeReusedAcrossParses() throws {
+        let parser = Parser()
+        var values: [String] = []
+
+        try parser.setHandler("--name", handler: { _, value in
+            values.append(value)
+        }, description: "Set a display name.")
+
+        try parser.parseOrThrow(["prog", "--name", "alice"])
+        try parser.parseOrThrow(["prog", "--name", "bob"])
+
+        XCTAssertEqual(values, ["alice", "bob"])
+    }
+
+    func testInlineHandlerFullFormNormalizesCommandAndOption() throws {
+        let parser = Parser()
+        var seenContext = HandlerContext()
+
+        var build = try InlineParser("--build")
+        try build.setHandler("--build-profile", handler: { context, _ in
+            seenContext = context
+        }, description: "Set build profile.")
+        try parser.addInlineParser(build)
+
+        try parser.parseOrThrow(["prog", "--build-profile", "release"])
+        XCTAssertEqual(seenContext.root, "build")
+        XCTAssertEqual(seenContext.option, "--build-profile")
+        XCTAssertEqual(seenContext.command, "profile")
+        XCTAssertEqual(seenContext.valueTokens, ["release"])
+    }
+
+    func testInlineMissingRootValueHandlerErrors() throws {
+        let parser = Parser()
+        try parser.addInlineParser(InlineParser("--build"))
+
+        do {
+            try parser.parseOrThrow(["prog", "--build", "release"])
+            XCTFail("expected parse to fail")
+        } catch let error as CliError {
+            XCTAssertEqual(error.option(), "--build")
+            XCTAssertEqual(error.message, "unknown value for option '--build'")
+        }
+    }
+
     func testDuplicateInlineRootRejected() throws {
         let parser = Parser()
         try parser.addInlineParser(InlineParser("build"))
@@ -220,6 +271,79 @@ final class KcliTests: XCTestCase {
         XCTAssertThrowsError(try parser.addInlineParser(InlineParser("--build"))) { error in
             XCTAssertEqual(error as? CliConfigurationError,
                            CliConfigurationError("kcli inline parser root '--build' is already registered"))
+        }
+    }
+
+    func testOptionalValueHandlerAcceptsExplicitEmptyValue() throws {
+        let parser = Parser()
+        var captured = "unset"
+        var tokens: [String] = []
+
+        try parser.setOptionalValueHandler("--color", handler: { context, value in
+            captured = value
+            tokens = context.valueTokens
+        }, description: "Set output color mode.")
+
+        try parser.parseOrThrow(["prog", "--color", ""])
+        XCTAssertEqual(captured, "")
+        XCTAssertEqual(tokens, [""])
+    }
+
+    func testRequiredValueHandlerAcceptsExplicitEmptyValue() throws {
+        let parser = Parser()
+        var captured = "unset"
+        var tokens: [String] = []
+
+        try parser.setHandler("--name", handler: { context, value in
+            captured = value
+            tokens = context.valueTokens
+        }, description: "Set display name.")
+
+        try parser.parseOrThrow(["prog", "--name", ""])
+        XCTAssertEqual(captured, "")
+        XCTAssertEqual(tokens, [""])
+    }
+
+    func testPositionalHandlerPreservesExplicitEmptyTokens() throws {
+        let parser = Parser()
+        var positionals: [String] = []
+
+        try parser.setPositionalHandler { context in
+            positionals = context.valueTokens
+        }
+
+        try parser.parseOrThrow(["prog", "alpha", "", "omega"])
+        XCTAssertEqual(positionals, ["alpha", "", "omega"])
+    }
+
+    func testUnknownInlineOptionErrors() throws {
+        let parser = Parser()
+        var build = try InlineParser("--build")
+        try build.setHandler("-profile", handler: { _, _ in
+        }, description: "Set build profile.")
+        try parser.addInlineParser(build)
+
+        do {
+            try parser.parseOrThrow(["prog", "--build-unknown"])
+            XCTFail("expected parse to fail")
+        } catch let error as CliError {
+            XCTAssertEqual(error.option(), "--build-unknown")
+            XCTAssertEqual(error.message, "unknown option --build-unknown")
+        }
+    }
+
+    func testHandlerExceptionWrappedAsCliError() throws {
+        let parser = Parser()
+        try parser.setHandler("--profile", handler: { _, _ in
+            throw CliConfigurationError("bad profile")
+        }, description: "Set build profile.")
+
+        do {
+            try parser.parseOrThrow(["prog", "--profile", "dev"])
+            XCTFail("expected parse to fail")
+        } catch let error as CliError {
+            XCTAssertEqual(error.option(), "--profile")
+            XCTAssertEqual(error.message, "option '--profile': bad profile")
         }
     }
 }

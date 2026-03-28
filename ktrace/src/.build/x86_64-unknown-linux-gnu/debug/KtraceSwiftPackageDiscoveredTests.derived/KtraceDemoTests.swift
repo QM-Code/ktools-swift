@@ -7,7 +7,14 @@ fileprivate extension KtraceDemoTests {
         ("testCoreDemoBareTraceRootPrintsHelp", testCoreDemoBareTraceRootPrintsHelp),
         ("testCoreDemoImportedSelectorShowsImportedTrace", testCoreDemoImportedSelectorShowsImportedTrace),
         ("testOmegaDemoBadSelectorFails", testOmegaDemoBadSelectorFails),
-        ("testOmegaDemoBraceSelectorFiltersChannels", testOmegaDemoBraceSelectorFiltersChannels)
+        ("testOmegaDemoBraceSelectorFiltersChannels", testOmegaDemoBraceSelectorFiltersChannels),
+        ("testOmegaDemoExactMissingSelectorWarnsButSucceeds", testOmegaDemoExactMissingSelectorWarnsButSucceeds),
+        ("testOmegaDemoRemovedTraceLinesOptionIsRejected", testOmegaDemoRemovedTraceLinesOptionIsRejected),
+        ("testOmegaDemoTraceExamplesPrintsSelectorExamples", testOmegaDemoTraceExamplesPrintsSelectorExamples),
+        ("testOmegaDemoTraceFilesIncludesSourceLocation", testOmegaDemoTraceFilesIncludesSourceLocation),
+        ("testOmegaDemoTraceFunctionsIncludesSourceFunction", testOmegaDemoTraceFunctionsIncludesSourceFunction),
+        ("testOmegaDemoTraceTimestampsUseFractionalSeconds", testOmegaDemoTraceTimestampsUseFractionalSeconds),
+        ("testOmegaDemoWildcardMissingSelectorWarnsButSucceeds", testOmegaDemoWildcardMissingSelectorWarnsButSucceeds)
     ]
 }
 @available(*, deprecated, message: "Not actually deprecated. Marked as deprecated to allow inclusion of deprecated tests (which test deprecated functionality) without warnings")

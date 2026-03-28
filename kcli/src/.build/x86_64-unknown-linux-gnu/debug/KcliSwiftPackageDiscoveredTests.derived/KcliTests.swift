@@ -10,13 +10,22 @@ fileprivate extension KcliTests {
         ("testAliasPresetTokensRejectedForFlagHandler", testAliasPresetTokensRejectedForFlagHandler),
         ("testDuplicateInlineRootRejected", testDuplicateInlineRootRejected),
         ("testEndUserKnownOptionsWithUnknownOptionError", testEndUserKnownOptionsWithUnknownOptionError),
+        ("testHandlerExceptionWrappedAsCliError", testHandlerExceptionWrappedAsCliError),
         ("testInlineBareRootHelpIncludesRootValueHandlerRow", testInlineBareRootHelpIncludesRootValueHandlerRow),
         ("testInlineBareRootPrintsHelp", testInlineBareRootPrintsHelp),
+        ("testInlineHandlerFullFormNormalizesCommandAndOption", testInlineHandlerFullFormNormalizesCommandAndOption),
+        ("testInlineMissingRootValueHandlerErrors", testInlineMissingRootValueHandlerErrors),
+        ("testInlineParserRejectsSingleDashRoot", testInlineParserRejectsSingleDashRoot),
         ("testLiteralDoubleDashRejected", testLiteralDoubleDashRejected),
+        ("testOptionalValueHandlerAcceptsExplicitEmptyValue", testOptionalValueHandlerAcceptsExplicitEmptyValue),
         ("testOptionalValueHandlerAllowsMissingValue", testOptionalValueHandlerAllowsMissingValue),
+        ("testParserCanBeReusedAcrossParses", testParserCanBeReusedAcrossParses),
         ("testParserEmptyParseSucceeds", testParserEmptyParseSucceeds),
+        ("testPositionalHandlerPreservesExplicitEmptyTokens", testPositionalHandlerPreservesExplicitEmptyTokens),
         ("testRequiredValueHandlerAcceptsDashPrefixedFirstValue", testRequiredValueHandlerAcceptsDashPrefixedFirstValue),
-        ("testRequiredValueHandlerJoinsMultipleTokens", testRequiredValueHandlerJoinsMultipleTokens)
+        ("testRequiredValueHandlerAcceptsExplicitEmptyValue", testRequiredValueHandlerAcceptsExplicitEmptyValue),
+        ("testRequiredValueHandlerJoinsMultipleTokens", testRequiredValueHandlerJoinsMultipleTokens),
+        ("testUnknownInlineOptionErrors", testUnknownInlineOptionErrors)
     ]
 }
 @available(*, deprecated, message: "Not actually deprecated. Marked as deprecated to allow inclusion of deprecated tests (which test deprecated functionality) without warnings")

@@ -24,4 +24,6 @@ swift run kcli-demo-core --output stdout
 swift run kcli-demo-omega --beta-workers 8
 swift run kcli-demo-omega --newgamma-tag prod
 swift run kcli-demo-omega --build
+swift run kcli-demo-omega -a
+swift run kcli-demo-omega -b release
 ```
