@@ -1,0 +1,13 @@
+{
+  "": {
+    "dependencies": "/home/karmak/dev/ktools/ktools-swift/ktrace/build/latest/swiftpm-demo/x86_64-unknown-linux-gnu/release/KtraceDemoBeta.build/KtraceDemoBeta.d",
+    "object": "/home/karmak/dev/ktools/ktools-swift/ktrace/build/latest/swiftpm-demo/x86_64-unknown-linux-gnu/release/KtraceDemoBeta.build/KtraceDemoBeta.o",
+    "swift-dependencies": "/home/karmak/dev/ktools/ktools-swift/ktrace/build/latest/swiftpm-demo/x86_64-unknown-linux-gnu/release/KtraceDemoBeta.build/primary.swiftdeps"
+  },
+  "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/sdk/beta/src/KtraceDemoBeta.swift": {
+    "object": "/home/karmak/dev/ktools/ktools-swift/ktrace/build/latest/swiftpm-demo/x86_64-unknown-linux-gnu/release/KtraceDemoBeta.build/KtraceDemoBeta.swift.o",
+    "swiftmodule": "/home/karmak/dev/ktools/ktools-swift/ktrace/build/latest/swiftpm-demo/x86_64-unknown-linux-gnu/release/KtraceDemoBeta.build/KtraceDemoBeta~partial.swiftmodule",
+    "swift-dependencies": "/home/karmak/dev/ktools/ktools-swift/ktrace/build/latest/swiftpm-demo/x86_64-unknown-linux-gnu/release/KtraceDemoBeta.build/KtraceDemoBeta.swiftdeps",
+    "diagnostics": "/home/karmak/dev/ktools/ktools-swift/ktrace/build/latest/swiftpm-demo/x86_64-unknown-linux-gnu/release/KtraceDemoBeta.build/KtraceDemoBeta.dia"
+  }
+}

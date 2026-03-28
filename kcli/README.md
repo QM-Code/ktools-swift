@@ -72,12 +72,13 @@ Direct SwiftPM flow:
 ```bash
 cd src
 swift test
+cd ../demo
 swift run kcli-demo-core --alpha-message hello
 ```
 
 ## Demos
 
-Demo directories mirror the C++ shape even though the executable products live in the SwiftPM package:
+Demo source and build files live in the `demo/` SwiftPM package, matching the C++ layout:
 
 - Bootstrap compile/import check: [demo/bootstrap/README.md](demo/bootstrap/README.md)
 - SDK demos: [demo/sdk/alpha/README.md](demo/sdk/alpha/README.md), [demo/sdk/beta/README.md](demo/sdk/beta/README.md), [demo/sdk/gamma/README.md](demo/sdk/gamma/README.md)
@@ -86,7 +87,7 @@ Demo directories mirror the C++ shape even though the executable products live i
 Useful demo commands:
 
 ```bash
-cd src
+cd demo
 swift run kcli-demo-bootstrap
 swift run kcli-demo-core --alpha
 swift run kcli-demo-core --alpha-message hello
@@ -99,10 +100,9 @@ swift run kcli-demo-omega --build
 ## Repository Layout
 
 - Public API: `src/Sources/Kcli/Kcli.swift`
-- Demo assembly: `src/Sources/KcliDemoSupport/`
-- Parser and demo coverage: `src/Tests/`
+- Library tests: `src/Tests/`
+- Demo package and demo tests: `demo/`
 - Additional docs: `docs/`
-- Demo directory map: `demo/`
 
 ## Coding Agents
 

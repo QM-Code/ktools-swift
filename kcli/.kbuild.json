@@ -9,6 +9,7 @@
   },
   "swift": {
     "package_path": "src",
+    "demo_package_path": "demo",
     "demo_products": {
       "bootstrap": {
         "product": "kcli-demo-bootstrap",

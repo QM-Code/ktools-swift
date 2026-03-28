@@ -1,0 +1,19 @@
+{
+  "": {
+    "swift-dependencies": "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageDiscoveredTests.build/primary.swiftdeps"
+  },
+  "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageDiscoveredTests.derived/KtraceDemoTests.swift": {
+    "dependencies": "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageDiscoveredTests.build/KtraceDemoTests.d",
+    "object": "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageDiscoveredTests.build/KtraceDemoTests.swift.o",
+    "swiftmodule": "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageDiscoveredTests.build/KtraceDemoTests~partial.swiftmodule",
+    "swift-dependencies": "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageDiscoveredTests.build/KtraceDemoTests.swiftdeps",
+    "diagnostics": "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageDiscoveredTests.build/KtraceDemoTests.dia"
+  },
+  "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageDiscoveredTests.derived/all-discovered-tests.swift": {
+    "dependencies": "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageDiscoveredTests.build/all-discovered-tests.d",
+    "object": "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageDiscoveredTests.build/all-discovered-tests.swift.o",
+    "swiftmodule": "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageDiscoveredTests.build/all-discovered-tests~partial.swiftmodule",
+    "swift-dependencies": "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageDiscoveredTests.build/all-discovered-tests.swiftdeps",
+    "diagnostics": "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageDiscoveredTests.build/all-discovered-tests.dia"
+  }
+}

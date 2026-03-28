@@ -11,10 +11,10 @@ Assume these have already been read:
 
 This repo owns the Swift API and implementation details for `ktrace`, including:
 
-- the SwiftPM package under `src/`
+- the library SwiftPM package under `src/`
 - selector parsing and logger runtime behavior
 - `kcli` integration for `--trace-*`
-- Swift demos and tests
+- the separate demo SwiftPM package under `demo/`
 
 ## Local Bootstrap
 
@@ -22,8 +22,10 @@ When familiarizing yourself with this repo, read:
 
 - [README.md](README.md)
 - `src/Package.swift`
+- `demo/Package.swift`
 - `src/Sources/*`
 - `src/Tests/*`
+- `demo/**/*`
 
 ## Build And Test Expectations
 

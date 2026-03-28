@@ -1,0 +1,3 @@
+module KtraceSwiftDemosPackageTests {
+    header "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageTests.build/include/KtraceSwiftDemosPackageTests-Swift.h"
+}

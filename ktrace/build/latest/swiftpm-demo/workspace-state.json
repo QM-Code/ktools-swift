@@ -1,0 +1,41 @@
+{
+  "object" : {
+    "artifacts" : [
+
+    ],
+    "dependencies" : [
+      {
+        "basedOn" : null,
+        "packageRef" : {
+          "identity" : "swiftpkg-kcli",
+          "kind" : "fileSystem",
+          "location" : "/home/karmak/dev/ktools/ktools-swift/kcli/swiftpkg-kcli",
+          "name" : "KcliSwift"
+        },
+        "state" : {
+          "name" : "fileSystem",
+          "path" : "/home/karmak/dev/ktools/ktools-swift/kcli/swiftpkg-kcli"
+        },
+        "subpath" : "swiftpkg-kcli"
+      },
+      {
+        "basedOn" : null,
+        "packageRef" : {
+          "identity" : "swiftpkg-ktrace",
+          "kind" : "fileSystem",
+          "location" : "/home/karmak/dev/ktools/ktools-swift/ktrace/swiftpkg-ktrace",
+          "name" : "KtraceSwift"
+        },
+        "state" : {
+          "name" : "fileSystem",
+          "path" : "/home/karmak/dev/ktools/ktools-swift/ktrace/swiftpkg-ktrace"
+        },
+        "subpath" : "swiftpkg-ktrace"
+      }
+    ],
+    "prebuilts" : [
+
+    ]
+  },
+  "version" : 7
+}

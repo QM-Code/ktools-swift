@@ -5,7 +5,6 @@ public func __allDiscoveredTests() -> [XCTestCaseEntry] {
     var tests = [XCTestCaseEntry]()
 
     tests += __KtraceTests__allTests()
-    tests += __KtraceDemoTests__allTests()
 
     return tests
 }

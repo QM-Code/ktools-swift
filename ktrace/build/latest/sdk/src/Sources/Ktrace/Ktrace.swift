@@ -94,24 +94,12 @@ public func defaultTraceEmit(_ text: String) {
     print(text, terminator: "")
 }
 
-private enum LogSeverity: String {
-    case info
-    case warning
-    case error
-}
-
-private struct ChannelSpec {
+struct ChannelSpec {
     let name: String
     var color: Int
 }
 
-private struct SourceContext {
-    let file: String
-    let line: Int
-    let function: String
-}
-
-private final class TraceLoggerStorage {
+final class TraceLoggerStorage {
     let traceNamespace: String
     var channels: [ChannelSpec] = []
     var changedKeys: [String: String] = [:]
@@ -123,7 +111,7 @@ private final class TraceLoggerStorage {
     }
 }
 
-private final class LoggerStorage {
+final class LoggerStorage {
     var output: TraceEmitter
     var options = OutputOptions()
     var namespaces: Set<String> = []
@@ -681,22 +669,6 @@ public final class Logger {
     }
 }
 
-private struct ExactChannelResolution {
-    let key: String
-    let traceNamespace: String
-    let channel: String
-}
-
-private struct SelectorResolution {
-    let channelKeys: [String]
-    let unmatchedSelectors: [String]
-}
-
-private struct CanonicalSelector {
-    let pattern: String
-    let display: String
-}
-
 private func shouldTrace(_ logger: LoggerStorage, traceNamespace: String, channel: String) -> Bool {
     let hasEnabledChannels = withLock(logger.enabledLock) {
         !logger.enabledChannelKeys.isEmpty
@@ -716,69 +688,10 @@ private func shouldTrace(_ logger: LoggerStorage, traceNamespace: String, channe
     }
 }
 
-private func emitTrace(_ logger: LoggerStorage,
-                       traceNamespace: String,
-                       channel: String,
-                       source: SourceContext,
-                       message: String) {
-    let payload = formatOutput(logger: logger,
-                               traceNamespace: traceNamespace,
-                               label: channel,
-                               source: source,
-                               message: message)
-    withLock(logger.outputLock) {
-        logger.output(payload)
-    }
-}
-
-private func emitLog(_ logger: LoggerStorage,
-                     traceNamespace: String,
-                     severity: LogSeverity,
-                     source: SourceContext,
-                     message: String) {
-    let payload = formatOutput(logger: logger,
-                               traceNamespace: traceNamespace,
-                               label: severity.rawValue,
-                               source: source,
-                               message: message)
-    withLock(logger.outputLock) {
-        logger.output(payload)
-    }
-}
-
-private func formatOutput(logger: LoggerStorage,
-                          traceNamespace: String,
-                          label: String,
-                          source: SourceContext,
-                          message: String) -> String {
-    let options = withLock(logger.outputLock) { logger.options }
-    var parts = ["[\(traceNamespace)]"]
-    if options.timestamps {
-        parts.append("[\(Int(Date().timeIntervalSince1970))]")
-    }
-    parts.append("[\(label)]")
-    if options.filenames {
-        var sourceLabel = "[\(basename(source.file))"
-        if options.lineNumbers {
-            sourceLabel += ":\(source.line)"
-        }
-        if options.functionNames {
-            sourceLabel += ":\(source.function)"
-        }
-        sourceLabel += "]"
-        parts.append(sourceLabel)
-    }
-    return "\(parts.joined(separator: " ")) \(message)\n"
-}
-
-private func basename(_ path: String) -> String {
-    path.split(separator: "/").last.map(String.init) ?? path
-}
-
-private func mergeColor(existing: Int,
-                        incoming: Int,
-                        traceNamespace: String,
-                        channel: String) throws -> Int {
+func mergeColor(existing: Int,
+                incoming: Int,
+                traceNamespace: String,
+                channel: String) throws -> Int {
     if incoming == TraceColors.DEFAULT {
         return existing
     }
@@ -793,7 +706,7 @@ private func mergeColor(existing: Int,
     )
 }
 
-private func normalizeNamespace(_ traceNamespace: String) throws -> String {
+func normalizeNamespace(_ traceNamespace: String) throws -> String {
     let token = trimWhitespace(traceNamespace)
     if !isIdentifierToken(token) {
         throw TraceConfigurationError("invalid trace namespace '\(token)'")
@@ -801,7 +714,7 @@ private func normalizeNamespace(_ traceNamespace: String) throws -> String {
     return token
 }
 
-private func normalizeChannel(_ channel: String) throws -> String {
+func normalizeChannel(_ channel: String) throws -> String {
     let token = trimWhitespace(channel)
     let segments = token.split(separator: ".", omittingEmptySubsequences: false)
     if token.isEmpty || segments.isEmpty || segments.count > 3 {
@@ -813,125 +726,6 @@ private func normalizeChannel(_ channel: String) throws -> String {
         }
     }
     return token
-}
-
-private func canonicalSelector(_ selector: String,
-                               localNamespace: String) throws -> CanonicalSelector {
-    let token = trimWhitespace(selector)
-    if token == "*" {
-        throw TraceConfigurationError("Invalid trace selector: '*' (did you mean '.*'?)")
-    }
-    if token.hasPrefix(".") {
-        let namespace = try normalizeNamespace(localNamespace)
-        let suffix = String(token.dropFirst())
-        try validateSelectorBody(suffix)
-        return CanonicalSelector(pattern: "\(namespace).\(suffix)", display: "\(namespace).\(suffix)")
-    }
-
-    guard let dotIndex = token.firstIndex(of: ".") else {
-        throw TraceConfigurationError("Invalid trace selector: '\(token)'")
-    }
-    let namespacePattern = String(token[..<dotIndex])
-    let channelPattern = String(token[token.index(after: dotIndex)...])
-    if namespacePattern != "*" && !isIdentifierToken(namespacePattern) {
-        throw TraceConfigurationError("Invalid trace selector: '\(token)'")
-    }
-    try validateSelectorBody(channelPattern)
-    return CanonicalSelector(pattern: "\(namespacePattern).\(channelPattern)", display: token)
-}
-
-private func validateSelectorBody(_ body: String) throws {
-    let segments = body.split(separator: ".", omittingEmptySubsequences: false)
-    if body.isEmpty || segments.isEmpty || segments.count > 3 {
-        throw TraceConfigurationError("Invalid trace selector: '\(body)'")
-    }
-    for segment in segments {
-        let token = String(segment)
-        if token != "*" && !isIdentifierToken(token) {
-            throw TraceConfigurationError("Invalid trace selector: '\(body)'")
-        }
-    }
-}
-
-private func selectorMatches(_ pattern: String, candidate: String) throws -> Bool {
-    let patternParts = pattern.split(separator: ".").map(String.init)
-    let candidateParts = candidate.split(separator: ".").map(String.init)
-    guard patternParts.count >= 2, candidateParts.count >= 2 else {
-        return false
-    }
-
-    let namespacePattern = patternParts[0]
-    let namespaceValue = candidateParts[0]
-    if namespacePattern != "*" && namespacePattern != namespaceValue {
-        return false
-    }
-
-    let selectorChannelParts = Array(patternParts.dropFirst())
-    let candidateChannelParts = Array(candidateParts.dropFirst())
-    if candidateChannelParts.count > selectorChannelParts.count {
-        return false
-    }
-
-    for index in candidateChannelParts.indices {
-        let patternToken = selectorChannelParts[index]
-        if patternToken != "*" && patternToken != candidateChannelParts[index] {
-            return false
-        }
-    }
-
-    if candidateChannelParts.count < selectorChannelParts.count {
-        for token in selectorChannelParts[candidateChannelParts.count...] where token != "*" {
-            return false
-        }
-    }
-    return true
-}
-
-private func splitCSV(_ text: String) -> [String] {
-    var tokens: [String] = []
-    var current = ""
-    var braceDepth = 0
-    for character in text {
-        switch character {
-        case "{":
-            braceDepth += 1
-            current.append(character)
-        case "}":
-            braceDepth = max(0, braceDepth - 1)
-            current.append(character)
-        case "," where braceDepth == 0:
-            tokens.append(current)
-            current = ""
-        default:
-            current.append(character)
-        }
-    }
-    if !current.isEmpty {
-        tokens.append(current)
-    }
-    return tokens
-}
-
-private func expandBraceSelectors(_ selector: String) throws -> [String] {
-    guard let open = selector.firstIndex(of: "{"),
-          let close = selector[open...].firstIndex(of: "}") else {
-        return [selector]
-    }
-
-    let prefix = String(selector[..<open])
-    let suffix = String(selector[selector.index(after: close)...])
-    let body = String(selector[selector.index(after: open)..<close])
-    let options = splitCSV(body).map(trimWhitespace).filter { !$0.isEmpty }
-    if options.isEmpty {
-        throw TraceConfigurationError("Invalid trace selector: '\(selector)'")
-    }
-
-    var expanded: [String] = []
-    for option in options {
-        let combined = prefix + option + suffix
-        expanded.append(contentsOf: try expandBraceSelectors(combined))
-    }
-    return expanded
 }
 
 private func formatMessage(_ format: String, _ args: [Any]) throws -> String {
@@ -981,20 +775,4 @@ private func formatMessage(_ format: String, _ args: [Any]) throws -> String {
         throw TraceRuntimeError("unused trace format argument")
     }
     return output
-}
-
-private func trimWhitespace(_ value: String) -> String {
-    value.trimmingCharacters(in: .whitespacesAndNewlines)
-}
-
-private func isIdentifierToken(_ value: String) -> Bool {
-    !value.isEmpty && value.allSatisfy { character in
-        character.isLetter || character.isNumber || character == "_" || character == "-"
-    }
-}
-
-private func withLock<T>(_ lock: NSLock, _ body: () throws -> T) rethrows -> T {
-    lock.lock()
-    defer { lock.unlock() }
-    return try body()
 }

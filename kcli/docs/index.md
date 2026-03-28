@@ -73,6 +73,7 @@ Use `parseOrThrow()` when:
 ```bash
 cd src
 swift test
+cd ../demo
 swift run kcli-demo-core --alpha-message hello
 swift run kcli-demo-omega --build
 ```
@@ -81,9 +82,9 @@ swift run kcli-demo-omega --build
 
 If you want complete compiling examples, start with:
 
-- [`../src/Sources/KcliDemoAlpha/KcliDemoAlpha.swift`](../src/Sources/KcliDemoAlpha/KcliDemoAlpha.swift)
-- [`../src/Sources/KcliDemoCore/main.swift`](../src/Sources/KcliDemoCore/main.swift)
-- [`../src/Sources/KcliDemoOmega/main.swift`](../src/Sources/KcliDemoOmega/main.swift)
+- [`../demo/sdk/alpha/src/KcliDemoAlpha.swift`](../demo/sdk/alpha/src/KcliDemoAlpha.swift)
+- [`../demo/exe/core/src/main.swift`](../demo/exe/core/src/main.swift)
+- [`../demo/exe/omega/src/main.swift`](../demo/exe/omega/src/main.swift)
 - [`../src/Tests/KcliTests/KcliTests.swift`](../src/Tests/KcliTests/KcliTests.swift)
 
 The public API contract lives in [`../src/Sources/Kcli/Kcli.swift`](../src/Sources/Kcli/Kcli.swift).

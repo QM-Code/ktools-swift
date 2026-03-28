@@ -4,7 +4,6 @@ import XCTest
 public func __allDiscoveredTests() -> [XCTestCaseEntry] {
     var tests = [XCTestCaseEntry]()
 
-    tests += __KcliDemoTests__allTests()
     tests += __KcliTests__allTests()
 
     return tests

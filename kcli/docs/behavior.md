@@ -137,4 +137,4 @@ Notable cases:
 The Swift behavior is covered by:
 
 - [`../src/Tests/KcliTests/KcliTests.swift`](../src/Tests/KcliTests/KcliTests.swift)
-- [`../src/Tests/KcliDemoTests/KcliDemoTests.swift`](../src/Tests/KcliDemoTests/KcliDemoTests.swift)
+- [`../demo/Tests/KcliDemoTests/KcliDemoTests.swift`](../demo/Tests/KcliDemoTests/KcliDemoTests.swift)

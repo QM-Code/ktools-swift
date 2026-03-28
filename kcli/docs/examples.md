@@ -2,11 +2,11 @@
 
 This page shows a few common `kcli` patterns. For complete compiling examples, also see:
 
-- [`../src/Sources/KcliDemoAlpha/KcliDemoAlpha.swift`](../src/Sources/KcliDemoAlpha/KcliDemoAlpha.swift)
-- [`../src/Sources/KcliDemoBeta/KcliDemoBeta.swift`](../src/Sources/KcliDemoBeta/KcliDemoBeta.swift)
-- [`../src/Sources/KcliDemoGamma/KcliDemoGamma.swift`](../src/Sources/KcliDemoGamma/KcliDemoGamma.swift)
-- [`../src/Sources/KcliDemoCore/main.swift`](../src/Sources/KcliDemoCore/main.swift)
-- [`../src/Sources/KcliDemoOmega/main.swift`](../src/Sources/KcliDemoOmega/main.swift)
+- [`../demo/sdk/alpha/src/KcliDemoAlpha.swift`](../demo/sdk/alpha/src/KcliDemoAlpha.swift)
+- [`../demo/sdk/beta/src/KcliDemoBeta.swift`](../demo/sdk/beta/src/KcliDemoBeta.swift)
+- [`../demo/sdk/gamma/src/KcliDemoGamma.swift`](../demo/sdk/gamma/src/KcliDemoGamma.swift)
+- [`../demo/exe/core/src/main.swift`](../demo/exe/core/src/main.swift)
+- [`../demo/exe/omega/src/main.swift`](../demo/exe/omega/src/main.swift)
 
 ## Minimal Executable
 

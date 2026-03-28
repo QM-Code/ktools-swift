@@ -40,12 +40,13 @@ Direct SwiftPM flow:
 ```bash
 cd src
 swift test
+cd ../demo
 swift run ktrace-demo-core --trace '*.*'
 ```
 
 ## Demos
 
-Demo directories mirror the C++ layout even though the executable products live in the SwiftPM package:
+Demo source and build files live in the `demo/` SwiftPM package, matching the C++ layout:
 
 - Bootstrap compile/import check: [demo/bootstrap/README.md](demo/bootstrap/README.md)
 - SDK demos: [demo/sdk/alpha/README.md](demo/sdk/alpha/README.md), [demo/sdk/beta/README.md](demo/sdk/beta/README.md), [demo/sdk/gamma/README.md](demo/sdk/gamma/README.md)
@@ -54,7 +55,7 @@ Demo directories mirror the C++ layout even though the executable products live 
 Trace CLI examples:
 
 ```bash
-cd src
+cd demo
 swift run ktrace-demo-core --trace
 swift run ktrace-demo-core --trace '.*'
 swift run ktrace-demo-omega --trace '*.*'
@@ -180,3 +181,9 @@ Informational options:
 - `--trace-colors`
 
 `Logger` also registers an internal `ktrace` namespace for logger/runtime diagnostics, so calls such as `getNamespaces()` include `ktrace` once a `Logger` has been constructed.
+
+## Repository Layout
+
+- Public API: `src/Sources/Ktrace/`
+- Library tests: `src/Tests/`
+- Demo package and demo tests: `demo/`

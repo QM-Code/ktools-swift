@@ -11,9 +11,9 @@ Assume these have already been read:
 
 This repo owns the Swift API and implementation details for `kcli`, including:
 
-- the SwiftPM package under `src/`
+- the library SwiftPM package under `src/`
 - parser and inline-parser behavior
-- Swift demos and tests
+- the separate demo SwiftPM package under `demo/`
 - repo-local build config for the Swift workspace
 
 ## Local Bootstrap
@@ -22,8 +22,10 @@ When familiarizing yourself with this repo, read:
 
 - [README.md](README.md)
 - `src/Package.swift`
+- `demo/Package.swift`
 - `src/Sources/*`
 - `src/Tests/*`
+- `demo/**/*`
 
 ## Build And Test Expectations
 
