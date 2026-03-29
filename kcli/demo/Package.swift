@@ -4,7 +4,6 @@ import PackageDescription
 let package = Package(
     name: "KcliSwiftDemos",
     products: [
-        .library(name: "KcliDemoSupport", targets: ["KcliDemoSupport"]),
         .library(name: "KcliDemoAlpha", targets: ["KcliDemoAlpha"]),
         .library(name: "KcliDemoBeta", targets: ["KcliDemoBeta"]),
         .library(name: "KcliDemoGamma", targets: ["KcliDemoGamma"]),
@@ -17,26 +16,47 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "KcliDemoSupport",
+            name: "KcliDemoAlpha",
             dependencies: [
                 .product(name: "Kcli", package: "swiftpkg-kcli"),
             ],
-            path: "common/src"
-        ),
-        .target(
-            name: "KcliDemoAlpha",
-            dependencies: ["KcliDemoSupport"],
             path: "sdk/alpha/src"
         ),
         .target(
             name: "KcliDemoBeta",
-            dependencies: ["KcliDemoSupport"],
+            dependencies: [
+                .product(name: "Kcli", package: "swiftpkg-kcli"),
+            ],
             path: "sdk/beta/src"
         ),
         .target(
             name: "KcliDemoGamma",
-            dependencies: ["KcliDemoSupport"],
+            dependencies: [
+                .product(name: "Kcli", package: "swiftpkg-kcli"),
+            ],
             path: "sdk/gamma/src"
+        ),
+        .target(
+            name: "KcliDemoCoreSupport",
+            dependencies: [
+                .product(name: "Kcli", package: "swiftpkg-kcli"),
+                "KcliDemoAlpha",
+            ],
+            path: "exe/core",
+            exclude: ["README.md", "src", "build"],
+            sources: ["DemoCore.swift"]
+        ),
+        .target(
+            name: "KcliDemoOmegaSupport",
+            dependencies: [
+                .product(name: "Kcli", package: "swiftpkg-kcli"),
+                "KcliDemoAlpha",
+                "KcliDemoBeta",
+                "KcliDemoGamma",
+            ],
+            path: "exe/omega",
+            exclude: ["README.md", "src", "build"],
+            sources: ["DemoOmega.swift"]
         ),
         .executableTarget(
             name: "KcliDemoBootstrap",
@@ -47,17 +67,17 @@ let package = Package(
         ),
         .executableTarget(
             name: "KcliDemoCore",
-            dependencies: ["KcliDemoSupport"],
+            dependencies: ["KcliDemoCoreSupport"],
             path: "exe/core/src"
         ),
         .executableTarget(
             name: "KcliDemoOmega",
-            dependencies: ["KcliDemoSupport"],
+            dependencies: ["KcliDemoOmegaSupport"],
             path: "exe/omega/src"
         ),
         .testTarget(
             name: "KcliDemoTests",
-            dependencies: ["KcliDemoSupport"],
+            dependencies: ["KcliDemoCoreSupport", "KcliDemoOmegaSupport"],
             path: "Tests/KcliDemoTests"
         ),
     ]

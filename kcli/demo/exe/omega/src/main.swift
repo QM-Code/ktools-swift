@@ -1,4 +1,4 @@
-import KcliDemoSupport
+import KcliDemoOmegaSupport
 
 #if canImport(Darwin)
 import Darwin

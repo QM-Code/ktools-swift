@@ -1,5 +1,6 @@
 import XCTest
-@testable import KcliDemoSupport
+@testable import KcliDemoCoreSupport
+@testable import KcliDemoOmegaSupport
 
 final class KcliDemoTests: XCTestCase {
     func testCoreDemoRunsWithAlphaMessage() {

@@ -2,6 +2,8 @@
 
 `demo/` is a standalone SwiftPM package. Demo sources, demo tests, and demo build output live here to match the C++ repo layout.
 
+Each SDK demo is self-contained. The executable demos compose those SDK entities locally rather than through a shared demo support layer.
+
 Executable demo products:
 
 - `kcli-demo-bootstrap`
