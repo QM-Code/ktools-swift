@@ -99,7 +99,7 @@ swift run kcli-demo-omega --build
 
 ## Repository Layout
 
-- Public API: `src/Sources/Kcli/Kcli.swift`
+- Public API: `src/Sources/Kcli/`
 - Library tests: `src/Tests/`
 - Demo package and demo tests: `demo/`
 - Additional docs: `docs/`

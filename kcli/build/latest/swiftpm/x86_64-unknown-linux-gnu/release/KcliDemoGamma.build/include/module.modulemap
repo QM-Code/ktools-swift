@@ -1,3 +1,0 @@
-module KcliDemoGamma {
-    header "/home/karmak/dev/ktools/ktools-swift/kcli/build/latest/swiftpm/x86_64-unknown-linux-gnu/release/KcliDemoGamma.build/include/KcliDemoGamma-Swift.h"
-}

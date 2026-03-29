@@ -85,6 +85,6 @@ If you want complete compiling examples, start with:
 - [`../demo/sdk/alpha/src/KcliDemoAlpha.swift`](../demo/sdk/alpha/src/KcliDemoAlpha.swift)
 - [`../demo/exe/core/src/main.swift`](../demo/exe/core/src/main.swift)
 - [`../demo/exe/omega/src/main.swift`](../demo/exe/omega/src/main.swift)
-- [`../src/Tests/KcliTests/KcliTests.swift`](../src/Tests/KcliTests/KcliTests.swift)
+- [`../src/Tests/KcliTests/`](../src/Tests/KcliTests/)
 
-The public API contract lives in [`../src/Sources/Kcli/Kcli.swift`](../src/Sources/Kcli/Kcli.swift).
+The public API contract lives in [`../src/Sources/Kcli/`](../src/Sources/Kcli/).

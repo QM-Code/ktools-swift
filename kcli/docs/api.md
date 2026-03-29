@@ -1,6 +1,6 @@
 # API Guide
 
-The public Swift API lives in [`../src/Sources/Kcli/Kcli.swift`](../src/Sources/Kcli/Kcli.swift).
+The public Swift API lives in [`../src/Sources/Kcli/`](../src/Sources/Kcli/).
 
 ## Core Types
 
