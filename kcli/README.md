@@ -71,14 +71,14 @@ Direct SwiftPM flow:
 
 ```bash
 cd src
-swift test
+swift test --scratch-path ../build/latest/swiftpm
 cd ../demo
-swift run kcli-demo-core --alpha-message hello
+swift run --scratch-path ../build/latest/swiftpm-demo kcli-demo-core --alpha-message hello
 ```
 
 ## Demos
 
-Demo source and build files live in the `demo/` SwiftPM package, matching the C++ layout:
+Demo source files live in the `demo/` SwiftPM package, matching the C++ layout:
 
 - Bootstrap compile/import check: [demo/bootstrap/README.md](demo/bootstrap/README.md)
 - SDK demos: [demo/sdk/alpha/README.md](demo/sdk/alpha/README.md), [demo/sdk/beta/README.md](demo/sdk/beta/README.md), [demo/sdk/gamma/README.md](demo/sdk/gamma/README.md)
@@ -88,13 +88,13 @@ Useful demo commands:
 
 ```bash
 cd demo
-swift run kcli-demo-bootstrap
-swift run kcli-demo-core --alpha
-swift run kcli-demo-core --alpha-message hello
-swift run kcli-demo-core --output stdout
-swift run kcli-demo-omega --beta-workers 8
-swift run kcli-demo-omega --newgamma-tag prod
-swift run kcli-demo-omega --build
+swift run --scratch-path ../build/latest/swiftpm-demo kcli-demo-bootstrap
+swift run --scratch-path ../build/latest/swiftpm-demo kcli-demo-core --alpha
+swift run --scratch-path ../build/latest/swiftpm-demo kcli-demo-core --alpha-message hello
+swift run --scratch-path ../build/latest/swiftpm-demo kcli-demo-core --output stdout
+swift run --scratch-path ../build/latest/swiftpm-demo kcli-demo-omega --beta-workers 8
+swift run --scratch-path ../build/latest/swiftpm-demo kcli-demo-omega --newgamma-tag prod
+swift run --scratch-path ../build/latest/swiftpm-demo kcli-demo-omega --build
 ```
 
 ## Repository Layout

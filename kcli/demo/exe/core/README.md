@@ -12,8 +12,8 @@ This demo shows:
 Run from [`demo/`](../../README.md):
 
 ```bash
-swift run kcli-demo-core --alpha
-swift run kcli-demo-core --alpha-message hello
-swift run kcli-demo-core --output stdout
-swift run kcli-demo-core -a
+swift run --scratch-path ../build/latest/swiftpm-demo kcli-demo-core --alpha
+swift run --scratch-path ../build/latest/swiftpm-demo kcli-demo-core --alpha-message hello
+swift run --scratch-path ../build/latest/swiftpm-demo kcli-demo-core --output stdout
+swift run --scratch-path ../build/latest/swiftpm-demo kcli-demo-core -a
 ```

@@ -18,10 +18,10 @@ Implementation:
 Run from [`demo/`](../../README.md):
 
 ```bash
-swift run ktrace-demo-omega --trace '*.*'
-swift run ktrace-demo-omega --trace '*.{net,io}'
-swift run ktrace-demo-omega --trace-examples
-swift run ktrace-demo-omega --trace-files --trace '*.*'
-swift run ktrace-demo-omega --trace-functions --trace '*.*'
-swift run ktrace-demo-omega --trace-timestamps --trace '*.*'
+swift run --scratch-path ../build/latest/swiftpm-demo ktrace-demo-omega --trace '*.*'
+swift run --scratch-path ../build/latest/swiftpm-demo ktrace-demo-omega --trace '*.{net,io}'
+swift run --scratch-path ../build/latest/swiftpm-demo ktrace-demo-omega --trace-examples
+swift run --scratch-path ../build/latest/swiftpm-demo ktrace-demo-omega --trace-files --trace '*.*'
+swift run --scratch-path ../build/latest/swiftpm-demo ktrace-demo-omega --trace-functions --trace '*.*'
+swift run --scratch-path ../build/latest/swiftpm-demo ktrace-demo-omega --trace-timestamps --trace '*.*'
 ```

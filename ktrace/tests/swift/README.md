@@ -7,11 +7,14 @@ Test targets:
 - `KtraceTests`: trace API, selector, and formatting coverage
 - `KtraceDemoTests`: CLI integration and demo contract coverage
 
-Run from the package root when a Swift toolchain is available:
+Run from the relevant package root when a Swift toolchain is available:
 
 ```bash
 cd src
-swift test
-swift test --filter KtraceTests
-swift test --filter KtraceDemoTests
+swift test --scratch-path ../build/latest/swiftpm
+swift test --scratch-path ../build/latest/swiftpm --filter KtraceTests
+
+cd ../demo
+swift test --scratch-path ../build/latest/swiftpm-demo
+swift test --scratch-path ../build/latest/swiftpm-demo --filter KtraceDemoTests
 ```

@@ -39,14 +39,14 @@ Direct SwiftPM flow:
 
 ```bash
 cd src
-swift test
+swift test --scratch-path ../build/latest/swiftpm
 cd ../demo
-swift run ktrace-demo-core --trace '*.*'
+swift run --scratch-path ../build/latest/swiftpm-demo ktrace-demo-core --trace '*.*'
 ```
 
 ## Demos
 
-Demo source and build files live in the `demo/` SwiftPM package, matching the C++ layout:
+Demo source files live in the `demo/` SwiftPM package, matching the C++ layout:
 
 - Bootstrap compile/import check: [demo/bootstrap/README.md](demo/bootstrap/README.md)
 - SDK demos: [demo/sdk/alpha/README.md](demo/sdk/alpha/README.md), [demo/sdk/beta/README.md](demo/sdk/beta/README.md), [demo/sdk/gamma/README.md](demo/sdk/gamma/README.md)
@@ -56,18 +56,18 @@ Trace CLI examples:
 
 ```bash
 cd demo
-swift run ktrace-demo-core --trace
-swift run ktrace-demo-core --trace '.*'
-swift run ktrace-demo-omega --trace '*.*'
-swift run ktrace-demo-omega --trace '*.*.*.*'
-swift run ktrace-demo-omega --trace '*.{net,io}'
-swift run ktrace-demo-omega --trace-examples
-swift run ktrace-demo-omega --trace-namespaces
-swift run ktrace-demo-omega --trace-channels
-swift run ktrace-demo-omega --trace-colors
-swift run ktrace-demo-omega --trace-files --trace '*.*'
-swift run ktrace-demo-omega --trace-functions --trace '*.*'
-swift run ktrace-demo-omega --trace-timestamps --trace '*.*'
+swift run --scratch-path ../build/latest/swiftpm-demo ktrace-demo-core --trace
+swift run --scratch-path ../build/latest/swiftpm-demo ktrace-demo-core --trace '.*'
+swift run --scratch-path ../build/latest/swiftpm-demo ktrace-demo-omega --trace '*.*'
+swift run --scratch-path ../build/latest/swiftpm-demo ktrace-demo-omega --trace '*.*.*.*'
+swift run --scratch-path ../build/latest/swiftpm-demo ktrace-demo-omega --trace '*.{net,io}'
+swift run --scratch-path ../build/latest/swiftpm-demo ktrace-demo-omega --trace-examples
+swift run --scratch-path ../build/latest/swiftpm-demo ktrace-demo-omega --trace-namespaces
+swift run --scratch-path ../build/latest/swiftpm-demo ktrace-demo-omega --trace-channels
+swift run --scratch-path ../build/latest/swiftpm-demo ktrace-demo-omega --trace-colors
+swift run --scratch-path ../build/latest/swiftpm-demo ktrace-demo-omega --trace-files --trace '*.*'
+swift run --scratch-path ../build/latest/swiftpm-demo ktrace-demo-omega --trace-functions --trace '*.*'
+swift run --scratch-path ../build/latest/swiftpm-demo ktrace-demo-omega --trace-timestamps --trace '*.*'
 ```
 
 ## API Model

@@ -9,5 +9,5 @@ Implementation:
 Run from [`demo/`](../README.md):
 
 ```bash
-swift run ktrace-demo-bootstrap
+swift run --scratch-path ../build/latest/swiftpm-demo ktrace-demo-bootstrap
 ```

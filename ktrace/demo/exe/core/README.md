@@ -18,7 +18,7 @@ Implementation:
 Run from [`demo/`](../../README.md):
 
 ```bash
-swift run ktrace-demo-core --trace
-swift run ktrace-demo-core --trace '*.*'
-swift run ktrace-demo-core --trace '.*' --trace-timestamps
+swift run --scratch-path ../build/latest/swiftpm-demo ktrace-demo-core --trace
+swift run --scratch-path ../build/latest/swiftpm-demo ktrace-demo-core --trace '*.*'
+swift run --scratch-path ../build/latest/swiftpm-demo ktrace-demo-core --trace '.*' --trace-timestamps
 ```

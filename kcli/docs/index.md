@@ -72,10 +72,10 @@ Use `parseOrThrow()` when:
 
 ```bash
 cd src
-swift test
+swift test --scratch-path ../build/latest/swiftpm
 cd ../demo
-swift run kcli-demo-core --alpha-message hello
-swift run kcli-demo-omega --build
+swift run --scratch-path ../build/latest/swiftpm-demo kcli-demo-core --alpha-message hello
+swift run --scratch-path ../build/latest/swiftpm-demo kcli-demo-omega --build
 ```
 
 ## Working References

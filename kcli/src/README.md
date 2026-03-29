@@ -22,5 +22,5 @@ Test targets:
 
 ```bash
 cd src
-swift test
+swift test --scratch-path ../build/latest/swiftpm
 ```

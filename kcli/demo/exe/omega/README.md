@@ -12,9 +12,9 @@ This demo exercises:
 Run from [`demo/`](../../README.md):
 
 ```bash
-swift run kcli-demo-omega --beta-workers 8
-swift run kcli-demo-omega --newgamma-tag prod
-swift run kcli-demo-omega --build
-swift run kcli-demo-omega -a
-swift run kcli-demo-omega -b release
+swift run --scratch-path ../build/latest/swiftpm-demo kcli-demo-omega --beta-workers 8
+swift run --scratch-path ../build/latest/swiftpm-demo kcli-demo-omega --newgamma-tag prod
+swift run --scratch-path ../build/latest/swiftpm-demo kcli-demo-omega --build
+swift run --scratch-path ../build/latest/swiftpm-demo kcli-demo-omega -a
+swift run --scratch-path ../build/latest/swiftpm-demo kcli-demo-omega -b release
 ```

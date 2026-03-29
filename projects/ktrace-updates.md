@@ -23,32 +23,26 @@ package.
 
 ## Current Gaps
 
-- A substantial amount of generated output is still tracked under
-  `ktrace/build/latest`, `ktrace/src/.build`, `ktrace/demo/.build`, and staged
-  demo build trees.
-- `ktrace/demo/common/` and the `KtraceDemoSupport` target exist and are the
-  wrong demo structure.
+- Empty leftover `ktrace/demo/common/` directories are still present and should
+  be removed.
+- `src/Sources/Ktrace/Ktrace.swift` still carries a large amount of library
+  behavior in one file.
 - The demo package should be re-audited as contract material alongside the
   library package.
 - README/docs/package metadata should be checked so they describe the current
-  split structure directly.
+  split structure directly and do not normalize source-tree build noise.
 
 ## Work Plan
 
-1. Clean the repo aggressively.
-- Remove tracked generated artifacts from `build/latest`, `src/.build`,
-  `demo/.build`, and staged demo build trees.
-- Tighten ignore rules so build products do not return.
+1. Finish the demo cleanup cleanly.
+- Remove the now-empty `ktrace/demo/common/` leftovers.
+- Keep the demo package readable as bootstrap/sdk/exe entities with local
+  composition support where needed.
 
-2. Eliminate shared demo code.
-- Remove `ktrace/demo/common/`.
-- Remove the `KtraceDemoSupport` shared demo target.
-- Make `demo/sdk/alpha`, `demo/sdk/beta`, and `demo/sdk/gamma` self-contained.
-- Keep bootstrap-specific logic under `demo/bootstrap/`.
-- Keep executable composition logic under `demo/exe/core/` and
-  `demo/exe/omega/`.
-- Do not replace the current shared support target with another disguised demo
-  common layer.
+2. Revisit the main library file.
+- Review whether `src/Sources/Ktrace/Ktrace.swift` should be split into smaller,
+  coherent pieces.
+- Keep the public Swift package easy to follow for a non-Swift reviewer.
 
 3. Re-audit behavior against C++.
 - Verify channel registration, selector parsing, output options, operational
@@ -81,6 +75,7 @@ package.
 
 ## Done When
 
-- Generated build output no longer dominates the repo.
-- Shared demo code is gone from the Swift demo package.
+- Leftover demo-common directories are gone.
+- The main library file is no longer carrying more responsibility than it
+  should.
 - Library tests and demo checks together cover the contract cleanly.

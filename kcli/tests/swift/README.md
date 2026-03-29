@@ -12,10 +12,10 @@ Run from the relevant package root when a Swift toolchain is available:
 
 ```bash
 cd src
-swift test
-swift test --filter KcliTests
+swift test --scratch-path ../build/latest/swiftpm
+swift test --scratch-path ../build/latest/swiftpm --filter KcliTests
 
 cd ../demo
-swift test
-swift test --filter KcliDemoTests
+swift test --scratch-path ../build/latest/swiftpm-demo
+swift test --scratch-path ../build/latest/swiftpm-demo --filter KcliDemoTests
 ```
