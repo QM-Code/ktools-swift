@@ -10,6 +10,11 @@ This demo exercises:
 - wildcard and brace-selector coverage across nested channels
 - informational trace options such as `--trace-examples` and `--trace-namespaces`
 
+Implementation:
+
+- support logic: [`support/DemoOmega.swift`](support/DemoOmega.swift)
+- executable entrypoint: [`src/main.swift`](src/main.swift)
+
 Run from [`demo/`](../../README.md):
 
 ```bash

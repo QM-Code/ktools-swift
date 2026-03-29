@@ -1,4 +1,4 @@
-import KtraceDemoSupport
+import KtraceDemoCoreSupport
 
 #if canImport(Darwin)
 import Darwin

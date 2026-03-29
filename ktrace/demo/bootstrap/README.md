@@ -2,6 +2,10 @@
 
 Import and integration smoke test for the Swift `Ktrace` package.
 
+Implementation:
+
+- `src/main.swift`
+
 Run from [`demo/`](../README.md):
 
 ```bash

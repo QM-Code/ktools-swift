@@ -1,6 +1,7 @@
 import Foundation
 import XCTest
-@testable import KtraceDemoSupport
+@testable import KtraceDemoCoreSupport
+@testable import KtraceDemoOmegaSupport
 
 #if canImport(Darwin)
 import Darwin

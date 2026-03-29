@@ -15,6 +15,14 @@ final class KtraceTests: XCTestCase {
         XCTAssertTrue(output.contains("value 42 {ok}"))
     }
 
+    func testFormatErrorsMirrorContract() throws {
+        XCTAssertThrowsError(try emitInvalidFormat("value {} {}", 7))
+        XCTAssertThrowsError(try emitInvalidFormat("value", 7))
+        XCTAssertThrowsError(try emitInvalidFormat("{", 7))
+        XCTAssertThrowsError(try emitInvalidFormat("}", 7))
+        XCTAssertThrowsError(try emitInvalidFormat("{:x}", 7))
+    }
+
     func testOperationalLoggingIncludesSeverity() throws {
         var output = ""
         let logger = Logger(output: { output += $0 })
@@ -30,6 +38,31 @@ final class KtraceTests: XCTestCase {
         XCTAssertTrue(output.contains("[tests] [warning]"))
         XCTAssertTrue(output.contains("[tests] [error]"))
         XCTAssertTrue(output.contains("warn value 7"))
+    }
+
+    func testOperationalLoggingIncludesSourceLocationWhenEnabled() throws {
+        var output = ""
+        let logger = Logger(output: { output += $0 })
+        let trace = try TraceLogger("tests")
+        try logger.addTraceLogger(trace)
+        logger.setOutputOptions(OutputOptions(true, true, false, false))
+
+        let infoLine = #line + 1
+        try trace.info("info message")
+        let warnLine = #line + 1
+        try trace.warn("warn value {}", 7)
+        let errorLine = #line + 1
+        try trace.error("error message")
+
+        XCTAssertTrue(output.hasPrefix("[tests] [info] "))
+        XCTAssertTrue(output.contains("\n[tests] [warning] "))
+        XCTAssertTrue(output.contains("\n[tests] [error] "))
+        XCTAssertTrue(output.contains("KtraceTests.swift:\(infoLine)"))
+        XCTAssertTrue(output.contains("KtraceTests.swift:\(warnLine)"))
+        XCTAssertTrue(output.contains("KtraceTests.swift:\(errorLine)"))
+        XCTAssertFalse(output.contains("[info] [tests] [info]"))
+        XCTAssertFalse(output.contains("[warning] [tests] [warning]"))
+        XCTAssertFalse(output.contains("[error] [tests] [error]"))
     }
 
     func testSelectorSemantics() throws {
@@ -52,9 +85,16 @@ final class KtraceTests: XCTestCase {
         XCTAssertTrue(logger.shouldTraceChannel("tests.net"))
         XCTAssertFalse(logger.shouldTraceChannel("tests.cache"))
 
-        try logger.enableChannels("*.*.*.*")
+        try logger.enableChannels("*.*.*")
         XCTAssertTrue(logger.shouldTraceChannel("tests.store.requests"))
+        XCTAssertTrue(logger.shouldTraceChannel("tests.net"))
         XCTAssertFalse(logger.shouldTraceChannel("tests.bad name"))
+
+        try logger.enableChannel("tests.missing.child")
+        XCTAssertFalse(logger.shouldTraceChannel("tests.missing.child"))
+
+        try logger.enableChannels("tests.missing.child")
+        XCTAssertFalse(logger.shouldTraceChannel("tests.missing.child"))
     }
 
     func testLocalNamespaceSelectorSemantics() throws {
@@ -133,5 +173,12 @@ final class KtraceTests: XCTestCase {
 
     private func emitChanged(_ trace: TraceLogger, key: String) throws {
         try trace.traceChanged("changed", key, "changed")
+    }
+
+    private func emitInvalidFormat(_ format: String, _ arg: Any) throws {
+        let logger = Logger(output: { _ in })
+        let trace = try TraceLogger("tests")
+        try logger.addTraceLogger(trace)
+        try trace.warn(format, arg)
     }
 }

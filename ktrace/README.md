@@ -65,9 +65,9 @@ swift run ktrace-demo-omega --trace-examples
 swift run ktrace-demo-omega --trace-namespaces
 swift run ktrace-demo-omega --trace-channels
 swift run ktrace-demo-omega --trace-colors
-swift run ktrace-demo-omega --trace-files
-swift run ktrace-demo-omega --trace-functions
-swift run ktrace-demo-omega --trace-timestamps
+swift run ktrace-demo-omega --trace-files --trace '*.*'
+swift run ktrace-demo-omega --trace-functions --trace '*.*'
+swift run ktrace-demo-omega --trace-timestamps --trace '*.*'
 ```
 
 ## API Model
@@ -187,3 +187,4 @@ Informational options:
 - Public API: `src/Sources/Ktrace/`
 - Library tests: `src/Tests/`
 - Demo package and demo tests: `demo/`
+- Executable composition support: `demo/exe/core/support/DemoCore.swift`, `demo/exe/omega/support/DemoOmega.swift`

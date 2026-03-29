@@ -2,6 +2,11 @@
 
 `demo/` is a standalone SwiftPM package. Demo sources, demo tests, and demo build output live here to match the C++ repo layout.
 
+Executable support code lives with the executable that owns it:
+
+- `exe/core/support/DemoCore.swift`
+- `exe/omega/support/DemoOmega.swift`
+
 Executable demo products:
 
 - `ktrace-demo-bootstrap`

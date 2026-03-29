@@ -7,7 +7,6 @@ let package = Package(
         .library(name: "KtraceDemoAlpha", targets: ["KtraceDemoAlpha"]),
         .library(name: "KtraceDemoBeta", targets: ["KtraceDemoBeta"]),
         .library(name: "KtraceDemoGamma", targets: ["KtraceDemoGamma"]),
-        .library(name: "KtraceDemoSupport", targets: ["KtraceDemoSupport"]),
         .executable(name: "ktrace-demo-bootstrap", targets: ["KtraceDemoBootstrap"]),
         .executable(name: "ktrace-demo-core", targets: ["KtraceDemoCore"]),
         .executable(name: "ktrace-demo-omega", targets: ["KtraceDemoOmega"]),
@@ -39,34 +38,45 @@ let package = Package(
             path: "sdk/gamma/src"
         ),
         .target(
-            name: "KtraceDemoSupport",
+            name: "KtraceDemoCoreSupport",
             dependencies: [
                 .product(name: "Ktrace", package: "swiftpkg-ktrace"),
+                .product(name: "Kcli", package: "swiftpkg-kcli"),
+                "KtraceDemoAlpha",
+            ],
+            path: "exe/core/support"
+        ),
+        .target(
+            name: "KtraceDemoOmegaSupport",
+            dependencies: [
+                .product(name: "Ktrace", package: "swiftpkg-ktrace"),
+                .product(name: "Kcli", package: "swiftpkg-kcli"),
                 "KtraceDemoAlpha",
                 "KtraceDemoBeta",
                 "KtraceDemoGamma",
-                .product(name: "Kcli", package: "swiftpkg-kcli"),
             ],
-            path: "common/src"
+            path: "exe/omega/support"
         ),
         .executableTarget(
             name: "KtraceDemoBootstrap",
-            dependencies: ["KtraceDemoSupport"],
+            dependencies: [
+                .product(name: "Ktrace", package: "swiftpkg-ktrace"),
+            ],
             path: "bootstrap/src"
         ),
         .executableTarget(
             name: "KtraceDemoCore",
-            dependencies: ["KtraceDemoSupport"],
+            dependencies: ["KtraceDemoCoreSupport"],
             path: "exe/core/src"
         ),
         .executableTarget(
             name: "KtraceDemoOmega",
-            dependencies: ["KtraceDemoSupport"],
+            dependencies: ["KtraceDemoOmegaSupport"],
             path: "exe/omega/src"
         ),
         .testTarget(
             name: "KtraceDemoTests",
-            dependencies: ["KtraceDemoSupport"],
+            dependencies: ["KtraceDemoCoreSupport", "KtraceDemoOmegaSupport"],
             path: "Tests/KtraceDemoTests"
         ),
     ]

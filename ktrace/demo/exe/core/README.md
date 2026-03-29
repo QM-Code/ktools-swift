@@ -10,6 +10,11 @@ This demo shows:
 - local CLI integration through `parser.addInlineParser(logger.makeInlineParser(localTraceLogger))`
 - bare-root trace help with `--trace`
 
+Implementation:
+
+- support logic: [`support/DemoCore.swift`](support/DemoCore.swift)
+- executable entrypoint: [`src/main.swift`](src/main.swift)
+
 Run from [`demo/`](../../README.md):
 
 ```bash
