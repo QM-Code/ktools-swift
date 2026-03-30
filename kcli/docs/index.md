@@ -33,7 +33,7 @@ try parser.setHandler("--verbose",
                       handler: handleVerbose,
                       description: "Enable verbose logging.")
 
-try parser.parseOrThrow(CommandLine.arguments)
+try parser.parse(CommandLine.arguments)
 ```
 
 ## Core Concepts
@@ -52,7 +52,7 @@ try parser.parseOrThrow(CommandLine.arguments)
 
 `CliError`
 
-- Used by `parseOrThrow()` to surface invalid CLI input and handler failures.
+- Used by `parse()` to surface invalid CLI input and handler failures.
 
 ## Which Entry Point Should I Use?
 
@@ -62,7 +62,7 @@ Use `parseOrExit()` when:
 - invalid CLI input should print a standardized error and exit with code `2`
 - you do not need custom formatting or recovery
 
-Use `parseOrThrow()` when:
+Use `parse()` when:
 
 - you want custom error formatting
 - you want custom exit codes

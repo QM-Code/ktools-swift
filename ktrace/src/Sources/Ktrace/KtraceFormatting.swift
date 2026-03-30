@@ -10,9 +10,7 @@ func emitTrace(_ logger: LoggerStorage,
                                label: channel,
                                source: source,
                                message: message)
-    withLock(logger.outputLock) {
-        logger.output(payload)
-    }
+    logger.emit(payload)
 }
 
 func emitLog(_ logger: LoggerStorage,
@@ -25,9 +23,7 @@ func emitLog(_ logger: LoggerStorage,
                                label: severity.rawValue,
                                source: source,
                                message: message)
-    withLock(logger.outputLock) {
-        logger.output(payload)
-    }
+    logger.emit(payload)
 }
 
 func formatOutput(logger: LoggerStorage,
@@ -35,7 +31,7 @@ func formatOutput(logger: LoggerStorage,
                   label: String,
                   source: SourceContext,
                   message: String) -> String {
-    let options = withLock(logger.outputLock) { logger.options }
+    let options = logger.outputOptions
     var parts = ["[\(traceNamespace)]"]
     if options.timestamps {
         parts.append("[\(formatTimestamp(Date().timeIntervalSince1970))]")

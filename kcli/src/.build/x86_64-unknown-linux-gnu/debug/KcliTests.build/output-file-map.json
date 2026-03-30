@@ -1,0 +1,47 @@
+{
+  "": {
+    "swift-dependencies": "/home/karmak/dev/ktools/ktools-swift/kcli/src/.build/x86_64-unknown-linux-gnu/debug/KcliTests.build/primary.swiftdeps"
+  },
+  "/home/karmak/dev/ktools/ktools-swift/kcli/src/Tests/KcliTests/AliasBehaviorTests.swift": {
+    "dependencies": "/home/karmak/dev/ktools/ktools-swift/kcli/src/.build/x86_64-unknown-linux-gnu/debug/KcliTests.build/AliasBehaviorTests.d",
+    "object": "/home/karmak/dev/ktools/ktools-swift/kcli/src/.build/x86_64-unknown-linux-gnu/debug/KcliTests.build/AliasBehaviorTests.swift.o",
+    "swiftmodule": "/home/karmak/dev/ktools/ktools-swift/kcli/src/.build/x86_64-unknown-linux-gnu/debug/KcliTests.build/AliasBehaviorTests~partial.swiftmodule",
+    "swift-dependencies": "/home/karmak/dev/ktools/ktools-swift/kcli/src/.build/x86_64-unknown-linux-gnu/debug/KcliTests.build/AliasBehaviorTests.swiftdeps",
+    "diagnostics": "/home/karmak/dev/ktools/ktools-swift/kcli/src/.build/x86_64-unknown-linux-gnu/debug/KcliTests.build/AliasBehaviorTests.dia"
+  },
+  "/home/karmak/dev/ktools/ktools-swift/kcli/src/Tests/KcliTests/ConfigurationValidationTests.swift": {
+    "dependencies": "/home/karmak/dev/ktools/ktools-swift/kcli/src/.build/x86_64-unknown-linux-gnu/debug/KcliTests.build/ConfigurationValidationTests.d",
+    "object": "/home/karmak/dev/ktools/ktools-swift/kcli/src/.build/x86_64-unknown-linux-gnu/debug/KcliTests.build/ConfigurationValidationTests.swift.o",
+    "swiftmodule": "/home/karmak/dev/ktools/ktools-swift/kcli/src/.build/x86_64-unknown-linux-gnu/debug/KcliTests.build/ConfigurationValidationTests~partial.swiftmodule",
+    "swift-dependencies": "/home/karmak/dev/ktools/ktools-swift/kcli/src/.build/x86_64-unknown-linux-gnu/debug/KcliTests.build/ConfigurationValidationTests.swiftdeps",
+    "diagnostics": "/home/karmak/dev/ktools/ktools-swift/kcli/src/.build/x86_64-unknown-linux-gnu/debug/KcliTests.build/ConfigurationValidationTests.dia"
+  },
+  "/home/karmak/dev/ktools/ktools-swift/kcli/src/Tests/KcliTests/ErrorHandlingTests.swift": {
+    "dependencies": "/home/karmak/dev/ktools/ktools-swift/kcli/src/.build/x86_64-unknown-linux-gnu/debug/KcliTests.build/ErrorHandlingTests.d",
+    "object": "/home/karmak/dev/ktools/ktools-swift/kcli/src/.build/x86_64-unknown-linux-gnu/debug/KcliTests.build/ErrorHandlingTests.swift.o",
+    "swiftmodule": "/home/karmak/dev/ktools/ktools-swift/kcli/src/.build/x86_64-unknown-linux-gnu/debug/KcliTests.build/ErrorHandlingTests~partial.swiftmodule",
+    "swift-dependencies": "/home/karmak/dev/ktools/ktools-swift/kcli/src/.build/x86_64-unknown-linux-gnu/debug/KcliTests.build/ErrorHandlingTests.swiftdeps",
+    "diagnostics": "/home/karmak/dev/ktools/ktools-swift/kcli/src/.build/x86_64-unknown-linux-gnu/debug/KcliTests.build/ErrorHandlingTests.dia"
+  },
+  "/home/karmak/dev/ktools/ktools-swift/kcli/src/Tests/KcliTests/InlineParserTests.swift": {
+    "dependencies": "/home/karmak/dev/ktools/ktools-swift/kcli/src/.build/x86_64-unknown-linux-gnu/debug/KcliTests.build/InlineParserTests.d",
+    "object": "/home/karmak/dev/ktools/ktools-swift/kcli/src/.build/x86_64-unknown-linux-gnu/debug/KcliTests.build/InlineParserTests.swift.o",
+    "swiftmodule": "/home/karmak/dev/ktools/ktools-swift/kcli/src/.build/x86_64-unknown-linux-gnu/debug/KcliTests.build/InlineParserTests~partial.swiftmodule",
+    "swift-dependencies": "/home/karmak/dev/ktools/ktools-swift/kcli/src/.build/x86_64-unknown-linux-gnu/debug/KcliTests.build/InlineParserTests.swiftdeps",
+    "diagnostics": "/home/karmak/dev/ktools/ktools-swift/kcli/src/.build/x86_64-unknown-linux-gnu/debug/KcliTests.build/InlineParserTests.dia"
+  },
+  "/home/karmak/dev/ktools/ktools-swift/kcli/src/Tests/KcliTests/ParseLifecycleTests.swift": {
+    "dependencies": "/home/karmak/dev/ktools/ktools-swift/kcli/src/.build/x86_64-unknown-linux-gnu/debug/KcliTests.build/ParseLifecycleTests.d",
+    "object": "/home/karmak/dev/ktools/ktools-swift/kcli/src/.build/x86_64-unknown-linux-gnu/debug/KcliTests.build/ParseLifecycleTests.swift.o",
+    "swiftmodule": "/home/karmak/dev/ktools/ktools-swift/kcli/src/.build/x86_64-unknown-linux-gnu/debug/KcliTests.build/ParseLifecycleTests~partial.swiftmodule",
+    "swift-dependencies": "/home/karmak/dev/ktools/ktools-swift/kcli/src/.build/x86_64-unknown-linux-gnu/debug/KcliTests.build/ParseLifecycleTests.swiftdeps",
+    "diagnostics": "/home/karmak/dev/ktools/ktools-swift/kcli/src/.build/x86_64-unknown-linux-gnu/debug/KcliTests.build/ParseLifecycleTests.dia"
+  },
+  "/home/karmak/dev/ktools/ktools-swift/kcli/src/Tests/KcliTests/ValueHandlingTests.swift": {
+    "dependencies": "/home/karmak/dev/ktools/ktools-swift/kcli/src/.build/x86_64-unknown-linux-gnu/debug/KcliTests.build/ValueHandlingTests.d",
+    "object": "/home/karmak/dev/ktools/ktools-swift/kcli/src/.build/x86_64-unknown-linux-gnu/debug/KcliTests.build/ValueHandlingTests.swift.o",
+    "swiftmodule": "/home/karmak/dev/ktools/ktools-swift/kcli/src/.build/x86_64-unknown-linux-gnu/debug/KcliTests.build/ValueHandlingTests~partial.swiftmodule",
+    "swift-dependencies": "/home/karmak/dev/ktools/ktools-swift/kcli/src/.build/x86_64-unknown-linux-gnu/debug/KcliTests.build/ValueHandlingTests.swiftdeps",
+    "diagnostics": "/home/karmak/dev/ktools/ktools-swift/kcli/src/.build/x86_64-unknown-linux-gnu/debug/KcliTests.build/ValueHandlingTests.dia"
+  }
+}

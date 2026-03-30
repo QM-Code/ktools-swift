@@ -19,7 +19,7 @@ final class InlineParserTests: XCTestCase {
         }, description: "Set build profile.")
         try parser.addInlineParser(build)
 
-        try parser.parseOrThrow(["prog", "--build-profile", "release"])
+        try parser.parse(["prog", "--build-profile", "release"])
         XCTAssertEqual(seenContext.root, "build")
         XCTAssertEqual(seenContext.option, "--build-profile")
         XCTAssertEqual(seenContext.command, "profile")
@@ -40,7 +40,7 @@ final class InlineParserTests: XCTestCase {
         try build.setHandler("-value", handler: { _, _ in }, description: "Set build value.")
         try parser.addInlineParser(build)
 
-        try parser.parseOrThrow(argv)
+        try parser.parse(argv)
         XCTAssertTrue(output.contains("Available --build-* options:"))
         XCTAssertTrue(output.contains("--build-flag"))
         XCTAssertTrue(output.contains("--build-value <value>"))
@@ -62,7 +62,7 @@ final class InlineParserTests: XCTestCase {
         }, description: "Load config from a file.")
         try parser.addInlineParser(config)
 
-        try parser.parseOrThrow(argv)
+        try parser.parse(argv)
         XCTAssertTrue(output.contains("--config <assignment>"))
         XCTAssertTrue(output.contains("Store a config assignment."))
         XCTAssertTrue(output.contains("--config-load <value>"))
@@ -83,7 +83,7 @@ final class InlineParserTests: XCTestCase {
         try parser.addInlineParser(build)
 
         let argv = ["prog", "--build", "fast", "mode"]
-        try parser.parseOrThrow(argv)
+        try parser.parse(argv)
 
         XCTAssertEqual(capturedValue, "fast mode")
         XCTAssertEqual(capturedTokens, ["fast", "mode"])
@@ -96,10 +96,10 @@ final class InlineParserTests: XCTestCase {
         try parser.addInlineParser(InlineParser("--build"))
 
         do {
-            try parser.parseOrThrow(["prog", "--build", "release"])
+            try parser.parse(["prog", "--build", "release"])
             XCTFail("expected parse to fail")
         } catch let error as CliError {
-            XCTAssertEqual(error.option(), "--build")
+            XCTAssertEqual(error.option, "--build")
             XCTAssertEqual(error.message, "unknown value for option '--build'")
         }
     }
@@ -112,10 +112,10 @@ final class InlineParserTests: XCTestCase {
         try parser.addInlineParser(build)
 
         do {
-            try parser.parseOrThrow(["prog", "--build-unknown"])
+            try parser.parse(["prog", "--build-unknown"])
             XCTFail("expected parse to fail")
         } catch let error as CliError {
-            XCTAssertEqual(error.option(), "--build-unknown")
+            XCTAssertEqual(error.option, "--build-unknown")
             XCTAssertEqual(error.message, "unknown option --build-unknown")
         }
     }
@@ -132,7 +132,7 @@ final class InlineParserTests: XCTestCase {
         try parser.addInlineParser(gamma)
 
         let argv = ["prog", "--newgamma-tag", "prod"]
-        try parser.parseOrThrow(argv)
+        try parser.parse(argv)
 
         XCTAssertEqual(tag, "prod")
         XCTAssertEqual(argv, ["prog", "--newgamma-tag", "prod"])

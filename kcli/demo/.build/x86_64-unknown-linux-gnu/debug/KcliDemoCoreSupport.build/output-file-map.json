@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/home/karmak/dev/ktools/ktools-swift/kcli/demo/.build/x86_64-unknown-linux-gnu/debug/KcliDemoCoreSupport.build/primary.swiftdeps"
+  },
+  "/home/karmak/dev/ktools/ktools-swift/kcli/demo/exe/core/DemoCore.swift": {
+    "dependencies": "/home/karmak/dev/ktools/ktools-swift/kcli/demo/.build/x86_64-unknown-linux-gnu/debug/KcliDemoCoreSupport.build/DemoCore.d",
+    "object": "/home/karmak/dev/ktools/ktools-swift/kcli/demo/.build/x86_64-unknown-linux-gnu/debug/KcliDemoCoreSupport.build/DemoCore.swift.o",
+    "swiftmodule": "/home/karmak/dev/ktools/ktools-swift/kcli/demo/.build/x86_64-unknown-linux-gnu/debug/KcliDemoCoreSupport.build/DemoCore~partial.swiftmodule",
+    "swift-dependencies": "/home/karmak/dev/ktools/ktools-swift/kcli/demo/.build/x86_64-unknown-linux-gnu/debug/KcliDemoCoreSupport.build/DemoCore.swiftdeps",
+    "diagnostics": "/home/karmak/dev/ktools/ktools-swift/kcli/demo/.build/x86_64-unknown-linux-gnu/debug/KcliDemoCoreSupport.build/DemoCore.dia"
+  }
+}

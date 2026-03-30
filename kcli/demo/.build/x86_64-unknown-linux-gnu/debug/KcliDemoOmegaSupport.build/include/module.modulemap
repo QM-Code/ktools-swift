@@ -1,0 +1,3 @@
+module KcliDemoOmegaSupport {
+    header "/home/karmak/dev/ktools/ktools-swift/kcli/demo/.build/x86_64-unknown-linux-gnu/debug/KcliDemoOmegaSupport.build/include/KcliDemoOmegaSupport-Swift.h"
+}

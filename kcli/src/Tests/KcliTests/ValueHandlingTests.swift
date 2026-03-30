@@ -13,7 +13,7 @@ final class ValueHandlingTests: XCTestCase {
             tokens = context.valueTokens
         }, description: "Set output color mode.")
 
-        try parser.parseOrThrow(argv)
+        try parser.parse(argv)
         XCTAssertEqual(captured, "")
         XCTAssertEqual(tokens, [])
     }
@@ -28,7 +28,7 @@ final class ValueHandlingTests: XCTestCase {
             tokens = context.valueTokens
         }, description: "Set output color mode.")
 
-        try parser.parseOrThrow(["prog", "--color", ""])
+        try parser.parse(["prog", "--color", ""])
         XCTAssertEqual(captured, "")
         XCTAssertEqual(tokens, [""])
     }
@@ -41,10 +41,10 @@ final class ValueHandlingTests: XCTestCase {
         try parser.addInlineParser(build)
 
         do {
-            try parser.parseOrThrow(["prog", "--build-value"])
+            try parser.parse(["prog", "--build-value"])
             XCTFail("expected parse to fail")
         } catch let error as CliError {
-            XCTAssertEqual(error.option(), "--build-value")
+            XCTAssertEqual(error.option, "--build-value")
             XCTAssertEqual(error.message, "option '--build-value' requires a value")
         }
     }
@@ -58,7 +58,7 @@ final class ValueHandlingTests: XCTestCase {
             captured = value
         }, description: "Set build profile.")
 
-        try parser.parseOrThrow(argv)
+        try parser.parse(argv)
         XCTAssertEqual(captured, "-debug")
     }
 
@@ -73,7 +73,7 @@ final class ValueHandlingTests: XCTestCase {
             tokens = context.valueTokens
         }, description: "Set display name.")
 
-        try parser.parseOrThrow(argv)
+        try parser.parse(argv)
         XCTAssertEqual(captured, "Joe Smith")
         XCTAssertEqual(tokens, ["Joe", "Smith"])
     }
@@ -89,7 +89,7 @@ final class ValueHandlingTests: XCTestCase {
             tokens = context.valueTokens
         }, description: "Set display name.")
 
-        try parser.parseOrThrow(argv)
+        try parser.parse(argv)
         XCTAssertEqual(captured, " Joe ")
         XCTAssertEqual(tokens, [" Joe "])
         XCTAssertEqual(argv, ["prog", "--name", " Joe "])
@@ -105,7 +105,7 @@ final class ValueHandlingTests: XCTestCase {
             tokens = context.valueTokens
         }, description: "Set display name.")
 
-        try parser.parseOrThrow(["prog", "--name", ""])
+        try parser.parse(["prog", "--name", ""])
         XCTAssertEqual(captured, "")
         XCTAssertEqual(tokens, [""])
     }
@@ -125,7 +125,7 @@ final class ValueHandlingTests: XCTestCase {
         }
 
         let argv = ["prog", "--build-meta", "data"]
-        try parser.parseOrThrow(argv)
+        try parser.parse(argv)
 
         XCTAssertTrue(called)
         XCTAssertEqual(positionals, ["data"])
@@ -140,7 +140,7 @@ final class ValueHandlingTests: XCTestCase {
             positionals = context.valueTokens
         }
 
-        try parser.parseOrThrow(["prog", "alpha", "", "omega"])
+        try parser.parse(["prog", "alpha", "", "omega"])
         XCTAssertEqual(positionals, ["alpha", "", "omega"])
     }
 }

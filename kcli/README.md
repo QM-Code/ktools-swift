@@ -10,7 +10,7 @@ It is designed around the same two CLI shapes as the C++ implementation:
 The library exposes two main parse entry points:
 
 - `parseOrExit(_:)` for normal executable startup
-- `parseOrThrow(_:)` when callers want to intercept `CliError`
+- `parse(_:)` when callers want to intercept `CliError`
 
 ## Documentation
 
@@ -50,7 +50,7 @@ parser.parseOrExit()
 
 - The full command line is validated before any registered handler runs.
 - `parseOrExit()` reports invalid CLI input to `stderr` and exits with code `2`.
-- `parseOrThrow()` preserves the input arguments and throws `CliError`.
+- `parse()` preserves the input arguments and throws `CliError`.
 - Bare inline roots such as `--build` print inline help unless a root value is provided.
 - `setHandler(..., handler: ValueHandler, ...)` registers a required-value option.
 - `setOptionalValueHandler(...)` registers an optional-value option.

@@ -1,0 +1,19 @@
+{
+  "": {
+    "swift-dependencies": "/home/karmak/dev/ktools/ktools-swift/kcli/demo/.build/x86_64-unknown-linux-gnu/debug/KcliSwiftDemosPackageDiscoveredTests.build/primary.swiftdeps"
+  },
+  "/home/karmak/dev/ktools/ktools-swift/kcli/demo/.build/x86_64-unknown-linux-gnu/debug/KcliSwiftDemosPackageDiscoveredTests.derived/KcliDemoTests.swift": {
+    "dependencies": "/home/karmak/dev/ktools/ktools-swift/kcli/demo/.build/x86_64-unknown-linux-gnu/debug/KcliSwiftDemosPackageDiscoveredTests.build/KcliDemoTests.d",
+    "object": "/home/karmak/dev/ktools/ktools-swift/kcli/demo/.build/x86_64-unknown-linux-gnu/debug/KcliSwiftDemosPackageDiscoveredTests.build/KcliDemoTests.swift.o",
+    "swiftmodule": "/home/karmak/dev/ktools/ktools-swift/kcli/demo/.build/x86_64-unknown-linux-gnu/debug/KcliSwiftDemosPackageDiscoveredTests.build/KcliDemoTests~partial.swiftmodule",
+    "swift-dependencies": "/home/karmak/dev/ktools/ktools-swift/kcli/demo/.build/x86_64-unknown-linux-gnu/debug/KcliSwiftDemosPackageDiscoveredTests.build/KcliDemoTests.swiftdeps",
+    "diagnostics": "/home/karmak/dev/ktools/ktools-swift/kcli/demo/.build/x86_64-unknown-linux-gnu/debug/KcliSwiftDemosPackageDiscoveredTests.build/KcliDemoTests.dia"
+  },
+  "/home/karmak/dev/ktools/ktools-swift/kcli/demo/.build/x86_64-unknown-linux-gnu/debug/KcliSwiftDemosPackageDiscoveredTests.derived/all-discovered-tests.swift": {
+    "dependencies": "/home/karmak/dev/ktools/ktools-swift/kcli/demo/.build/x86_64-unknown-linux-gnu/debug/KcliSwiftDemosPackageDiscoveredTests.build/all-discovered-tests.d",
+    "object": "/home/karmak/dev/ktools/ktools-swift/kcli/demo/.build/x86_64-unknown-linux-gnu/debug/KcliSwiftDemosPackageDiscoveredTests.build/all-discovered-tests.swift.o",
+    "swiftmodule": "/home/karmak/dev/ktools/ktools-swift/kcli/demo/.build/x86_64-unknown-linux-gnu/debug/KcliSwiftDemosPackageDiscoveredTests.build/all-discovered-tests~partial.swiftmodule",
+    "swift-dependencies": "/home/karmak/dev/ktools/ktools-swift/kcli/demo/.build/x86_64-unknown-linux-gnu/debug/KcliSwiftDemosPackageDiscoveredTests.build/all-discovered-tests.swiftdeps",
+    "diagnostics": "/home/karmak/dev/ktools/ktools-swift/kcli/demo/.build/x86_64-unknown-linux-gnu/debug/KcliSwiftDemosPackageDiscoveredTests.build/all-discovered-tests.dia"
+  }
+}

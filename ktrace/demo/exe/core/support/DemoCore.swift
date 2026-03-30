@@ -8,15 +8,15 @@ public func runCoreDemo(arguments: [String] = CommandLine.arguments,
         let logger = Logger(output: emit)
         let trace = try makeCoreDemoTraceLogger()
 
-        try logger.addTraceLogger(trace)
-        try logger.addTraceLogger(AlphaSdk.getTraceLogger())
+        try logger.attach(trace)
+        try logger.attach(AlphaSdk.traceLogger)
 
-        try logger.enableChannel(trace, ".app")
+        try logger.enableChannel(".app", in: trace)
         try trace.trace("app", "core initialized local trace channels")
 
         let parser = Parser()
-        try parser.addInlineParser(logger.makeInlineParser(trace))
-        try parser.parseOrThrow(arguments)
+        try parser.addInlineParser(logger.inlineParser(for: trace))
+        try parser.parse(arguments)
 
         try trace.trace("app", "cli processing enabled, use --trace for options")
         try trace.trace("startup", "testing imported tracing, use --trace '*.*' to view imported channels")
@@ -43,7 +43,7 @@ private func runCoreTraceDemo(emit: (String) -> Void, _ body: () throws -> Void)
 
 private func makeCoreDemoTraceLogger() throws -> TraceLogger {
     let trace = try TraceLogger("core")
-    try trace.addChannel("app", color: try TraceColors.color("BrightCyan"))
-    try trace.addChannel("startup", color: try TraceColors.color("BrightYellow"))
+    try trace.addChannel("app", color: try TraceColors.named("BrightCyan"))
+    try trace.addChannel("startup", color: try TraceColors.named("BrightYellow"))
     return trace
 }

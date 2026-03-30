@@ -6,11 +6,11 @@ public struct InlineParser {
     var commands: [(String, CommandBinding)] = []
 
     public init(_ root: String) throws {
-        rootName = try normalizeInlineRootOptionOrThrow(root)
+        rootName = try normalizedInlineRoot(root)
     }
 
     public mutating func setRoot(_ root: String) throws {
-        rootName = try normalizeInlineRootOptionOrThrow(root)
+        rootName = try normalizedInlineRoot(root)
     }
 
     public mutating func setRootValueHandler(_ handler: @escaping ValueHandler) throws {
@@ -23,38 +23,38 @@ public struct InlineParser {
                                              valuePlaceholder: String,
                                              description: String) throws {
         rootValueHandler = handler
-        rootValuePlaceholder = try normalizeHelpPlaceholderOrThrow(valuePlaceholder)
-        rootValueDescription = try normalizeDescriptionOrThrow(description)
+        rootValuePlaceholder = try normalizedHelpPlaceholder(valuePlaceholder)
+        rootValueDescription = try normalizedDescription(description)
     }
 
     public mutating func setHandler(_ option: String,
                                     handler: @escaping FlagHandler,
                                     description: String) throws {
-        let command = try normalizeInlineHandlerOptionOrThrow(option, rootName: rootName)
-        try upsertCommand(&commands,
-                          command: command,
-                          binding: makeFlagBinding(handler, description: description))
+        let command = try normalizedInlineHandlerOption(option, rootName: rootName)
+        try upsertCommandBinding(&commands,
+                                 command: command,
+                                 binding: flagBinding(handler, description: description))
     }
 
     public mutating func setHandler(_ option: String,
                                     handler: @escaping ValueHandler,
                                     description: String) throws {
-        let command = try normalizeInlineHandlerOptionOrThrow(option, rootName: rootName)
-        try upsertCommand(&commands,
-                          command: command,
-                          binding: makeValueBinding(handler,
-                                                    description: description,
-                                                    arity: .required))
+        let command = try normalizedInlineHandlerOption(option, rootName: rootName)
+        try upsertCommandBinding(&commands,
+                                 command: command,
+                                 binding: valueBinding(handler,
+                                                       description: description,
+                                                       arity: .required))
     }
 
     public mutating func setOptionalValueHandler(_ option: String,
                                                  handler: @escaping ValueHandler,
                                                  description: String) throws {
-        let command = try normalizeInlineHandlerOptionOrThrow(option, rootName: rootName)
-        try upsertCommand(&commands,
-                          command: command,
-                          binding: makeValueBinding(handler,
-                                                    description: description,
-                                                    arity: .optional))
+        let command = try normalizedInlineHandlerOption(option, rootName: rootName)
+        try upsertCommandBinding(&commands,
+                                 command: command,
+                                 binding: valueBinding(handler,
+                                                       description: description,
+                                                       arity: .optional))
     }
 }

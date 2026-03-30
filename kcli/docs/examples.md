@@ -21,7 +21,7 @@ try parser.setHandler("--verbose",
                       },
                       description: "Enable verbose logging.")
 
-try parser.parseOrThrow(CommandLine.arguments)
+try parser.parse(CommandLine.arguments)
 ```
 
 ## Inline Root With Subcommands-Like Options
@@ -40,7 +40,7 @@ try build.setHandler("-clean",
                      description: "Enable clean build.")
 
 try parser.addInlineParser(build)
-try parser.parseOrThrow(CommandLine.arguments)
+try parser.parse(CommandLine.arguments)
 ```
 
 This enables:
@@ -131,11 +131,11 @@ The positional handler receives all remaining non-option tokens after option par
 
 ## Custom Error Handling
 
-If you want your own formatting or exit policy, use `parseOrThrow()`:
+If you want your own formatting or exit policy, use `parse()`:
 
 ```swift
 do {
-    try parser.parseOrThrow(CommandLine.arguments)
+    try parser.parse(CommandLine.arguments)
 } catch let error as CliError {
     FileHandle.standardError.write(Data("custom cli error: \(error.message)\n".utf8))
     exit(2)

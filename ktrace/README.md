@@ -16,13 +16,13 @@ import Ktrace
 let logger = Logger()
 let trace = try TraceLogger("core")
 
-try trace.addChannel("app", color: try TraceColors.color("BrightCyan"))
-try logger.addTraceLogger(trace)
-try logger.enableChannel(trace, ".app")
+try trace.addChannel("app", color: try TraceColors.named("BrightCyan"))
+try logger.attach(trace)
+try logger.enableChannel(".app", in: trace)
 
 let parser = Parser()
-try parser.addInlineParser(logger.makeInlineParser(trace))
-try parser.parseOrThrow(CommandLine.arguments)
+try parser.addInlineParser(logger.inlineParser(for: trace))
+try parser.parse(CommandLine.arguments)
 
 try trace.trace("app", "core initialized")
 ```
@@ -76,20 +76,20 @@ swift run --scratch-path ../build/latest/swiftpm-demo ktrace-demo-omega --trace-
 
 ```swift
 let trace = try TraceLogger("alpha")
-try trace.addChannel("net", color: try TraceColors.color("DeepSkyBlue1"))
-try trace.addChannel("cache", color: try TraceColors.color("Gold3"))
+try trace.addChannel("net", color: try TraceColors.named("DeepSkyBlue1"))
+try trace.addChannel("cache", color: try TraceColors.named("Gold3"))
 ```
 
-SDKs should usually expose a shared logger handle from a factory or static accessor:
+SDKs should usually expose a shared logger handle from a static property:
 
 ```swift
 enum AlphaSdk {
-    static func getTraceLogger() throws -> TraceLogger {
-        let trace = try TraceLogger("alpha")
-        try trace.addChannel("net", color: try TraceColors.color("DeepSkyBlue1"))
-        try trace.addChannel("cache", color: try TraceColors.color("Gold3"))
+    static let traceLogger: TraceLogger = {
+        let trace = try! TraceLogger("alpha")
+        try! trace.addChannel("net", color: try! TraceColors.named("DeepSkyBlue1"))
+        try! trace.addChannel("cache", color: try! TraceColors.named("Gold3"))
         return trace
-    }
+    }()
 }
 ```
 
@@ -99,10 +99,10 @@ enum AlphaSdk {
 let logger = Logger()
 let appTrace = try TraceLogger("core")
 
-try appTrace.addChannel("app", color: try TraceColors.color("BrightCyan"))
-try appTrace.addChannel("startup", color: try TraceColors.color("BrightYellow"))
+try appTrace.addChannel("app", color: try TraceColors.named("BrightCyan"))
+try appTrace.addChannel("startup", color: try TraceColors.named("BrightYellow"))
 
-try logger.addTraceLogger(appTrace)
+try logger.attach(appTrace)
 ```
 
 ## Logging APIs
@@ -111,7 +111,7 @@ Channel-based trace output:
 
 ```swift
 try trace.trace("channel", "message {}", value)
-try trace.traceChanged("channel", key, "message {}", value)
+try trace.traceIfChanged("channel", key: key, "message {}", value)
 ```
 
 Always-visible operational logging:
@@ -134,11 +134,11 @@ The inline parser is logger-bound rather than global. Pass the executable's loca
 let logger = Logger()
 let appTrace = try TraceLogger("core")
 
-try appTrace.addChannel("app", color: try TraceColors.color("BrightCyan"))
-try logger.addTraceLogger(appTrace)
+try appTrace.addChannel("app", color: try TraceColors.named("BrightCyan"))
+try logger.attach(appTrace)
 
 let parser = Parser()
-try parser.addInlineParser(logger.makeInlineParser(appTrace))
+try parser.addInlineParser(logger.inlineParser(for: appTrace))
 ```
 
 ## Channel Expression Forms
@@ -160,10 +160,10 @@ List APIs on `Logger`:
 
 Examples:
 
-- `try logger.enableChannel(appTrace, ".app")`
+- `try logger.enableChannel(".app", in: appTrace)`
 - `try logger.enableChannel("alpha.net")`
 - `try logger.enableChannels("alpha.*,{beta,gamma}.net.*")`
-- `try logger.enableChannels(appTrace, ".net.*,otherapp.scheduler.tick")`
+- `try logger.enableChannels(".net.*,otherapp.scheduler.tick", in: appTrace)`
 
 Formatting options:
 
@@ -180,7 +180,7 @@ Informational options:
 - `--trace-channels`
 - `--trace-colors`
 
-`Logger` also registers an internal `ktrace` namespace for logger/runtime diagnostics, so calls such as `getNamespaces()` include `ktrace` once a `Logger` has been constructed.
+`Logger` also registers an internal `ktrace` namespace for logger/runtime diagnostics, so `logger.namespaces` includes `ktrace` once a `Logger` has been constructed.
 
 ## Repository Layout
 

@@ -22,10 +22,25 @@ func isIdentifierToken(_ value: String) -> Bool {
     }
 }
 
-func withLock<T>(_ lock: NSLock, _ body: () throws -> T) rethrows -> T {
-    lock.lock()
-    defer { lock.unlock() }
-    return try body()
+final class LockedState<Value> {
+    private var value: Value
+    private let lock = NSLock()
+
+    init(_ value: Value) {
+        self.value = value
+    }
+
+    func withValue<T>(_ body: (inout Value) throws -> T) rethrows -> T {
+        lock.lock()
+        defer { lock.unlock() }
+        return try body(&value)
+    }
+
+    func read<T>(_ body: (Value) throws -> T) rethrows -> T {
+        try withValue { value in
+            try body(value)
+        }
+    }
 }
 
 func basename(_ path: String) -> String {

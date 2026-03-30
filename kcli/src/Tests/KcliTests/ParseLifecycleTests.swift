@@ -6,7 +6,7 @@ final class ParseLifecycleTests: XCTestCase {
         let argv = ["prog"]
         let parser = Parser()
 
-        try parser.parseOrThrow(argv)
+        try parser.parse(argv)
         XCTAssertEqual(argv, ["prog"])
     }
 
@@ -30,13 +30,13 @@ final class ParseLifecycleTests: XCTestCase {
         }
 
         do {
-            try parser.parseOrThrow(argv)
+            try parser.parse(argv)
             XCTFail("expected parse to fail")
         } catch let error as CliError {
             XCTAssertFalse(verbose)
             XCTAssertEqual(output, "")
             XCTAssertEqual(positionals, [])
-            XCTAssertEqual(error.option(), "--bogus")
+            XCTAssertEqual(error.option, "--bogus")
             XCTAssertEqual(error.message, "unknown option --bogus")
         }
     }
@@ -49,8 +49,8 @@ final class ParseLifecycleTests: XCTestCase {
             values.append(value)
         }, description: "Set a display name.")
 
-        try parser.parseOrThrow(["prog", "--name", "alice"])
-        try parser.parseOrThrow(["prog", "--name", "bob"])
+        try parser.parse(["prog", "--name", "alice"])
+        try parser.parse(["prog", "--name", "bob"])
 
         XCTAssertEqual(values, ["alice", "bob"])
     }
@@ -75,7 +75,7 @@ final class ParseLifecycleTests: XCTestCase {
         }
 
         let argv = ["prog", "tail", "--alpha-message", "hello", "--output", "stdout"]
-        try parser.parseOrThrow(argv)
+        try parser.parse(argv)
 
         XCTAssertEqual(alphaMessage, "hello")
         XCTAssertEqual(output, "stdout")

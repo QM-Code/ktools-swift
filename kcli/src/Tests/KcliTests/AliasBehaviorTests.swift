@@ -12,7 +12,7 @@ final class AliasBehaviorTests: XCTestCase {
             seenOption = context.option
         }, description: "Enable verbose logging.")
 
-        try parser.parseOrThrow(argv)
+        try parser.parse(argv)
         XCTAssertEqual(seenOption, "--verbose")
         XCTAssertEqual(argv, ["prog", "-v", "tail"])
     }
@@ -31,7 +31,7 @@ final class AliasBehaviorTests: XCTestCase {
             tokens = context.valueTokens
         }, description: "Load config.")
 
-        try parser.parseOrThrow(argv)
+        try parser.parse(argv)
         XCTAssertEqual(seenOption, "--config-load")
         XCTAssertEqual(value, "user-file settings.json")
         XCTAssertEqual(tokens, ["user-file", "settings.json"])
@@ -51,7 +51,7 @@ final class AliasBehaviorTests: XCTestCase {
             XCTAssertEqual(context.option, "--profile")
         }, description: "Set the active profile.")
 
-        try parser.parseOrThrow(argv)
+        try parser.parse(argv)
         XCTAssertEqual(value, "release")
         XCTAssertEqual(tokens, ["release"])
         XCTAssertEqual(argv, ["prog", "-p"])
@@ -75,7 +75,7 @@ final class AliasBehaviorTests: XCTestCase {
         try parser.addInlineParser(config)
         try parser.addAlias("-c", target: "--config", presetTokens: ["user-file=/tmp/user.json"])
 
-        try parser.parseOrThrow(argv)
+        try parser.parse(argv)
         XCTAssertTrue(handled)
         XCTAssertEqual(value, "user-file=/tmp/user.json")
         XCTAssertEqual(tokens, ["user-file=/tmp/user.json"])
@@ -96,7 +96,7 @@ final class AliasBehaviorTests: XCTestCase {
             output = value
         }, description: "Set output target.")
 
-        try parser.parseOrThrow(argv)
+        try parser.parse(argv)
         XCTAssertFalse(verbose)
         XCTAssertEqual(output, "-v")
         XCTAssertEqual(argv, ["prog", "--output", "-v"])
@@ -109,10 +109,10 @@ final class AliasBehaviorTests: XCTestCase {
         }, description: "Enable verbose logging.")
 
         do {
-            try parser.parseOrThrow(["prog", "-v"])
+            try parser.parse(["prog", "-v"])
             XCTFail("expected parse to fail")
         } catch let error as CliError {
-            XCTAssertEqual(error.option(), "-v")
+            XCTAssertEqual(error.option, "-v")
             XCTAssertEqual(error.message,
                            "alias '-v' presets values for option '--verbose' which does not accept values")
         }
@@ -124,10 +124,10 @@ final class AliasBehaviorTests: XCTestCase {
         try parser.setHandler("--verbose", handler: { _ in }, description: "Enable verbose logging.")
 
         do {
-            try parser.parseOrThrow(["prog", "--", "-v"])
+            try parser.parse(["prog", "--", "-v"])
             XCTFail("expected parse to fail")
         } catch let error as CliError {
-            XCTAssertEqual(error.option(), "--")
+            XCTAssertEqual(error.option, "--")
             XCTAssertEqual(error.message, "unknown option --")
         }
     }

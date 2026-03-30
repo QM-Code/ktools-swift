@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoTests.build/primary.swiftdeps"
+  },
+  "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/Tests/KtraceDemoTests/KtraceDemoTests.swift": {
+    "dependencies": "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoTests.build/KtraceDemoTests.d",
+    "object": "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoTests.build/KtraceDemoTests.swift.o",
+    "swiftmodule": "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoTests.build/KtraceDemoTests~partial.swiftmodule",
+    "swift-dependencies": "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoTests.build/KtraceDemoTests.swiftdeps",
+    "diagnostics": "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoTests.build/KtraceDemoTests.dia"
+  }
+}

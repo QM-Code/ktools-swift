@@ -43,7 +43,7 @@ public struct TraceRuntimeError: Error, CustomStringConvertible, LocalizedError,
 }
 
 public enum TraceColors {
-    public static let DEFAULT = 0xFFFF
+    public static let defaultColor = 0xFFFF
 
     private static let palette = [
         "Black",
@@ -71,13 +71,13 @@ public enum TraceColors {
         "LightSalmon1",
     ]
 
-    public static func color(_ colorName: String) throws -> Int {
+    public static func named(_ colorName: String) throws -> Int {
         let token = trimWhitespace(colorName)
         if token.isEmpty {
             throw TraceConfigurationError("trace color name must not be empty")
         }
         if token == "Default" || token == "default" {
-            return DEFAULT
+            return defaultColor
         }
         guard let index = palette.firstIndex(of: token) else {
             throw TraceConfigurationError("unknown trace color '\(token)'")
@@ -85,7 +85,7 @@ public enum TraceColors {
         return index
     }
 
-    public static func names() -> [String] {
+    public static var names: [String] {
         palette
     }
 }
@@ -99,31 +99,82 @@ struct ChannelSpec {
     var color: Int
 }
 
-final class TraceLoggerStorage {
-    let traceNamespace: String
+private struct TraceLoggerState {
     var channels: [ChannelSpec] = []
     var changedKeys: [String: String] = [:]
+}
+
+final class TraceLoggerStorage {
+    let traceNamespace: String
+    private let state = LockedState(TraceLoggerState())
     weak var attachedLogger: LoggerStorage?
-    let lock = NSLock()
 
     init(traceNamespace: String) {
         self.traceNamespace = traceNamespace
     }
+
+    fileprivate func withState<T>(_ body: (inout TraceLoggerState) throws -> T) rethrows -> T {
+        try state.withValue(body)
+    }
+
+    fileprivate func readState<T>(_ body: (TraceLoggerState) throws -> T) rethrows -> T {
+        try state.read(body)
+    }
 }
 
-final class LoggerStorage {
-    var output: TraceEmitter
-    var options = OutputOptions()
+private struct LoggerRegistry {
     var namespaces: Set<String> = []
     var channelsByNamespace: [String: [String]] = [:]
     var colorsByNamespace: [String: [String: Int]] = [:]
-    var enabledChannelKeys: Set<String> = []
-    let registryLock = NSLock()
-    let enabledLock = NSLock()
-    let outputLock = NSLock()
+}
+
+private struct LoggerOutputState {
+    var emit: TraceEmitter
+    var options = OutputOptions()
+}
+
+final class LoggerStorage {
+    private let registry = LockedState(LoggerRegistry())
+    private let enabledChannels = LockedState(Set<String>())
+    private let output: LockedState<LoggerOutputState>
 
     init(output: @escaping TraceEmitter) {
-        self.output = output
+        self.output = LockedState(LoggerOutputState(emit: output))
+    }
+
+    fileprivate func withRegistry<T>(_ body: (inout LoggerRegistry) throws -> T) rethrows -> T {
+        try registry.withValue(body)
+    }
+
+    fileprivate func readRegistry<T>(_ body: (LoggerRegistry) throws -> T) rethrows -> T {
+        try registry.read(body)
+    }
+
+    func withEnabledChannels<T>(_ body: (inout Set<String>) throws -> T) rethrows -> T {
+        try enabledChannels.withValue(body)
+    }
+
+    func readEnabledChannels<T>(_ body: (Set<String>) throws -> T) rethrows -> T {
+        try enabledChannels.read(body)
+    }
+
+    var outputOptions: OutputOptions {
+        get {
+            output.read { $0.options }
+        }
+        set {
+            let next = OutputOptions(newValue.filenames,
+                                     newValue.lineNumbers,
+                                     newValue.functionNames,
+                                     newValue.timestamps)
+            output.withValue { $0.options = next }
+        }
+    }
+
+    func emit(_ payload: String) {
+        output.read { state in
+            state.emit(payload)
+        }
     }
 }
 
@@ -134,38 +185,38 @@ public final class TraceLogger {
         storage = TraceLoggerStorage(traceNamespace: try normalizeNamespace(traceNamespace))
     }
 
-    public func addChannel(_ channel: String, color: Int = TraceColors.DEFAULT) throws {
+    public func addChannel(_ channel: String, color: Int = TraceColors.defaultColor) throws {
         let normalizedChannel = try normalizeChannel(channel)
-        try withLock(storage.lock) {
+        try storage.withState { state in
             if let separator = normalizedChannel.lastIndex(of: ".") {
                 let parent = String(normalizedChannel[..<separator])
-                guard storage.channels.contains(where: { $0.name == parent }) else {
+                guard state.channels.contains(where: { $0.name == parent }) else {
                     throw TraceConfigurationError(
                         "cannot add unparented trace channel '\(normalizedChannel)' (missing parent '\(parent)')"
                     )
                 }
             }
 
-            if let existingIndex = storage.channels.firstIndex(where: { $0.name == normalizedChannel }) {
+            if let existingIndex = state.channels.firstIndex(where: { $0.name == normalizedChannel }) {
                 let merged = try mergeColor(
-                    existing: storage.channels[existingIndex].color,
+                    existing: state.channels[existingIndex].color,
                     incoming: color,
                     traceNamespace: storage.traceNamespace,
                     channel: normalizedChannel
                 )
-                storage.channels[existingIndex].color = merged
+                state.channels[existingIndex].color = merged
                 return
             }
 
-            if color != TraceColors.DEFAULT && !(0...255).contains(color) {
+            if color != TraceColors.defaultColor && !(0...255).contains(color) {
                 throw TraceConfigurationError("invalid trace color id '\(color)'")
             }
 
-            storage.channels.append(ChannelSpec(name: normalizedChannel, color: color))
+            state.channels.append(ChannelSpec(name: normalizedChannel, color: color))
         }
     }
 
-    public func getNamespace() -> String {
+    public var namespace: String {
         storage.traceNamespace
     }
 
@@ -200,8 +251,8 @@ public final class TraceLogger {
                   message: message)
     }
 
-    public func traceChanged(_ channel: String,
-                             _ keyExpr: Any,
+    public func traceIfChanged(_ channel: String,
+                             key keyExpr: Any,
                              _ format: String,
                              _ args: Any...,
                              file: String = #fileID,
@@ -210,9 +261,9 @@ public final class TraceLogger {
         let normalizedChannel = try normalizeChannel(channel)
         let key = String(describing: keyExpr)
         let siteKey = "\(storage.traceNamespace)|\(normalizedChannel)|\(file)|\(line)|\(function)"
-        let shouldEmit = withLock(storage.lock) {
-            let previous = storage.changedKeys[siteKey]
-            storage.changedKeys[siteKey] = key
+        let shouldEmit = storage.withState { state in
+            let previous = state.changedKeys[siteKey]
+            state.changedKeys[siteKey] = key
             return previous != key
         }
         guard shouldEmit else {
@@ -261,7 +312,7 @@ public final class TraceLogger {
     }
 
     fileprivate var channelSpecs: [ChannelSpec] {
-        storage.channels
+        storage.readState { $0.channels }
     }
 
     private func log(_ severity: LogSeverity,
@@ -289,27 +340,27 @@ public final class Logger {
     public init(output: @escaping TraceEmitter = defaultTraceEmit) {
         storage = LoggerStorage(output: output)
         internalTrace = try! TraceLogger("ktrace")
-        try! internalTrace.addChannel("api", color: (try? TraceColors.color("Cyan")) ?? TraceColors.DEFAULT)
+        try! internalTrace.addChannel("api", color: (try? TraceColors.named("Cyan")) ?? TraceColors.defaultColor)
         try! internalTrace.addChannel("api.channels")
         try! internalTrace.addChannel("api.cli")
         try! internalTrace.addChannel("api.output")
-        try! internalTrace.addChannel("selector", color: (try? TraceColors.color("Yellow")) ?? TraceColors.DEFAULT)
+        try! internalTrace.addChannel("selector", color: (try? TraceColors.named("Yellow")) ?? TraceColors.defaultColor)
         try! internalTrace.addChannel("selector.parse")
-        try! internalTrace.addChannel("registry", color: (try? TraceColors.color("Magenta")) ?? TraceColors.DEFAULT)
+        try! internalTrace.addChannel("registry", color: (try? TraceColors.named("Magenta")) ?? TraceColors.defaultColor)
         try! internalTrace.addChannel("registry.query")
-        try! addTraceLogger(internalTrace)
+        try! attach(internalTrace)
     }
 
-    public func addTraceLogger(_ traceLogger: TraceLogger) throws {
+    public func attach(_ traceLogger: TraceLogger) throws {
         if let attached = traceLogger.attachedLogger, attached !== storage {
             throw TraceConfigurationError("trace logger is already attached to another logger")
         }
 
-        try withLock(storage.registryLock) {
-            let traceNamespace = traceLogger.getNamespace()
-            storage.namespaces.insert(traceNamespace)
-            var registeredChannels = storage.channelsByNamespace[traceNamespace] ?? []
-            var registeredColors = storage.colorsByNamespace[traceNamespace] ?? [:]
+        try storage.withRegistry { registry in
+            let traceNamespace = traceLogger.namespace
+            registry.namespaces.insert(traceNamespace)
+            var registeredChannels = registry.channelsByNamespace[traceNamespace] ?? []
+            var registeredColors = registry.colorsByNamespace[traceNamespace] ?? [:]
 
             for channel in traceLogger.channelSpecs {
                 if let separator = channel.name.lastIndex(of: ".") {
@@ -325,20 +376,20 @@ public final class Logger {
                     registeredChannels.append(channel.name)
                 }
 
-                let existing = registeredColors[channel.name] ?? TraceColors.DEFAULT
+                let existing = registeredColors[channel.name] ?? TraceColors.defaultColor
                 let merged = try mergeColor(
                     existing: existing,
                     incoming: channel.color,
                     traceNamespace: traceNamespace,
                     channel: channel.name
                 )
-                if merged != TraceColors.DEFAULT {
+                if merged != TraceColors.defaultColor {
                     registeredColors[channel.name] = merged
                 }
             }
 
-            storage.channelsByNamespace[traceNamespace] = registeredChannels
-            storage.colorsByNamespace[traceNamespace] = registeredColors
+            registry.channelsByNamespace[traceNamespace] = registeredChannels
+            registry.colorsByNamespace[traceNamespace] = registeredColors
             traceLogger.storage.attachedLogger = storage
         }
     }
@@ -347,73 +398,65 @@ public final class Logger {
         try enableChannel(qualifiedChannel, localNamespace: "")
     }
 
-    public func enableChannel(_ localTraceLogger: TraceLogger, _ qualifiedChannel: String) throws {
-        try enableChannel(qualifiedChannel, localNamespace: localTraceLogger.getNamespace())
+    public func enableChannel(_ qualifiedChannel: String, in localTraceLogger: TraceLogger) throws {
+        try enableChannel(qualifiedChannel, localNamespace: localTraceLogger.namespace)
     }
 
     public func enableChannels(_ selectorsCSV: String) throws {
         try enableChannels(selectorsCSV, localNamespace: "")
     }
 
-    public func enableChannels(_ localTraceLogger: TraceLogger, _ selectorsCSV: String) throws {
-        try enableChannels(selectorsCSV, localNamespace: localTraceLogger.getNamespace())
+    public func enableChannels(_ selectorsCSV: String, in localTraceLogger: TraceLogger) throws {
+        try enableChannels(selectorsCSV, localNamespace: localTraceLogger.namespace)
     }
 
     public func shouldTraceChannel(_ qualifiedChannel: String) -> Bool {
         shouldTraceChannel(qualifiedChannel, localNamespace: "")
     }
 
-    public func shouldTraceChannel(_ localTraceLogger: TraceLogger, _ qualifiedChannel: String) -> Bool {
-        shouldTraceChannel(qualifiedChannel, localNamespace: localTraceLogger.getNamespace())
+    public func shouldTraceChannel(_ qualifiedChannel: String, in localTraceLogger: TraceLogger) -> Bool {
+        shouldTraceChannel(qualifiedChannel, localNamespace: localTraceLogger.namespace)
     }
 
     public func disableChannel(_ qualifiedChannel: String) throws {
         try disableChannel(qualifiedChannel, localNamespace: "")
     }
 
-    public func disableChannel(_ localTraceLogger: TraceLogger, _ qualifiedChannel: String) throws {
-        try disableChannel(qualifiedChannel, localNamespace: localTraceLogger.getNamespace())
+    public func disableChannel(_ qualifiedChannel: String, in localTraceLogger: TraceLogger) throws {
+        try disableChannel(qualifiedChannel, localNamespace: localTraceLogger.namespace)
     }
 
     public func disableChannels(_ selectorsCSV: String) throws {
         try disableChannels(selectorsCSV, localNamespace: "")
     }
 
-    public func disableChannels(_ localTraceLogger: TraceLogger, _ selectorsCSV: String) throws {
-        try disableChannels(selectorsCSV, localNamespace: localTraceLogger.getNamespace())
+    public func disableChannels(_ selectorsCSV: String, in localTraceLogger: TraceLogger) throws {
+        try disableChannels(selectorsCSV, localNamespace: localTraceLogger.namespace)
     }
 
-    public func setOutputOptions(_ options: OutputOptions) {
-        let next = OutputOptions(options.filenames, options.lineNumbers, options.functionNames, options.timestamps)
-        withLock(storage.outputLock) {
-            storage.options = next
+    public var outputOptions: OutputOptions {
+        get {
+            storage.outputOptions
+        }
+        set {
+            storage.outputOptions = newValue
         }
     }
 
-    public func getOutputOptions() -> OutputOptions {
-        withLock(storage.outputLock) {
-            storage.options
-        }
+    public var namespaces: [String] {
+        storage.readRegistry { $0.namespaces.sorted() }
     }
 
-    public func getNamespaces() -> [String] {
-        withLock(storage.registryLock) {
-            storage.namespaces.sorted()
-        }
-    }
-
-    public func getChannels(_ traceNamespace: String) -> [String] {
+    public func channels(in traceNamespace: String) -> [String] {
         guard let normalized = try? normalizeNamespace(traceNamespace) else {
             return []
         }
-        return withLock(storage.registryLock) {
-            (storage.channelsByNamespace[normalized] ?? []).sorted()
-        }
+        return storage.readRegistry { ($0.channelsByNamespace[normalized] ?? []).sorted() }
     }
 
-    public func makeInlineParser(_ localTraceLogger: TraceLogger,
-                                 _ traceRoot: String = "trace") throws -> InlineParser {
-        let localNamespace = localTraceLogger.getNamespace()
+    public func inlineParser(for localTraceLogger: TraceLogger,
+                             root traceRoot: String = "trace") throws -> InlineParser {
+        let localNamespace = localTraceLogger.namespace
         var parser = try InlineParser(traceRoot.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? "trace" : traceRoot)
         try parser.setRootValueHandler({ _, value in
             try self.enableChannels(value, localNamespace: localNamespace)
@@ -431,19 +474,19 @@ public final class Logger {
             self.printColors()
         }, description: "Show available trace colors.")
         try parser.setHandler("-files", handler: { _ in
-            let options = self.getOutputOptions()
-            self.setOutputOptions(OutputOptions(true, true, false, options.timestamps))
+            let options = self.outputOptions
+            self.outputOptions = OutputOptions(true, true, false, options.timestamps)
         }, description: "Include source file and line in trace output.")
         try parser.setHandler("-functions", handler: { _ in
-            let options = self.getOutputOptions()
-            self.setOutputOptions(OutputOptions(true, true, true, options.timestamps))
+            let options = self.outputOptions
+            self.outputOptions = OutputOptions(true, true, true, options.timestamps)
         }, description: "Include function names in trace output.")
         try parser.setHandler("-timestamps", handler: { _ in
-            let options = self.getOutputOptions()
-            self.setOutputOptions(OutputOptions(options.filenames,
-                                                options.lineNumbers,
-                                                options.functionNames,
-                                                true))
+            let options = self.outputOptions
+            self.outputOptions = OutputOptions(options.filenames,
+                                               options.lineNumbers,
+                                               options.functionNames,
+                                               true)
         }, description: "Include timestamps in trace output.")
         return parser
     }
@@ -457,15 +500,15 @@ public final class Logger {
             )
             return
         }
-        _ = withLock(storage.enabledLock) {
-            storage.enabledChannelKeys.insert(resolution.key)
+        _ = storage.withEnabledChannels { enabledChannels in
+            enabledChannels.insert(resolution.key)
         }
     }
 
     private func enableChannels(_ selectorsCSV: String, localNamespace: String) throws {
         let resolution = try resolveSelectorExpression(selectorsCSV, localNamespace: localNamespace)
-        withLock(storage.enabledLock) {
-            storage.enabledChannelKeys.formUnion(resolution.channelKeys)
+        storage.withEnabledChannels { enabledChannels in
+            enabledChannels.formUnion(resolution.channelKeys)
         }
         for unmatched in resolution.unmatchedSelectors {
             try logLocalWarning(
@@ -491,15 +534,15 @@ public final class Logger {
             )
             return
         }
-        _ = withLock(storage.enabledLock) {
-            storage.enabledChannelKeys.remove(resolution.key)
+        _ = storage.withEnabledChannels { enabledChannels in
+            enabledChannels.remove(resolution.key)
         }
     }
 
     private func disableChannels(_ selectorsCSV: String, localNamespace: String) throws {
         let resolution = try resolveSelectorExpression(selectorsCSV, localNamespace: localNamespace)
-        withLock(storage.enabledLock) {
-            storage.enabledChannelKeys.subtract(resolution.channelKeys)
+        storage.withEnabledChannels { enabledChannels in
+            enabledChannels.subtract(resolution.channelKeys)
         }
         for unmatched in resolution.unmatchedSelectors {
             try logLocalWarning(
@@ -510,9 +553,7 @@ public final class Logger {
     }
 
     private func isRegistered(traceNamespace: String, channel: String) -> Bool {
-        withLock(storage.registryLock) {
-            (storage.channelsByNamespace[traceNamespace] ?? []).contains(channel)
-        }
+        storage.readRegistry { ($0.channelsByNamespace[traceNamespace] ?? []).contains(channel) }
     }
 
     private func resolveExactChannel(_ qualifiedChannel: String,
@@ -578,10 +619,10 @@ public final class Logger {
     }
 
     private func registeredChannelKeys() -> [String] {
-        withLock(storage.registryLock) {
+        storage.readRegistry { registry in
             var keys: [String] = []
-            for traceNamespace in storage.namespaces {
-                for channel in storage.channelsByNamespace[traceNamespace] ?? [] {
+            for traceNamespace in registry.namespaces {
+                for channel in registry.channelsByNamespace[traceNamespace] ?? [] {
                     keys.append("\(traceNamespace).\(channel)")
                 }
             }
@@ -621,7 +662,7 @@ public final class Logger {
     }
 
     private func printNamespaces() {
-        let namespaces = getNamespaces()
+        let namespaces = namespaces
         if namespaces.isEmpty {
             emit("No trace namespaces defined.")
             emit("")
@@ -638,8 +679,8 @@ public final class Logger {
 
     private func printChannels() {
         var printedAny = false
-        for traceNamespace in getNamespaces() {
-            for channel in getChannels(traceNamespace) {
+        for traceNamespace in namespaces {
+            for channel in channels(in: traceNamespace) {
                 if !printedAny {
                     emit("")
                     emit("Available trace channels:")
@@ -659,7 +700,7 @@ public final class Logger {
     private func printColors() {
         emit("")
         emit("Available trace colors:")
-        for color in TraceColors.names() {
+        for color in TraceColors.names {
             emit("  \(color)")
         }
         emit("")
@@ -676,39 +717,31 @@ public final class Logger {
 
     private func emit(_ line: String) {
         let payload = line.isEmpty ? "\n" : "\(line)\n"
-        withLock(storage.outputLock) {
-            storage.output(payload)
-        }
+        storage.emit(payload)
     }
 }
 
 private func shouldTrace(_ logger: LoggerStorage, traceNamespace: String, channel: String) -> Bool {
-    let hasEnabledChannels = withLock(logger.enabledLock) {
-        !logger.enabledChannelKeys.isEmpty
-    }
+    let hasEnabledChannels = logger.readEnabledChannels { !$0.isEmpty }
     guard hasEnabledChannels else {
         return false
     }
     let key = "\(traceNamespace).\(channel)"
-    let isRegistered = withLock(logger.registryLock) {
-        (logger.channelsByNamespace[traceNamespace] ?? []).contains(channel)
-    }
+    let isRegistered = logger.readRegistry { ($0.channelsByNamespace[traceNamespace] ?? []).contains(channel) }
     guard isRegistered else {
         return false
     }
-    return withLock(logger.enabledLock) {
-        logger.enabledChannelKeys.contains(key)
-    }
+    return logger.readEnabledChannels { $0.contains(key) }
 }
 
 func mergeColor(existing: Int,
                 incoming: Int,
                 traceNamespace: String,
                 channel: String) throws -> Int {
-    if incoming == TraceColors.DEFAULT {
+    if incoming == TraceColors.defaultColor {
         return existing
     }
-    if existing == TraceColors.DEFAULT {
+    if existing == TraceColors.defaultColor {
         return incoming
     }
     if existing == incoming {

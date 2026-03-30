@@ -1,149 +1,194 @@
 import Foundation
 
-func parse(_ parser: Parser, _ arguments: [String], io: ParserIO) throws {
-    if arguments.isEmpty {
-        return
-    }
-
-    var consumed = Array(repeating: false, count: arguments.count)
-    var invocations: [Invocation] = []
-    var tokens = arguments
-
-    var index = 1
-    while index < tokens.count {
-        if consumed[index] {
-            index += 1
-            continue
-        }
-
-        var arg = tokens[index]
-        if arg.isEmpty {
-            index += 1
-            continue
-        }
-
-        var aliasBinding: AliasBinding?
-        if arg.first == "-", !arg.hasPrefix("--") {
-            aliasBinding = findAliasBinding(in: parser.aliases, token: arg)
-            if let aliasBinding {
-                arg = aliasBinding.targetToken
-                tokens[index] = arg
-            }
-        }
-
-        guard arg.first == "-" else {
-            index += 1
-            continue
-        }
-
-        if arg == "--" {
-            index += 1
-            continue
-        }
-
-        if arg.hasPrefix("--") {
-            let inlineMatch = matchInlineToken(in: parser.inlineParsers, arg: arg)
-            switch inlineMatch.kind {
-            case .bareRoot:
-                guard let inlineParser = inlineMatch.parser else {
-                    break
-                }
-
-                consumeIndex(&consumed, index)
-                let collected = collectValueTokens(optionIndex: index,
-                                                   tokens: tokens,
-                                                   consumed: &consumed,
-                                                   allowOptionLikeFirstValue: false)
-
-                if !collected.hasValue && !hasAliasPresetTokens(aliasBinding) {
-                    invocations.append(.printHelp(root: inlineParser.rootName,
-                                                  helpRows: buildHelpRows(for: inlineParser)))
-                    index += 1
-                    continue
-                }
-
-                guard let rootHandler = inlineParser.rootValueHandler else {
-                    throw CliError(option: arg, message: "unknown value for option '\(arg)'")
-                }
-
-                let context = HandlerContext(root: inlineParser.rootName,
-                                             option: arg,
-                                             command: "",
-                                             valueTokens: buildEffectiveValueTokens(aliasBinding,
-                                                                                   collected.parts))
-                invocations.append(.value(context: context, handler: rootHandler))
-
-                index = collected.hasValue ? (collected.lastIndex + 1) : (index + 1)
-                continue
-
-            case .dashOption:
-                if let inlineParser = inlineMatch.parser,
-                   !inlineMatch.suffix.isEmpty,
-                   let binding = findCommand(in: inlineParser.commands, command: inlineMatch.suffix) {
-                    index = try scheduleInvocation(binding,
-                                                   aliasBinding: aliasBinding,
-                                                   root: inlineParser.rootName,
-                                                   command: inlineMatch.suffix,
-                                                   optionToken: arg,
-                                                   currentIndex: index,
-                                                   tokens: tokens,
-                                                   consumed: &consumed,
-                                                   invocations: &invocations) + 1
-                    continue
-                }
-
-            case .none:
-                let command = String(arg.dropFirst(2))
-                if let binding = findCommand(in: parser.commands, command: command) {
-                    index = try scheduleInvocation(binding,
-                                                   aliasBinding: aliasBinding,
-                                                   root: "",
-                                                   command: command,
-                                                   optionToken: arg,
-                                                   currentIndex: index,
-                                                   tokens: tokens,
-                                                   consumed: &consumed,
-                                                   invocations: &invocations) + 1
-                    continue
-                }
-            }
-        }
-
-        index += 1
-    }
-
-    schedulePositionals(parser,
-                        tokens: tokens,
-                        consumed: &consumed,
-                        invocations: &invocations)
-
-    for index in 1..<tokens.count where !consumed[index] {
-        let token = tokens[index]
-        if token.isEmpty {
-            continue
-        }
-        if token.first == "-" {
-            throw CliError(option: token, message: "unknown option \(token)")
-        }
-    }
-
-    try executeInvocations(invocations, io: io)
+func runParse(_ parser: Parser, _ arguments: [String], io: ParserIO) throws {
+    var runner = ParserRunner(parser: parser, arguments: arguments, io: io)
+    try runner.run()
 }
 
-func scheduleInvocation(_ binding: CommandBinding,
-                        aliasBinding: AliasBinding?,
-                        root: String,
-                        command: String,
-                        optionToken: String,
-                        currentIndex: Int,
-                        tokens: [String],
-                        consumed: inout [Bool],
-                        invocations: inout [Invocation]) throws -> Int {
+private struct ParserRunner {
+    let parser: Parser
+    let io: ParserIO
+    var tokens: [String]
+    var consumed: [Bool]
+    var invocations: [Invocation] = []
+    var cursor = 1
+
+    init(parser: Parser, arguments: [String], io: ParserIO) {
+        self.parser = parser
+        self.io = io
+        self.tokens = arguments
+        self.consumed = Array(repeating: false, count: arguments.count)
+    }
+
+    mutating func run() throws {
+        guard !tokens.isEmpty else {
+            return
+        }
+
+        while cursor < tokens.count {
+            try handleCurrentToken()
+        }
+
+        schedulePositionals(parser,
+                            tokens: tokens,
+                            consumed: &consumed,
+                            invocations: &invocations)
+        try validateRemainingTokens()
+        try executeInvocations(invocations, io: io)
+    }
+
+    private mutating func handleCurrentToken() throws {
+        guard !consumed[cursor] else {
+            cursor += 1
+            return
+        }
+
+        var token = tokens[cursor]
+        guard !token.isEmpty else {
+            cursor += 1
+            return
+        }
+
+        let alias = rewrittenAliasBinding(for: &token)
+
+        guard token.first == "-" else {
+            cursor += 1
+            return
+        }
+
+        guard token != "--" else {
+            cursor += 1
+            return
+        }
+
+        guard token.hasPrefix("--") else {
+            cursor += 1
+            return
+        }
+
+        let inlineMatch = inlineMatch(in: parser.inlineParsers, for: token)
+        switch inlineMatch.kind {
+        case .bareRoot:
+            try scheduleBareRoot(token: token, inlineMatch: inlineMatch, aliasBinding: alias)
+        case .dashOption:
+            try scheduleInlineCommand(token: token, inlineMatch: inlineMatch, aliasBinding: alias)
+        case .none:
+            try scheduleTopLevelCommand(token: token, aliasBinding: alias)
+        }
+    }
+
+    private mutating func rewrittenAliasBinding(for token: inout String) -> AliasBinding? {
+        guard token.first == "-", !token.hasPrefix("--"),
+              let aliasBinding = aliasBinding(in: parser.aliases, matching: token) else {
+            return nil
+        }
+
+        token = aliasBinding.targetToken
+        tokens[cursor] = token
+        return aliasBinding
+    }
+
+    private mutating func scheduleBareRoot(token: String,
+                                           inlineMatch: InlineTokenMatch,
+                                           aliasBinding: AliasBinding?) throws {
+        guard let inlineParser = inlineMatch.parser else {
+            cursor += 1
+            return
+        }
+
+        consumeIndex(&consumed, cursor)
+        let collected = collectValueTokens(optionIndex: cursor,
+                                           tokens: tokens,
+                                           consumed: &consumed,
+                                           allowOptionLikeFirstValue: false)
+
+        if !collected.hasValue && !aliasHasPresetTokens(aliasBinding) {
+            invocations.append(.printHelp(root: inlineParser.rootName,
+                                          helpRows: buildHelpRows(for: inlineParser)))
+            cursor += 1
+            return
+        }
+
+        guard let rootHandler = inlineParser.rootValueHandler else {
+            throw CliError(option: token, message: "unknown value for option '\(token)'")
+        }
+
+        let context = HandlerContext(root: inlineParser.rootName,
+                                     option: token,
+                                     command: "",
+                                     valueTokens: effectiveValueTokens(from: aliasBinding,
+                                                                      collected.parts))
+        invocations.append(.value(context: context, handler: rootHandler))
+        cursor = collected.hasValue ? (collected.lastIndex + 1) : (cursor + 1)
+    }
+
+    private mutating func scheduleInlineCommand(token: String,
+                                                inlineMatch: InlineTokenMatch,
+                                                aliasBinding: AliasBinding?) throws {
+        guard let inlineParser = inlineMatch.parser,
+              !inlineMatch.suffix.isEmpty,
+              let binding = commandBinding(in: inlineParser.commands, matching: inlineMatch.suffix) else {
+            cursor += 1
+            return
+        }
+
+        cursor = try schedule(binding,
+                              aliasBinding: aliasBinding,
+                              root: inlineParser.rootName,
+                              command: inlineMatch.suffix,
+                              optionToken: token,
+                              currentIndex: cursor,
+                              tokens: tokens,
+                              consumed: &consumed,
+                              invocations: &invocations) + 1
+    }
+
+    private mutating func scheduleTopLevelCommand(token: String,
+                                                  aliasBinding: AliasBinding?) throws {
+        let command = String(token.dropFirst(2))
+        guard let binding = commandBinding(in: parser.commands, matching: command) else {
+            cursor += 1
+            return
+        }
+
+        cursor = try schedule(binding,
+                              aliasBinding: aliasBinding,
+                              root: "",
+                              command: command,
+                              optionToken: token,
+                              currentIndex: cursor,
+                              tokens: tokens,
+                              consumed: &consumed,
+                              invocations: &invocations) + 1
+    }
+
+    private func validateRemainingTokens() throws {
+        for index in tokens.indices.dropFirst() where !consumed[index] {
+            let token = tokens[index]
+            guard !token.isEmpty else {
+                continue
+            }
+            if token.first == "-" {
+                throw CliError(option: token, message: "unknown option \(token)")
+            }
+        }
+    }
+}
+
+func schedule(_ binding: CommandBinding,
+              aliasBinding: AliasBinding?,
+              root: String,
+              command: String,
+              optionToken: String,
+              currentIndex: Int,
+              tokens: [String],
+              consumed: inout [Bool],
+              invocations: inout [Invocation]) throws -> Int {
     consumeIndex(&consumed, currentIndex)
 
     switch binding.handler {
     case .flag(let handler):
-        if hasAliasPresetTokens(aliasBinding) {
+        if aliasHasPresetTokens(aliasBinding) {
             throw CliError(option: aliasBinding?.alias ?? optionToken,
                            message: "alias '\(aliasBinding?.alias ?? "")' presets values for option '\(optionToken)' which does not accept values")
         }
@@ -161,7 +206,7 @@ func scheduleInvocation(_ binding: CommandBinding,
                                            consumed: &consumed,
                                            allowOptionLikeFirstValue: arity == .required)
 
-        if !collected.hasValue && !hasAliasPresetTokens(aliasBinding) && arity == .required {
+        if !collected.hasValue && !aliasHasPresetTokens(aliasBinding) && arity == .required {
             throw CliError(option: optionToken,
                            message: "option '\(optionToken)' requires a value")
         }
@@ -169,8 +214,8 @@ func scheduleInvocation(_ binding: CommandBinding,
         let context = HandlerContext(root: root,
                                      option: optionToken,
                                      command: command,
-                                     valueTokens: buildEffectiveValueTokens(aliasBinding,
-                                                                           collected.parts))
+                                     valueTokens: effectiveValueTokens(from: aliasBinding,
+                                                                      collected.parts))
         invocations.append(.value(context: context, handler: handler))
         return collected.hasValue ? collected.lastIndex : currentIndex
     }
@@ -294,7 +339,7 @@ func collectValueTokens(optionIndex: Int,
     return collected
 }
 
-func matchInlineToken(in inlineParsers: [InlineParser], arg: String) -> InlineTokenMatch {
+func inlineMatch(in inlineParsers: [InlineParser], for arg: String) -> InlineTokenMatch {
     for parser in inlineParsers {
         let rootOption = "--\(parser.rootName)"
         if arg == rootOption {
@@ -311,11 +356,11 @@ func matchInlineToken(in inlineParsers: [InlineParser], arg: String) -> InlineTo
     return InlineTokenMatch()
 }
 
-func findCommand(in commands: [(String, CommandBinding)], command: String) -> CommandBinding? {
+func commandBinding(in commands: [(String, CommandBinding)], matching command: String) -> CommandBinding? {
     commands.first(where: { $0.0 == command })?.1
 }
 
-func findAliasBinding(in aliases: [AliasBinding], token: String) -> AliasBinding? {
+func aliasBinding(in aliases: [AliasBinding], matching token: String) -> AliasBinding? {
     aliases.first(where: { $0.alias == token })
 }
 
@@ -326,15 +371,15 @@ func consumeIndex(_ consumed: inout [Bool], _ index: Int) {
     consumed[index] = true
 }
 
-func buildEffectiveValueTokens(_ aliasBinding: AliasBinding?,
-                               _ collectedParts: [String]) -> [String] {
+func effectiveValueTokens(from aliasBinding: AliasBinding?,
+                          _ collectedParts: [String]) -> [String] {
     guard let aliasBinding, !aliasBinding.presetTokens.isEmpty else {
         return collectedParts
     }
     return aliasBinding.presetTokens + collectedParts
 }
 
-func hasAliasPresetTokens(_ aliasBinding: AliasBinding?) -> Bool {
+func aliasHasPresetTokens(_ aliasBinding: AliasBinding?) -> Bool {
     !(aliasBinding?.presetTokens.isEmpty ?? true)
 }
 
@@ -345,22 +390,22 @@ func formatOptionErrorMessage(_ option: String, _ message: String) -> String {
     return "option '\(option)': \(message)"
 }
 
-func makeFlagBinding(_ handler: @escaping FlagHandler,
-                     description: String) throws -> CommandBinding {
+func flagBinding(_ handler: @escaping FlagHandler,
+                 description: String) throws -> CommandBinding {
     CommandBinding(handler: .flag(handler),
-                   description: try normalizeDescriptionOrThrow(description))
+                   description: try normalizedDescription(description))
 }
 
-func makeValueBinding(_ handler: @escaping ValueHandler,
-                      description: String,
-                      arity: ValueArity) throws -> CommandBinding {
+func valueBinding(_ handler: @escaping ValueHandler,
+                  description: String,
+                  arity: ValueArity) throws -> CommandBinding {
     CommandBinding(handler: .value(handler, arity),
-                   description: try normalizeDescriptionOrThrow(description))
+                   description: try normalizedDescription(description))
 }
 
-func upsertCommand(_ commands: inout [(String, CommandBinding)],
-                   command: String,
-                   binding: CommandBinding) throws {
+func upsertCommandBinding(_ commands: inout [(String, CommandBinding)],
+                         command: String,
+                         binding: CommandBinding) throws {
     if let index = commands.firstIndex(where: { $0.0 == command }) {
         commands[index] = (command, binding)
         return

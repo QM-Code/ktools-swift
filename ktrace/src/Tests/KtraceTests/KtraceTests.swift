@@ -7,7 +7,7 @@ final class KtraceTests: XCTestCase {
         let logger = Logger(output: { output += $0 })
         let trace = try TraceLogger("tests")
         try trace.addChannel("trace")
-        try logger.addTraceLogger(trace)
+        try logger.attach(trace)
         try logger.enableChannel("tests.trace")
 
         try trace.trace("trace", "value {} {{ok}}", 42)
@@ -27,8 +27,8 @@ final class KtraceTests: XCTestCase {
         var output = ""
         let logger = Logger(output: { output += $0 })
         let trace = try TraceLogger("tests")
-        try logger.addTraceLogger(trace)
-        logger.setOutputOptions(OutputOptions(true, true, false, false))
+        try logger.attach(trace)
+        logger.outputOptions = OutputOptions(true, true, false, false)
 
         try trace.info("info message")
         try trace.warn("warn value {}", 7)
@@ -44,8 +44,8 @@ final class KtraceTests: XCTestCase {
         var output = ""
         let logger = Logger(output: { output += $0 })
         let trace = try TraceLogger("tests")
-        try logger.addTraceLogger(trace)
-        logger.setOutputOptions(OutputOptions(true, true, false, false))
+        try logger.attach(trace)
+        logger.outputOptions = OutputOptions(true, true, false, false)
 
         let infoLine = #line + 1
         try trace.info("info message")
@@ -72,7 +72,7 @@ final class KtraceTests: XCTestCase {
         try trace.addChannel("cache")
         try trace.addChannel("store")
         try trace.addChannel("store.requests")
-        try logger.addTraceLogger(trace)
+        try logger.attach(trace)
 
         try logger.enableChannels("tests.*")
         XCTAssertTrue(logger.shouldTraceChannel("tests.net"))
@@ -101,14 +101,14 @@ final class KtraceTests: XCTestCase {
         let logger = Logger(output: { _ in })
         let trace = try TraceLogger("tests")
         try trace.addChannel("net")
-        try logger.addTraceLogger(trace)
+        try logger.attach(trace)
 
-        try logger.enableChannel(trace, ".net")
-        XCTAssertTrue(logger.shouldTraceChannel(trace, ".net"))
+        try logger.enableChannel(".net", in: trace)
+        XCTAssertTrue(logger.shouldTraceChannel(".net", in: trace))
         XCTAssertTrue(trace.shouldTraceChannel("net"))
 
-        try logger.disableChannel(trace, ".net")
-        XCTAssertFalse(logger.shouldTraceChannel(trace, ".net"))
+        try logger.disableChannel(".net", in: trace)
+        XCTAssertFalse(logger.shouldTraceChannel(".net", in: trace))
         XCTAssertFalse(trace.shouldTraceChannel("net"))
     }
 
@@ -117,28 +117,28 @@ final class KtraceTests: XCTestCase {
         let logger = Logger(output: { output += $0 })
         let trace = try TraceLogger("tests")
         try trace.addChannel("net")
-        try logger.addTraceLogger(trace)
+        try logger.attach(trace)
 
-        try logger.enableChannels(trace, ".cache")
+        try logger.enableChannels(".cache", in: trace)
 
         XCTAssertTrue(output.contains("[tests] [warning]"))
         XCTAssertTrue(output.contains("matched no registered channels"))
-        XCTAssertFalse(logger.shouldTraceChannel(trace, ".cache"))
+        XCTAssertFalse(logger.shouldTraceChannel(".cache", in: trace))
     }
 
     func testConflictingColorsRejected() throws {
         let logger = Logger(output: { _ in })
         let first = try TraceLogger("tests")
         try first.addChannel("net")
-        try logger.addTraceLogger(first)
+        try logger.attach(first)
 
         let explicit = try TraceLogger("tests")
-        try explicit.addChannel("net", color: try TraceColors.color("Gold3"))
-        try logger.addTraceLogger(explicit)
+        try explicit.addChannel("net", color: try TraceColors.named("Gold3"))
+        try logger.attach(explicit)
 
         let conflicting = try TraceLogger("tests")
-        try conflicting.addChannel("net", color: try TraceColors.color("Orange3"))
-        XCTAssertThrowsError(try logger.addTraceLogger(conflicting))
+        try conflicting.addChannel("net", color: try TraceColors.named("Orange3"))
+        XCTAssertThrowsError(try logger.attach(conflicting))
     }
 
     func testTraceChangedSuppressesDuplicates() throws {
@@ -146,7 +146,7 @@ final class KtraceTests: XCTestCase {
         let logger = Logger(output: { output += $0 })
         let trace = try TraceLogger("tests")
         try trace.addChannel("changed")
-        try logger.addTraceLogger(trace)
+        try logger.attach(trace)
         try logger.enableChannel("tests.changed")
 
         try emitChanged(trace, key: "key-1")
@@ -164,21 +164,21 @@ final class KtraceTests: XCTestCase {
         try alpha.addChannel("net")
         try alpha.addChannel("app")
 
-        try logger.addTraceLogger(beta)
-        try logger.addTraceLogger(alpha)
+        try logger.attach(beta)
+        try logger.attach(alpha)
 
-        XCTAssertEqual(logger.getNamespaces(), ["alpha", "beta", "ktrace"])
-        XCTAssertEqual(logger.getChannels("alpha"), ["app", "net"])
+        XCTAssertEqual(logger.namespaces, ["alpha", "beta", "ktrace"])
+        XCTAssertEqual(logger.channels(in: "alpha"), ["app", "net"])
     }
 
     private func emitChanged(_ trace: TraceLogger, key: String) throws {
-        try trace.traceChanged("changed", key, "changed")
+        try trace.traceIfChanged("changed", key: key, "changed")
     }
 
     private func emitInvalidFormat(_ format: String, _ arg: Any) throws {
         let logger = Logger(output: { _ in })
         let trace = try TraceLogger("tests")
-        try logger.addTraceLogger(trace)
+        try logger.attach(trace)
         try trace.warn(format, arg)
     }
 }

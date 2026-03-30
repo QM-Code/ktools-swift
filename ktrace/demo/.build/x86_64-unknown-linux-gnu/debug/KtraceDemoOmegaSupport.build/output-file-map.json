@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoOmegaSupport.build/primary.swiftdeps"
+  },
+  "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/exe/omega/support/DemoOmega.swift": {
+    "dependencies": "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoOmegaSupport.build/DemoOmega.d",
+    "object": "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoOmegaSupport.build/DemoOmega.swift.o",
+    "swiftmodule": "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoOmegaSupport.build/DemoOmega~partial.swiftmodule",
+    "swift-dependencies": "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoOmegaSupport.build/DemoOmega.swiftdeps",
+    "diagnostics": "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoOmegaSupport.build/DemoOmega.dia"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/home/karmak/dev/ktools/ktools-swift/kcli/src/.build/x86_64-unknown-linux-gnu/debug/KcliSwiftPackageTests.build/primary.swiftdeps"
+  },
+  "/home/karmak/dev/ktools/ktools-swift/kcli/src/.build/x86_64-unknown-linux-gnu/debug/KcliSwiftPackageTests.derived/runner.swift": {
+    "dependencies": "/home/karmak/dev/ktools/ktools-swift/kcli/src/.build/x86_64-unknown-linux-gnu/debug/KcliSwiftPackageTests.build/runner.d",
+    "object": "/home/karmak/dev/ktools/ktools-swift/kcli/src/.build/x86_64-unknown-linux-gnu/debug/KcliSwiftPackageTests.build/runner.swift.o",
+    "swiftmodule": "/home/karmak/dev/ktools/ktools-swift/kcli/src/.build/x86_64-unknown-linux-gnu/debug/KcliSwiftPackageTests.build/runner~partial.swiftmodule",
+    "swift-dependencies": "/home/karmak/dev/ktools/ktools-swift/kcli/src/.build/x86_64-unknown-linux-gnu/debug/KcliSwiftPackageTests.build/runner.swiftdeps",
+    "diagnostics": "/home/karmak/dev/ktools/ktools-swift/kcli/src/.build/x86_64-unknown-linux-gnu/debug/KcliSwiftPackageTests.build/runner.dia"
+  }
+}

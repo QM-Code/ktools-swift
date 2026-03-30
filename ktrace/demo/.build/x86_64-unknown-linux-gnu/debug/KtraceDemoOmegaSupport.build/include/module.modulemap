@@ -1,0 +1,3 @@
+module KtraceDemoOmegaSupport {
+    header "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoOmegaSupport.build/include/KtraceDemoOmegaSupport-Swift.h"
+}

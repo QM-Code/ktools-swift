@@ -5,9 +5,9 @@ Basic local-plus-imported tracing showcase for `Ktrace` and the alpha demo SDK.
 This demo shows:
 
 - executable-local tracing defined with a local `TraceLogger`
-- imported SDK tracing added through `AlphaSdk.getTraceLogger()`
+- imported SDK tracing added through `AlphaSdk.traceLogger`
 - logger-managed selector state and output formatting
-- local CLI integration through `parser.addInlineParser(logger.makeInlineParser(localTraceLogger))`
+- local CLI integration through `parser.addInlineParser(logger.inlineParser(for: localTraceLogger))`
 - bare-root trace help with `--trace`
 
 Implementation:

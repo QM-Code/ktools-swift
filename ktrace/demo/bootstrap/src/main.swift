@@ -11,8 +11,8 @@ func runBootstrapDemo() -> Int {
         let logger = Logger()
         let trace = try TraceLogger("bootstrap")
         try trace.addChannel("app")
-        try logger.addTraceLogger(trace)
-        try logger.enableChannel(trace, ".app")
+        try logger.attach(trace)
+        try logger.enableChannel(".app", in: trace)
         try trace.trace("app", "ktrace Swift demo bootstrap import/integration check passed")
         return 0
     } catch {

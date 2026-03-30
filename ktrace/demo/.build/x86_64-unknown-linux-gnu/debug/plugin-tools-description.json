@@ -1,0 +1,2543 @@
+{
+  "builtTestProducts" : [
+    {
+      "binaryPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageTests.xctest",
+      "packagePath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo",
+      "productName" : "KtraceSwiftDemosPackageTests"
+    }
+  ],
+  "copyCommands" : {
+
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+    "KtraceSwiftDemosPackageDiscoveredTests"
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.Kcli-x86_64-unknown-linux-gnu-debug.module" : {
+      "executable" : "/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc",
+      "fileList" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/sources",
+      "importPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/kcli/swiftpkg-kcli/Sources/Kcli/Errors.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/kcli/swiftpkg-kcli/Sources/Kcli/HandlerTypes.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/kcli/swiftpkg-kcli/Sources/Kcli/HelpRendering.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/kcli/swiftpkg-kcli/Sources/Kcli/InlineParser.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/kcli/swiftpkg-kcli/Sources/Kcli/Normalization.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/kcli/swiftpkg-kcli/Sources/Kcli/ParseEngine.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/kcli/swiftpkg-kcli/Sources/Kcli/ParseModel.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/kcli/swiftpkg-kcli/Sources/Kcli/Parser.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/swift-version-62C65D2B0BEA20A3.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "Kcli",
+      "moduleOutputPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/Kcli.swiftmodule",
+      "objects" : [
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/Errors.swift.o",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/HandlerTypes.swift.o",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/HelpRendering.swift.o",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/InlineParser.swift.o",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/Normalization.swift.o",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/ParseEngine.swift.o",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/ParseModel.swift.o",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/Parser.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "x86_64-unknown-linux-gnu",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j8",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/include/Kcli-Swift.h",
+        "-swift-version",
+        "5",
+        "-g",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "swiftpkg_kcli",
+        "-Xcc",
+        "-fno-omit-frame-pointer"
+      ],
+      "outputFileMapPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/Errors.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/HandlerTypes.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/HelpRendering.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/InlineParser.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/Normalization.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/ParseEngine.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/ParseModel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/Parser.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/Kcli.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/home/karmak/dev/ktools/ktools-swift/kcli/swiftpkg-kcli/Sources/Kcli/Errors.swift",
+        "/home/karmak/dev/ktools/ktools-swift/kcli/swiftpkg-kcli/Sources/Kcli/HandlerTypes.swift",
+        "/home/karmak/dev/ktools/ktools-swift/kcli/swiftpkg-kcli/Sources/Kcli/HelpRendering.swift",
+        "/home/karmak/dev/ktools/ktools-swift/kcli/swiftpkg-kcli/Sources/Kcli/InlineParser.swift",
+        "/home/karmak/dev/ktools/ktools-swift/kcli/swiftpkg-kcli/Sources/Kcli/Normalization.swift",
+        "/home/karmak/dev/ktools/ktools-swift/kcli/swiftpkg-kcli/Sources/Kcli/ParseEngine.swift",
+        "/home/karmak/dev/ktools/ktools-swift/kcli/swiftpkg-kcli/Sources/Kcli/ParseModel.swift",
+        "/home/karmak/dev/ktools/ktools-swift/kcli/swiftpkg-kcli/Sources/Kcli/Parser.swift"
+      ],
+      "tempsPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.Ktrace-x86_64-unknown-linux-gnu-debug.module" : {
+      "executable" : "/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc",
+      "fileList" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/sources",
+      "importPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/swiftpkg-ktrace/Sources/Ktrace/Ktrace.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/swiftpkg-ktrace/Sources/Ktrace/KtraceFormatting.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/swiftpkg-ktrace/Sources/Ktrace/KtraceSelectors.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/swiftpkg-ktrace/Sources/Ktrace/KtraceSupport.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/swift-version-62C65D2B0BEA20A3.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/Kcli.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "Ktrace",
+      "moduleOutputPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/Ktrace.swiftmodule",
+      "objects" : [
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/Ktrace.swift.o",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/KtraceFormatting.swift.o",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/KtraceSelectors.swift.o",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/KtraceSupport.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "x86_64-unknown-linux-gnu",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j8",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/include/Ktrace-Swift.h",
+        "-swift-version",
+        "5",
+        "-g",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "swiftpkg_ktrace",
+        "-Xcc",
+        "-fno-omit-frame-pointer"
+      ],
+      "outputFileMapPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/Ktrace.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/KtraceFormatting.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/KtraceSelectors.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/KtraceSupport.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/Ktrace.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/swiftpkg-ktrace/Sources/Ktrace/Ktrace.swift",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/swiftpkg-ktrace/Sources/Ktrace/KtraceFormatting.swift",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/swiftpkg-ktrace/Sources/Ktrace/KtraceSelectors.swift",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/swiftpkg-ktrace/Sources/Ktrace/KtraceSupport.swift"
+      ],
+      "tempsPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.KtraceDemoAlpha-x86_64-unknown-linux-gnu-debug.module" : {
+      "executable" : "/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc",
+      "fileList" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoAlpha.build/sources",
+      "importPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/sdk/alpha/src/KtraceDemoAlpha.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/swift-version-62C65D2B0BEA20A3.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/Ktrace.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoAlpha.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "KtraceDemoAlpha",
+      "moduleOutputPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/KtraceDemoAlpha.swiftmodule",
+      "objects" : [
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoAlpha.build/KtraceDemoAlpha.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "x86_64-unknown-linux-gnu",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j8",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoAlpha.build/include/KtraceDemoAlpha-Swift.h",
+        "-swift-version",
+        "5",
+        "-g",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "demo",
+        "-Xcc",
+        "-fno-omit-frame-pointer"
+      ],
+      "outputFileMapPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoAlpha.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoAlpha.build/KtraceDemoAlpha.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/KtraceDemoAlpha.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/sdk/alpha/src/KtraceDemoAlpha.swift"
+      ],
+      "tempsPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoAlpha.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.KtraceDemoBeta-x86_64-unknown-linux-gnu-debug.module" : {
+      "executable" : "/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc",
+      "fileList" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoBeta.build/sources",
+      "importPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/sdk/beta/src/KtraceDemoBeta.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/swift-version-62C65D2B0BEA20A3.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/Ktrace.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoBeta.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "KtraceDemoBeta",
+      "moduleOutputPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/KtraceDemoBeta.swiftmodule",
+      "objects" : [
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoBeta.build/KtraceDemoBeta.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "x86_64-unknown-linux-gnu",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j8",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoBeta.build/include/KtraceDemoBeta-Swift.h",
+        "-swift-version",
+        "5",
+        "-g",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "demo",
+        "-Xcc",
+        "-fno-omit-frame-pointer"
+      ],
+      "outputFileMapPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoBeta.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoBeta.build/KtraceDemoBeta.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/KtraceDemoBeta.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/sdk/beta/src/KtraceDemoBeta.swift"
+      ],
+      "tempsPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoBeta.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.KtraceDemoBootstrap-x86_64-unknown-linux-gnu-debug.module" : {
+      "executable" : "/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc",
+      "fileList" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoBootstrap.build/sources",
+      "importPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/bootstrap/src/main.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/swift-version-62C65D2B0BEA20A3.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/Ktrace.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoBootstrap.build/sources"
+        }
+      ],
+      "isLibrary" : false,
+      "moduleName" : "KtraceDemoBootstrap",
+      "moduleOutputPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/KtraceDemoBootstrap.swiftmodule",
+      "objects" : [
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoBootstrap.build/main.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "x86_64-unknown-linux-gnu",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j8",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+        "-parseable-output",
+        "-Xfrontend",
+        "-entry-point-function-name",
+        "-Xfrontend",
+        "KtraceDemoBootstrap_main",
+        "-swift-version",
+        "5",
+        "-g",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "demo",
+        "-Xcc",
+        "-fno-omit-frame-pointer"
+      ],
+      "outputFileMapPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoBootstrap.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoBootstrap.build/main.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/KtraceDemoBootstrap.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/bootstrap/src/main.swift"
+      ],
+      "tempsPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoBootstrap.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.KtraceDemoCore-x86_64-unknown-linux-gnu-debug.module" : {
+      "executable" : "/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc",
+      "fileList" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoCore.build/sources",
+      "importPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/exe/core/src/main.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/swift-version-62C65D2B0BEA20A3.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/KtraceDemoCoreSupport.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoCore.build/sources"
+        }
+      ],
+      "isLibrary" : false,
+      "moduleName" : "KtraceDemoCore",
+      "moduleOutputPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/KtraceDemoCore.swiftmodule",
+      "objects" : [
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoCore.build/main.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "x86_64-unknown-linux-gnu",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j8",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+        "-parseable-output",
+        "-Xfrontend",
+        "-entry-point-function-name",
+        "-Xfrontend",
+        "KtraceDemoCore_main",
+        "-swift-version",
+        "5",
+        "-g",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "demo",
+        "-Xcc",
+        "-fno-omit-frame-pointer"
+      ],
+      "outputFileMapPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoCore.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoCore.build/main.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/KtraceDemoCore.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/exe/core/src/main.swift"
+      ],
+      "tempsPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoCore.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.KtraceDemoCoreSupport-x86_64-unknown-linux-gnu-debug.module" : {
+      "executable" : "/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc",
+      "fileList" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoCoreSupport.build/sources",
+      "importPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/exe/core/support/DemoCore.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/swift-version-62C65D2B0BEA20A3.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/KtraceDemoAlpha.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/Ktrace.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/Kcli.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoCoreSupport.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "KtraceDemoCoreSupport",
+      "moduleOutputPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/KtraceDemoCoreSupport.swiftmodule",
+      "objects" : [
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoCoreSupport.build/DemoCore.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "x86_64-unknown-linux-gnu",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j8",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoCoreSupport.build/include/KtraceDemoCoreSupport-Swift.h",
+        "-swift-version",
+        "5",
+        "-g",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "demo",
+        "-Xcc",
+        "-fno-omit-frame-pointer"
+      ],
+      "outputFileMapPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoCoreSupport.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoCoreSupport.build/DemoCore.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/KtraceDemoCoreSupport.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/exe/core/support/DemoCore.swift"
+      ],
+      "tempsPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoCoreSupport.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.KtraceDemoGamma-x86_64-unknown-linux-gnu-debug.module" : {
+      "executable" : "/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc",
+      "fileList" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoGamma.build/sources",
+      "importPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/sdk/gamma/src/KtraceDemoGamma.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/swift-version-62C65D2B0BEA20A3.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/Ktrace.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoGamma.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "KtraceDemoGamma",
+      "moduleOutputPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/KtraceDemoGamma.swiftmodule",
+      "objects" : [
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoGamma.build/KtraceDemoGamma.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "x86_64-unknown-linux-gnu",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j8",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoGamma.build/include/KtraceDemoGamma-Swift.h",
+        "-swift-version",
+        "5",
+        "-g",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "demo",
+        "-Xcc",
+        "-fno-omit-frame-pointer"
+      ],
+      "outputFileMapPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoGamma.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoGamma.build/KtraceDemoGamma.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/KtraceDemoGamma.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/sdk/gamma/src/KtraceDemoGamma.swift"
+      ],
+      "tempsPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoGamma.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.KtraceDemoOmega-x86_64-unknown-linux-gnu-debug.module" : {
+      "executable" : "/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc",
+      "fileList" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoOmega.build/sources",
+      "importPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/exe/omega/src/main.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/swift-version-62C65D2B0BEA20A3.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/KtraceDemoOmegaSupport.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoOmega.build/sources"
+        }
+      ],
+      "isLibrary" : false,
+      "moduleName" : "KtraceDemoOmega",
+      "moduleOutputPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/KtraceDemoOmega.swiftmodule",
+      "objects" : [
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoOmega.build/main.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "x86_64-unknown-linux-gnu",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j8",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+        "-parseable-output",
+        "-Xfrontend",
+        "-entry-point-function-name",
+        "-Xfrontend",
+        "KtraceDemoOmega_main",
+        "-swift-version",
+        "5",
+        "-g",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "demo",
+        "-Xcc",
+        "-fno-omit-frame-pointer"
+      ],
+      "outputFileMapPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoOmega.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoOmega.build/main.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/KtraceDemoOmega.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/exe/omega/src/main.swift"
+      ],
+      "tempsPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoOmega.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.KtraceDemoOmegaSupport-x86_64-unknown-linux-gnu-debug.module" : {
+      "executable" : "/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc",
+      "fileList" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoOmegaSupport.build/sources",
+      "importPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/exe/omega/support/DemoOmega.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/swift-version-62C65D2B0BEA20A3.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/KtraceDemoAlpha.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/KtraceDemoBeta.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/KtraceDemoGamma.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/Ktrace.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/Kcli.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoOmegaSupport.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "KtraceDemoOmegaSupport",
+      "moduleOutputPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/KtraceDemoOmegaSupport.swiftmodule",
+      "objects" : [
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoOmegaSupport.build/DemoOmega.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "x86_64-unknown-linux-gnu",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j8",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoOmegaSupport.build/include/KtraceDemoOmegaSupport-Swift.h",
+        "-swift-version",
+        "5",
+        "-g",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "demo",
+        "-Xcc",
+        "-fno-omit-frame-pointer"
+      ],
+      "outputFileMapPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoOmegaSupport.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoOmegaSupport.build/DemoOmega.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/KtraceDemoOmegaSupport.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/exe/omega/support/DemoOmega.swift"
+      ],
+      "tempsPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoOmegaSupport.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.KtraceDemoTests-x86_64-unknown-linux-gnu-debug.module" : {
+      "executable" : "/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc",
+      "fileList" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoTests.build/sources",
+      "importPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/Tests/KtraceDemoTests/KtraceDemoTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/swift-version-62C65D2B0BEA20A3.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/KtraceDemoCoreSupport.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/KtraceDemoOmegaSupport.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoTests.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "KtraceDemoTests",
+      "moduleOutputPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/KtraceDemoTests.swiftmodule",
+      "objects" : [
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoTests.build/KtraceDemoTests.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "x86_64-unknown-linux-gnu",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-Xfrontend",
+        "-enable-cross-import-overlays",
+        "-j8",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-swift-version",
+        "5",
+        "-g",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "demo",
+        "-Xcc",
+        "-fno-omit-frame-pointer"
+      ],
+      "outputFileMapPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoTests.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoTests.build/KtraceDemoTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/KtraceDemoTests.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/Tests/KtraceDemoTests/KtraceDemoTests.swift"
+      ],
+      "tempsPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoTests.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.KtraceSwiftDemosPackageDiscoveredTests-x86_64-unknown-linux-gnu-debug.module" : {
+      "executable" : "/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc",
+      "fileList" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageDiscoveredTests.build/sources",
+      "importPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageDiscoveredTests.derived/KtraceDemoTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageDiscoveredTests.derived/all-discovered-tests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/swift-version-62C65D2B0BEA20A3.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/KtraceDemoTests.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageDiscoveredTests.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "KtraceSwiftDemosPackageDiscoveredTests",
+      "moduleOutputPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/KtraceSwiftDemosPackageDiscoveredTests.swiftmodule",
+      "objects" : [
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageDiscoveredTests.build/KtraceDemoTests.swift.o",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageDiscoveredTests.build/all-discovered-tests.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "x86_64-unknown-linux-gnu",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-Xfrontend",
+        "-enable-cross-import-overlays",
+        "-j8",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageDiscoveredTests.build/include/KtraceSwiftDemosPackageDiscoveredTests-Swift.h",
+        "-g",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "demo",
+        "-Xcc",
+        "-fno-omit-frame-pointer"
+      ],
+      "outputFileMapPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageDiscoveredTests.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageDiscoveredTests.build/KtraceDemoTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageDiscoveredTests.build/all-discovered-tests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/KtraceSwiftDemosPackageDiscoveredTests.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageDiscoveredTests.derived/KtraceDemoTests.swift",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageDiscoveredTests.derived/all-discovered-tests.swift"
+      ],
+      "tempsPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageDiscoveredTests.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.KtraceSwiftDemosPackageTests-x86_64-unknown-linux-gnu-debug.module" : {
+      "executable" : "/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc",
+      "fileList" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageTests.build/sources",
+      "importPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageTests.derived/runner.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/swift-version-62C65D2B0BEA20A3.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/KtraceDemoTests.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/KtraceSwiftDemosPackageDiscoveredTests.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageTests.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "KtraceSwiftDemosPackageTests",
+      "moduleOutputPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/KtraceSwiftDemosPackageTests.swiftmodule",
+      "objects" : [
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageTests.build/runner.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "x86_64-unknown-linux-gnu",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-Xfrontend",
+        "-enable-cross-import-overlays",
+        "-j8",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageTests.build/include/KtraceSwiftDemosPackageTests-Swift.h",
+        "-g",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "demo",
+        "-Xcc",
+        "-fno-omit-frame-pointer"
+      ],
+      "outputFileMapPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageTests.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageTests.build/runner.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/KtraceSwiftDemosPackageTests.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageTests.derived/runner.swift"
+      ],
+      "tempsPath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageTests.build",
+      "wholeModuleOptimization" : false
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "Kcli" : [
+      "/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc",
+      "-module-name",
+      "Kcli",
+      "-package-name",
+      "swiftpkg_kcli",
+      "-c",
+      "/home/karmak/dev/ktools/ktools-swift/kcli/swiftpkg-kcli/Sources/Kcli/Errors.swift",
+      "/home/karmak/dev/ktools/ktools-swift/kcli/swiftpkg-kcli/Sources/Kcli/HandlerTypes.swift",
+      "/home/karmak/dev/ktools/ktools-swift/kcli/swiftpkg-kcli/Sources/Kcli/HelpRendering.swift",
+      "/home/karmak/dev/ktools/ktools-swift/kcli/swiftpkg-kcli/Sources/Kcli/InlineParser.swift",
+      "/home/karmak/dev/ktools/ktools-swift/kcli/swiftpkg-kcli/Sources/Kcli/Normalization.swift",
+      "/home/karmak/dev/ktools/ktools-swift/kcli/swiftpkg-kcli/Sources/Kcli/ParseEngine.swift",
+      "/home/karmak/dev/ktools/ktools-swift/kcli/swiftpkg-kcli/Sources/Kcli/ParseModel.swift",
+      "/home/karmak/dev/ktools/ktools-swift/kcli/swiftpkg-kcli/Sources/Kcli/Parser.swift",
+      "-I",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules",
+      "-target",
+      "x86_64-unknown-linux-gnu",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j8",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/include/Kcli-Swift.h",
+      "-swift-version",
+      "5",
+      "-g",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "swiftpkg_kcli",
+      "-Xcc",
+      "-fno-omit-frame-pointer",
+      "-driver-use-frontend-path",
+      "/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc"
+    ],
+    "Ktrace" : [
+      "/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc",
+      "-module-name",
+      "Ktrace",
+      "-package-name",
+      "swiftpkg_ktrace",
+      "-c",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/swiftpkg-ktrace/Sources/Ktrace/Ktrace.swift",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/swiftpkg-ktrace/Sources/Ktrace/KtraceFormatting.swift",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/swiftpkg-ktrace/Sources/Ktrace/KtraceSelectors.swift",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/swiftpkg-ktrace/Sources/Ktrace/KtraceSupport.swift",
+      "-I",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules",
+      "-target",
+      "x86_64-unknown-linux-gnu",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j8",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/include/Ktrace-Swift.h",
+      "-swift-version",
+      "5",
+      "-g",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "swiftpkg_ktrace",
+      "-Xcc",
+      "-fno-omit-frame-pointer",
+      "-driver-use-frontend-path",
+      "/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc"
+    ],
+    "KtraceDemoAlpha" : [
+      "/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc",
+      "-module-name",
+      "KtraceDemoAlpha",
+      "-package-name",
+      "demo",
+      "-c",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/sdk/alpha/src/KtraceDemoAlpha.swift",
+      "-I",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules",
+      "-target",
+      "x86_64-unknown-linux-gnu",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j8",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoAlpha.build/include/KtraceDemoAlpha-Swift.h",
+      "-swift-version",
+      "5",
+      "-g",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "demo",
+      "-Xcc",
+      "-fno-omit-frame-pointer",
+      "-driver-use-frontend-path",
+      "/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc"
+    ],
+    "KtraceDemoBeta" : [
+      "/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc",
+      "-module-name",
+      "KtraceDemoBeta",
+      "-package-name",
+      "demo",
+      "-c",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/sdk/beta/src/KtraceDemoBeta.swift",
+      "-I",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules",
+      "-target",
+      "x86_64-unknown-linux-gnu",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j8",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoBeta.build/include/KtraceDemoBeta-Swift.h",
+      "-swift-version",
+      "5",
+      "-g",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "demo",
+      "-Xcc",
+      "-fno-omit-frame-pointer",
+      "-driver-use-frontend-path",
+      "/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc"
+    ],
+    "KtraceDemoBootstrap" : [
+      "/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc",
+      "-module-name",
+      "KtraceDemoBootstrap",
+      "-package-name",
+      "demo",
+      "-c",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/bootstrap/src/main.swift",
+      "-I",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules",
+      "-target",
+      "x86_64-unknown-linux-gnu",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j8",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+      "-parseable-output",
+      "-Xfrontend",
+      "-entry-point-function-name",
+      "-Xfrontend",
+      "KtraceDemoBootstrap_main",
+      "-swift-version",
+      "5",
+      "-g",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "demo",
+      "-Xcc",
+      "-fno-omit-frame-pointer",
+      "-driver-use-frontend-path",
+      "/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc"
+    ],
+    "KtraceDemoCore" : [
+      "/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc",
+      "-module-name",
+      "KtraceDemoCore",
+      "-package-name",
+      "demo",
+      "-c",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/exe/core/src/main.swift",
+      "-I",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules",
+      "-target",
+      "x86_64-unknown-linux-gnu",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j8",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+      "-parseable-output",
+      "-Xfrontend",
+      "-entry-point-function-name",
+      "-Xfrontend",
+      "KtraceDemoCore_main",
+      "-swift-version",
+      "5",
+      "-g",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "demo",
+      "-Xcc",
+      "-fno-omit-frame-pointer",
+      "-driver-use-frontend-path",
+      "/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc"
+    ],
+    "KtraceDemoCoreSupport" : [
+      "/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc",
+      "-module-name",
+      "KtraceDemoCoreSupport",
+      "-package-name",
+      "demo",
+      "-c",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/exe/core/support/DemoCore.swift",
+      "-I",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules",
+      "-target",
+      "x86_64-unknown-linux-gnu",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j8",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoCoreSupport.build/include/KtraceDemoCoreSupport-Swift.h",
+      "-swift-version",
+      "5",
+      "-g",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "demo",
+      "-Xcc",
+      "-fno-omit-frame-pointer",
+      "-driver-use-frontend-path",
+      "/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc"
+    ],
+    "KtraceDemoGamma" : [
+      "/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc",
+      "-module-name",
+      "KtraceDemoGamma",
+      "-package-name",
+      "demo",
+      "-c",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/sdk/gamma/src/KtraceDemoGamma.swift",
+      "-I",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules",
+      "-target",
+      "x86_64-unknown-linux-gnu",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j8",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoGamma.build/include/KtraceDemoGamma-Swift.h",
+      "-swift-version",
+      "5",
+      "-g",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "demo",
+      "-Xcc",
+      "-fno-omit-frame-pointer",
+      "-driver-use-frontend-path",
+      "/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc"
+    ],
+    "KtraceDemoOmega" : [
+      "/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc",
+      "-module-name",
+      "KtraceDemoOmega",
+      "-package-name",
+      "demo",
+      "-c",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/exe/omega/src/main.swift",
+      "-I",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules",
+      "-target",
+      "x86_64-unknown-linux-gnu",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j8",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+      "-parseable-output",
+      "-Xfrontend",
+      "-entry-point-function-name",
+      "-Xfrontend",
+      "KtraceDemoOmega_main",
+      "-swift-version",
+      "5",
+      "-g",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "demo",
+      "-Xcc",
+      "-fno-omit-frame-pointer",
+      "-driver-use-frontend-path",
+      "/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc"
+    ],
+    "KtraceDemoOmegaSupport" : [
+      "/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc",
+      "-module-name",
+      "KtraceDemoOmegaSupport",
+      "-package-name",
+      "demo",
+      "-c",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/exe/omega/support/DemoOmega.swift",
+      "-I",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules",
+      "-target",
+      "x86_64-unknown-linux-gnu",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j8",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoOmegaSupport.build/include/KtraceDemoOmegaSupport-Swift.h",
+      "-swift-version",
+      "5",
+      "-g",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "demo",
+      "-Xcc",
+      "-fno-omit-frame-pointer",
+      "-driver-use-frontend-path",
+      "/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc"
+    ],
+    "KtraceDemoTests" : [
+      "/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc",
+      "-module-name",
+      "KtraceDemoTests",
+      "-package-name",
+      "demo",
+      "-c",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/Tests/KtraceDemoTests/KtraceDemoTests.swift",
+      "-I",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules",
+      "-target",
+      "x86_64-unknown-linux-gnu",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-Xfrontend",
+      "-enable-cross-import-overlays",
+      "-j8",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-swift-version",
+      "5",
+      "-g",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "demo",
+      "-Xcc",
+      "-fno-omit-frame-pointer",
+      "-driver-use-frontend-path",
+      "/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc"
+    ],
+    "KtraceSwiftDemosPackageDiscoveredTests" : [
+      "/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc",
+      "-module-name",
+      "KtraceSwiftDemosPackageDiscoveredTests",
+      "-package-name",
+      "demo",
+      "-c",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageDiscoveredTests.derived/KtraceDemoTests.swift",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageDiscoveredTests.derived/all-discovered-tests.swift",
+      "-I",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules",
+      "-target",
+      "x86_64-unknown-linux-gnu",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-Xfrontend",
+      "-enable-cross-import-overlays",
+      "-j8",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageDiscoveredTests.build/include/KtraceSwiftDemosPackageDiscoveredTests-Swift.h",
+      "-g",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "demo",
+      "-Xcc",
+      "-fno-omit-frame-pointer",
+      "-driver-use-frontend-path",
+      "/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc"
+    ],
+    "KtraceSwiftDemosPackageTests" : [
+      "/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc",
+      "-module-name",
+      "KtraceSwiftDemosPackageTests",
+      "-package-name",
+      "demo",
+      "-c",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageTests.derived/runner.swift",
+      "-I",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules",
+      "-target",
+      "x86_64-unknown-linux-gnu",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-Xfrontend",
+      "-enable-cross-import-overlays",
+      "-j8",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageTests.build/include/KtraceSwiftDemosPackageTests-Swift.h",
+      "-g",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "demo",
+      "-Xcc",
+      "-fno-omit-frame-pointer",
+      "-driver-use-frontend-path",
+      "/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "Kcli" : [
+
+    ],
+    "Ktrace" : [
+      "Kcli"
+    ],
+    "KtraceDemoAlpha" : [
+      "Ktrace",
+      "Kcli"
+    ],
+    "KtraceDemoBeta" : [
+      "Ktrace",
+      "Kcli"
+    ],
+    "KtraceDemoBootstrap" : [
+      "Ktrace",
+      "Kcli"
+    ],
+    "KtraceDemoCore" : [
+      "KtraceDemoCoreSupport",
+      "KtraceDemoAlpha",
+      "Ktrace",
+      "Kcli"
+    ],
+    "KtraceDemoCoreSupport" : [
+      "KtraceDemoAlpha",
+      "Ktrace",
+      "Kcli"
+    ],
+    "KtraceDemoGamma" : [
+      "Ktrace",
+      "Kcli"
+    ],
+    "KtraceDemoOmega" : [
+      "KtraceDemoOmegaSupport",
+      "KtraceDemoGamma",
+      "KtraceDemoBeta",
+      "KtraceDemoAlpha",
+      "Ktrace",
+      "Kcli"
+    ],
+    "KtraceDemoOmegaSupport" : [
+      "KtraceDemoGamma",
+      "KtraceDemoBeta",
+      "KtraceDemoAlpha",
+      "Ktrace",
+      "Kcli"
+    ],
+    "KtraceDemoTests" : [
+      "KtraceDemoOmegaSupport",
+      "KtraceDemoGamma",
+      "KtraceDemoBeta",
+      "KtraceDemoCoreSupport",
+      "KtraceDemoAlpha",
+      "Ktrace",
+      "Kcli"
+    ],
+    "KtraceSwiftDemosPackageDiscoveredTests" : [
+      "KtraceDemoTests",
+      "KtraceDemoOmegaSupport",
+      "KtraceDemoGamma",
+      "KtraceDemoBeta",
+      "KtraceDemoCoreSupport",
+      "KtraceDemoAlpha",
+      "Ktrace",
+      "Kcli"
+    ],
+    "KtraceSwiftDemosPackageTests" : [
+      "KtraceSwiftDemosPackageDiscoveredTests",
+      "KtraceDemoTests",
+      "KtraceDemoOmegaSupport",
+      "KtraceDemoGamma",
+      "KtraceDemoBeta",
+      "KtraceDemoCoreSupport",
+      "KtraceDemoAlpha",
+      "Ktrace",
+      "Kcli"
+    ]
+  },
+  "testDiscoveryCommands" : {
+    "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageDiscoveredTests.derived/all-discovered-tests.swift" : {
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoTests.build/KtraceDemoTests.swift.o"
+        }
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageDiscoveredTests.derived/KtraceDemoTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageDiscoveredTests.derived/all-discovered-tests.swift"
+        }
+      ]
+    }
+  },
+  "testEntryPointCommands" : {
+    "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageTests.derived/runner.swift" : {
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Modules/KtraceSwiftDemosPackageDiscoveredTests.swiftmodule"
+        }
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageTests.derived/runner.swift"
+        }
+      ]
+    }
+  },
+  "traitConfiguration" : {
+    "default" : {
+
+    }
+  },
+  "writeCommands" : {
+    "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/kcli/swiftpkg-kcli/Sources/Kcli/Errors.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/kcli/swiftpkg-kcli/Sources/Kcli/HandlerTypes.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/kcli/swiftpkg-kcli/Sources/Kcli/HelpRendering.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/kcli/swiftpkg-kcli/Sources/Kcli/InlineParser.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/kcli/swiftpkg-kcli/Sources/Kcli/Normalization.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/kcli/swiftpkg-kcli/Sources/Kcli/ParseEngine.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/kcli/swiftpkg-kcli/Sources/Kcli/ParseModel.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/kcli/swiftpkg-kcli/Sources/Kcli/Parser.swift"
+        }
+      ],
+      "outputFilePath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/sources"
+    },
+    "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/swiftpkg-ktrace/Sources/Ktrace/Ktrace.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/swiftpkg-ktrace/Sources/Ktrace/KtraceFormatting.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/swiftpkg-ktrace/Sources/Ktrace/KtraceSelectors.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/swiftpkg-ktrace/Sources/Ktrace/KtraceSupport.swift"
+        }
+      ],
+      "outputFilePath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/sources"
+    },
+    "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoAlpha.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/sdk/alpha/src/KtraceDemoAlpha.swift"
+        }
+      ],
+      "outputFilePath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoAlpha.build/sources"
+    },
+    "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoBeta.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/sdk/beta/src/KtraceDemoBeta.swift"
+        }
+      ],
+      "outputFilePath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoBeta.build/sources"
+    },
+    "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoBootstrap.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/bootstrap/src/main.swift"
+        }
+      ],
+      "outputFilePath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoBootstrap.build/sources"
+    },
+    "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoCore.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/exe/core/src/main.swift"
+        }
+      ],
+      "outputFilePath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoCore.build/sources"
+    },
+    "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoCoreSupport.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/exe/core/support/DemoCore.swift"
+        }
+      ],
+      "outputFilePath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoCoreSupport.build/sources"
+    },
+    "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoGamma.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/sdk/gamma/src/KtraceDemoGamma.swift"
+        }
+      ],
+      "outputFilePath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoGamma.build/sources"
+    },
+    "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoOmega.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/exe/omega/src/main.swift"
+        }
+      ],
+      "outputFilePath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoOmega.build/sources"
+    },
+    "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoOmegaSupport.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/exe/omega/support/DemoOmega.swift"
+        }
+      ],
+      "outputFilePath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoOmegaSupport.build/sources"
+    },
+    "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoTests.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/Tests/KtraceDemoTests/KtraceDemoTests.swift"
+        }
+      ],
+      "outputFilePath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoTests.build/sources"
+    },
+    "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageDiscoveredTests.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageDiscoveredTests.derived/KtraceDemoTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageDiscoveredTests.derived/all-discovered-tests.swift"
+        }
+      ],
+      "outputFilePath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageDiscoveredTests.build/sources"
+    },
+    "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageTests.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageTests.derived/runner.swift"
+        }
+      ],
+      "outputFilePath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageTests.build/sources"
+    },
+    "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageTests.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/Errors.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/HandlerTypes.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/HelpRendering.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/InlineParser.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/Kcli.swiftmodule.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/Normalization.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/ParseEngine.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/ParseModel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/Parser.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/Ktrace.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/Ktrace.swiftmodule.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/KtraceFormatting.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/KtraceSelectors.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/KtraceSupport.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoAlpha.build/KtraceDemoAlpha.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoAlpha.build/KtraceDemoAlpha.swiftmodule.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoBeta.build/KtraceDemoBeta.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoBeta.build/KtraceDemoBeta.swiftmodule.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoCoreSupport.build/DemoCore.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoCoreSupport.build/KtraceDemoCoreSupport.swiftmodule.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoGamma.build/KtraceDemoGamma.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoGamma.build/KtraceDemoGamma.swiftmodule.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoOmegaSupport.build/DemoOmega.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoOmegaSupport.build/KtraceDemoOmegaSupport.swiftmodule.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoTests.build/KtraceDemoTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoTests.build/KtraceDemoTests.swiftmodule.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageDiscoveredTests.build/KtraceDemoTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageDiscoveredTests.build/KtraceSwiftDemosPackageDiscoveredTests.swiftmodule.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageDiscoveredTests.build/all-discovered-tests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageTests.build/KtraceSwiftDemosPackageTests.swiftmodule.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageTests.build/runner.swift.o"
+        }
+      ],
+      "outputFilePath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceSwiftDemosPackageTests.product/Objects.LinkFileList"
+    },
+    "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/ktrace-demo-bootstrap.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/Errors.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/HandlerTypes.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/HelpRendering.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/InlineParser.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/Kcli.swiftmodule.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/Normalization.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/ParseEngine.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/ParseModel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/Parser.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/Ktrace.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/Ktrace.swiftmodule.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/KtraceFormatting.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/KtraceSelectors.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/KtraceSupport.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoBootstrap.build/KtraceDemoBootstrap.swiftmodule.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoBootstrap.build/main.swift.o"
+        }
+      ],
+      "outputFilePath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/ktrace-demo-bootstrap.product/Objects.LinkFileList"
+    },
+    "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/ktrace-demo-core.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/Errors.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/HandlerTypes.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/HelpRendering.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/InlineParser.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/Kcli.swiftmodule.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/Normalization.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/ParseEngine.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/ParseModel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/Parser.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/Ktrace.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/Ktrace.swiftmodule.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/KtraceFormatting.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/KtraceSelectors.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/KtraceSupport.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoAlpha.build/KtraceDemoAlpha.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoAlpha.build/KtraceDemoAlpha.swiftmodule.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoCore.build/KtraceDemoCore.swiftmodule.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoCore.build/main.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoCoreSupport.build/DemoCore.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoCoreSupport.build/KtraceDemoCoreSupport.swiftmodule.o"
+        }
+      ],
+      "outputFilePath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/ktrace-demo-core.product/Objects.LinkFileList"
+    },
+    "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/ktrace-demo-omega.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/Errors.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/HandlerTypes.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/HelpRendering.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/InlineParser.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/Kcli.swiftmodule.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/Normalization.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/ParseEngine.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/ParseModel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Kcli.build/Parser.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/Ktrace.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/Ktrace.swiftmodule.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/KtraceFormatting.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/KtraceSelectors.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/Ktrace.build/KtraceSupport.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoAlpha.build/KtraceDemoAlpha.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoAlpha.build/KtraceDemoAlpha.swiftmodule.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoBeta.build/KtraceDemoBeta.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoBeta.build/KtraceDemoBeta.swiftmodule.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoGamma.build/KtraceDemoGamma.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoGamma.build/KtraceDemoGamma.swiftmodule.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoOmega.build/KtraceDemoOmega.swiftmodule.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoOmega.build/main.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoOmegaSupport.build/DemoOmega.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/KtraceDemoOmegaSupport.build/KtraceDemoOmegaSupport.swiftmodule.o"
+        }
+      ],
+      "outputFilePath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/ktrace-demo-omega.product/Objects.LinkFileList"
+    },
+    "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/swift-version-62C65D2B0BEA20A3.txt" : {
+      "alwaysOutOfDate" : true,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<swift-get-version>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/karmak/.local/share/swiftly/toolchains/6.3.0/usr/bin/swiftc"
+        }
+      ],
+      "outputFilePath" : "/home/karmak/dev/ktools/ktools-swift/ktrace/demo/.build/x86_64-unknown-linux-gnu/debug/swift-version-62C65D2B0BEA20A3.txt"
+    }
+  }
+}

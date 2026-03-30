@@ -7,7 +7,7 @@ The public Swift API lives in [`../src/Sources/Kcli/`](../src/Sources/Kcli/).
 `Parser`
 
 - Registers top-level handlers, aliases, positionals, and inline parsers.
-- Provides `parseOrExit()` and `parseOrThrow(_:)`.
+- Provides `parseOrExit()` and `parse(_:)`.
 
 `InlineParser`
 
@@ -24,8 +24,8 @@ The public Swift API lives in [`../src/Sources/Kcli/`](../src/Sources/Kcli/).
 
 `CliError`
 
-- Returned by `parseOrThrow(_:)` on invalid CLI input
-- Exposes the effective option token through `option()`
+- Returned by `parse(_:)` on invalid CLI input
+- Exposes the effective option token through `option`
 
 `CliConfigurationError`
 
@@ -146,7 +146,7 @@ Duplicate inline roots are rejected.
 
 ```swift
 parser.parseOrExit()
-try parser.parseOrThrow(CommandLine.arguments)
+try parser.parse(CommandLine.arguments)
 ```
 
 `parseOrExit()`
@@ -154,7 +154,7 @@ try parser.parseOrThrow(CommandLine.arguments)
 - reports invalid CLI input to `stderr` as `[error] [cli] ...`
 - exits with code `2`
 
-`parseOrThrow()`
+`parse()`
 
 - throws `CliError`
 - preserves the caller's argument list

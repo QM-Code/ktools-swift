@@ -126,7 +126,7 @@ Notable cases:
 - prints `[error] [cli] ...` to `stderr`
 - exits with code `2`
 
-`parseOrThrow()`
+`parse()`
 
 - throws `CliError`
 - preserves the human-facing error message

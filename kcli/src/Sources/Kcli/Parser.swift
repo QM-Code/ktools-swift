@@ -18,8 +18,8 @@ public final class Parser {
     public func addAlias(_ alias: String,
                          target: String,
                          presetTokens: [String] = []) throws {
-        let normalizedAlias = try normalizeAliasOrThrow(alias)
-        let normalizedTarget = try normalizeAliasTargetOptionOrThrow(target)
+        let normalizedAlias = try normalizedAlias(alias)
+        let normalizedTarget = try normalizedAliasTargetOption(target)
         let binding = AliasBinding(alias: normalizedAlias,
                                    targetToken: normalizedTarget,
                                    presetTokens: presetTokens)
@@ -33,32 +33,32 @@ public final class Parser {
     public func setHandler(_ option: String,
                            handler: @escaping FlagHandler,
                            description: String) throws {
-        let command = try normalizePrimaryHandlerOptionOrThrow(option)
-        try upsertCommand(&commands,
-                          command: command,
-                          binding: makeFlagBinding(handler, description: description))
+        let command = try normalizedPrimaryHandlerOption(option)
+        try upsertCommandBinding(&commands,
+                                 command: command,
+                                 binding: flagBinding(handler, description: description))
     }
 
     public func setHandler(_ option: String,
                            handler: @escaping ValueHandler,
                            description: String) throws {
-        let command = try normalizePrimaryHandlerOptionOrThrow(option)
-        try upsertCommand(&commands,
-                          command: command,
-                          binding: makeValueBinding(handler,
-                                                    description: description,
-                                                    arity: .required))
+        let command = try normalizedPrimaryHandlerOption(option)
+        try upsertCommandBinding(&commands,
+                                 command: command,
+                                 binding: valueBinding(handler,
+                                                       description: description,
+                                                       arity: .required))
     }
 
     public func setOptionalValueHandler(_ option: String,
                                         handler: @escaping ValueHandler,
                                         description: String) throws {
-        let command = try normalizePrimaryHandlerOptionOrThrow(option)
-        try upsertCommand(&commands,
-                          command: command,
-                          binding: makeValueBinding(handler,
-                                                    description: description,
-                                                    arity: .optional))
+        let command = try normalizedPrimaryHandlerOption(option)
+        try upsertCommandBinding(&commands,
+                                 command: command,
+                                 binding: valueBinding(handler,
+                                                       description: description,
+                                                       arity: .optional))
     }
 
     public func setPositionalHandler(_ handler: @escaping PositionalHandler) throws {
@@ -74,7 +74,7 @@ public final class Parser {
 
     public func parseOrExit(_ arguments: [String] = CommandLine.arguments) {
         do {
-            try parseOrThrow(arguments)
+            try parse(arguments)
         } catch let error as CliError {
             io.stderr("[error] [cli] \(error.message)\n")
             exit(2)
@@ -84,8 +84,8 @@ public final class Parser {
         }
     }
 
-    public func parseOrThrow(_ arguments: [String]) throws {
-        try parse(self, arguments, io: io)
+    public func parse(_ arguments: [String] = CommandLine.arguments) throws {
+        try runParse(self, arguments, io: io)
     }
 }
 

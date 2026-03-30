@@ -8,10 +8,10 @@ final class ErrorHandlingTests: XCTestCase {
         try parser.setHandler("--verbose", handler: { _ in }, description: "Enable verbose logging.")
 
         do {
-            try parser.parseOrThrow(["prog", "--", "-v"])
+            try parser.parse(["prog", "--", "-v"])
             XCTFail("expected parse to fail")
         } catch let error as CliError {
-            XCTAssertEqual(error.option(), "--")
+            XCTAssertEqual(error.option, "--")
             XCTAssertEqual(error.message, "unknown option --")
         }
     }
@@ -20,10 +20,10 @@ final class ErrorHandlingTests: XCTestCase {
         let parser = Parser()
 
         do {
-            try parser.parseOrThrow(["prog", "--bogus"])
+            try parser.parse(["prog", "--bogus"])
             XCTFail("expected parse to fail")
         } catch let error as CliError {
-            XCTAssertEqual(error.option(), "--bogus")
+            XCTAssertEqual(error.option, "--bogus")
             XCTAssertEqual(error.message, "unknown option --bogus")
         } catch {
             XCTFail("expected CliError, got \(error)")
@@ -37,10 +37,10 @@ final class ErrorHandlingTests: XCTestCase {
         }, description: "Set build profile.")
 
         do {
-            try parser.parseOrThrow(["prog", "--profile", "dev"])
+            try parser.parse(["prog", "--profile", "dev"])
             XCTFail("expected parse to fail")
         } catch let error as CliError {
-            XCTAssertEqual(error.option(), "--profile")
+            XCTAssertEqual(error.option, "--profile")
             XCTAssertEqual(error.message, "option '--profile': bad profile")
         }
     }
@@ -52,10 +52,10 @@ final class ErrorHandlingTests: XCTestCase {
         }
 
         do {
-            try parser.parseOrThrow(["prog", "tail"])
+            try parser.parse(["prog", "tail"])
             XCTFail("expected parse to fail")
         } catch let error as CliError {
-            XCTAssertEqual(error.option(), "")
+            XCTAssertEqual(error.option, "")
             XCTAssertEqual(error.message, "positional boom")
         }
     }

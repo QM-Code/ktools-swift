@@ -25,7 +25,7 @@ public struct CliError: Error, CustomStringConvertible, LocalizedError, Equatabl
         self.message = message.isEmpty ? "kcli parse failed" : message
     }
 
-    public func option() -> String {
+    public var option: String {
         optionToken
     }
 
