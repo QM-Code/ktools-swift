@@ -1,3 +1,0 @@
-module KcliDemoCoreSupport {
-    header "/home/karmak/dev/ktools/ktools-swift/kcli/demo/.build/x86_64-unknown-linux-gnu/debug/KcliDemoCoreSupport.build/include/KcliDemoCoreSupport-Swift.h"
-}
