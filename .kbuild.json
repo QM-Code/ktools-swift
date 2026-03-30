@@ -8,7 +8,7 @@
     "auth": "git@github.com:QM-Code/ktools-swift.git"
   },
   "batch": {
-    "repos": [
+    "targets": [
       "kcli",
       "ktrace"
     ]

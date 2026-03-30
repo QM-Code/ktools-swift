@@ -2,9 +2,12 @@
 
 ## Mission
 
-Keep `ktools-swift/` clean, parity-checked, and easy to review while
-preserving the current split between the library packages and demo packages for
-both `kcli` and `ktrace`.
+Keep `ktools-swift/` as an explicit, parity-audited peer to the C++ reference
+while preserving Swift-idiomatic APIs and the current split between the library
+packages and demo packages for both `kcli` and `ktrace`.
+
+Both Swift components still have a `demo/common/` directory on disk. Treat that
+as an open architectural problem. Do not normalize it away in the brief again.
 
 ## Required Reading
 
@@ -13,10 +16,13 @@ both `kcli` and `ktrace`.
 - `README.md`
 - `kcli/AGENTS.md`
 - `kcli/README.md`
+- `kcli/docs/behavior.md`
 - `kcli/src/Package.swift`
 - `kcli/demo/Package.swift`
 - `ktrace/AGENTS.md`
 - `ktrace/README.md`
+- `ktrace/src/README.md`
+- `ktrace/tests/swift/README.md`
 - `ktrace/src/Package.swift`
 - `ktrace/demo/Package.swift`
 - `../ktools-cpp/kcli/README.md`
@@ -31,31 +37,44 @@ both `kcli` and `ktrace`.
 
 ## kcli Focus
 
-- Remove `kcli/demo/common/`. There should never be a shared demo layer here.
-- Keep `demo/bootstrap`, `demo/sdk/{alpha,beta,gamma}`, and
-  `demo/exe/{core,omega}` readable as separate entities with local ownership.
-- Re-audit parser parity with C++ for help output, alias semantics,
-  required and optional values, bare inline roots, double-dash rejection, and
-  validation-before-handler execution.
-- Make sure `README.md`, `src/Package.swift`, and `demo/Package.swift` all
-  describe the current layout directly.
+- Remove `kcli/demo/common/`. There should not be a shared demo layer here.
+- Keep the current explicit demo layout: `demo/bootstrap`,
+  `demo/sdk/{alpha,beta,gamma}`, and `demo/exe/{core,omega}` should stay
+  readable as separate entities with local ownership.
+- Do not reintroduce a shared demo support layer in disguise.
+- Re-audit parser parity with C++ for help output, alias semantics, root value
+  handlers, required and optional values, bare inline roots, double-dash
+  rejection, and validation-before-handler execution.
+- Make sure `README.md`, `docs/behavior.md`, `src/Package.swift`, and
+  `demo/Package.swift` all describe the current layout directly.
+- Keep library tests and demo-package tests explicit enough that a reviewer can
+  map the Swift behavior back to the C++ API cases without guesswork.
 
 ## ktrace Focus
 
-- Remove `ktrace/demo/common/`. There should never be a shared demo layer here.
+- Remove `ktrace/demo/common/`. There should not be a shared demo layer here.
+- Keep executable support code obviously owned by the executable that uses it:
+  `demo/exe/core/support/` and `demo/exe/omega/support/` should stay local.
 - Review whether `src/Sources/Ktrace/Ktrace.swift` should be split into smaller
-  coherent pieces.
+  coherent pieces. If so, split by responsibility rather than doing a broad
+  reshuffle.
 - Re-audit selector parsing, output options, operational logging,
   `traceChanged(...)`, and logger-bound inline parser behavior against the C++
   contract.
-- Make sure `README.md`, `src/Package.swift`, and `demo/Package.swift` all
-  describe the current layout directly.
+- Make sure unmatched-selector warnings, informational `--trace-*` options, and
+  bootstrap/core/omega demo behavior are all covered explicitly enough for
+  parity review.
+- Make sure `README.md`, `src/Package.swift`, `src/README.md`, and
+  `demo/Package.swift` all describe the current layout directly.
 
 ## Cross-Cutting Rules
 
 - Preserve Swift-idiomatic usage at the call site.
 - Keep the package layout understandable to a non-Swift reviewer.
-- Do not replace `demo/common/` with another disguised shared demo layer.
+- Prefer focused docs, tests, and navigability cleanup over another broad
+  structural rewrite.
+- Do not replace the current explicit demo ownership with a disguised shared
+  layer.
 - Keep source-tree build noise out of version control.
 
 ## Validation
@@ -70,6 +89,7 @@ both `kcli` and `ktrace`.
 
 ## Done When
 
-- `demo/common/` is gone from both repos.
-- Library tests and demo package checks together cover the contract cleanly.
-- Swift `kcli` and `ktrace` are both easy to compare with C++.
+- Swift `kcli` and `ktrace` are both easy to compare with the C++ reference.
+- Library tests and demo-package checks together cover the contract cleanly.
+- Docs, tests, and package layout all point at the same current structure.
+- `demo/common/` is gone from both Swift components.

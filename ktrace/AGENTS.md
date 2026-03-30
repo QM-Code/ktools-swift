@@ -7,9 +7,9 @@ Assume these have already been read:
 
 `ktools-swift/ktrace/` is the Swift implementation of `ktrace`.
 
-## What This Repo Owns
+## What This Component Owns
 
-This repo owns the Swift API and implementation details for `ktrace`, including:
+This component owns the Swift API and implementation details for `ktrace`, including:
 
 - the library SwiftPM package under `src/`
 - selector parsing and logger runtime behavior
@@ -18,7 +18,7 @@ This repo owns the Swift API and implementation details for `ktrace`, including:
 
 ## Local Bootstrap
 
-When familiarizing yourself with this repo, read:
+When familiarizing yourself with this component, read:
 
 - [README.md](README.md)
 - `src/Package.swift`
@@ -29,7 +29,7 @@ When familiarizing yourself with this repo, read:
 
 ## Build And Test Expectations
 
-- Use `kbuild` from this repo root for workspace-style builds.
+- Use `kbuild` from this component root for workspace-style builds.
 - Prefer validating behavior through demo launchers and test coverage.
 - Keep the CLI integration contract aligned with the cross-language `ktrace` docs.
 

@@ -1,6 +1,6 @@
 # Swift Demos
 
-`demo/` is a standalone SwiftPM package. Demo sources and demo tests live here to match the C++ repo layout. Direct SwiftPM commands should stage scratch output under `../build/latest/swiftpm-demo`.
+`demo/` is a standalone SwiftPM package. Demo sources and demo tests live here to match the C++ component layout. Direct SwiftPM commands should stage scratch output under `../build/latest/swiftpm-demo`.
 
 Each SDK demo is self-contained. The executable demos compose those SDK entities locally rather than through a shared demo support layer.
 
